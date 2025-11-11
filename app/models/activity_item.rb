@@ -1,0 +1,2 @@
+class ActivityItem < ApplicationRecord
+end

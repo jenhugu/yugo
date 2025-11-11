@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  travel_pace: MyString
+  budget: 1
+  interests: MyString
+  activity_types: MyString
+
+two:
+  travel_pace: MyString
+  budget: 1
+  interests: MyString
+  activity_types: MyString
