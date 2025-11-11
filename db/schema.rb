@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2025_11_11_165443) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "activity_items", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -19,7 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_11_165443) do
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "itinerary_items_id", null: false
+    t.bigint "itinerary_items_id", null: false
     t.index ["itinerary_items_id"], name: "index_activity_items_on_itinerary_items_id"
   end
 
@@ -27,7 +30,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_11_165443) do
     t.string "system_prompt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "trips_id", null: false
+    t.bigint "trips_id", null: false
     t.index ["trips_id"], name: "index_itineraries_on_trips_id"
   end
 
@@ -38,7 +41,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_11_165443) do
     t.string "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "itineraries_id", null: false
+    t.bigint "itineraries_id", null: false
     t.index ["itineraries_id"], name: "index_itinerary_items_on_itineraries_id"
   end
 
@@ -49,8 +52,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_11_165443) do
     t.string "activity_types"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "trips_id", null: false
-    t.integer "user_trip_statuses_id", null: false
+    t.bigint "trips_id", null: false
+    t.bigint "user_trip_statuses_id", null: false
     t.index ["trips_id"], name: "index_preferences_forms_on_trips_id"
     t.index ["user_trip_statuses_id"], name: "index_preferences_forms_on_user_trip_statuses_id"
   end
@@ -59,8 +62,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_11_165443) do
     t.boolean "like"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "activity_items_id", null: false
-    t.integer "recommendations_id", null: false
+    t.bigint "activity_items_id", null: false
+    t.bigint "recommendations_id", null: false
     t.index ["activity_items_id"], name: "index_recommendation_items_on_activity_items_id"
     t.index ["recommendations_id"], name: "index_recommendation_items_on_recommendations_id"
   end
@@ -70,7 +73,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_11_165443) do
     t.string "system_prompt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "trips_id", null: false
+    t.bigint "trips_id", null: false
     t.index ["trips_id"], name: "index_recommendations_on_trips_id"
   end
 
@@ -92,8 +95,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_11_165443) do
     t.boolean "invitation_accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "trips_id", null: false
-    t.integer "users_id", null: false
+    t.bigint "trips_id", null: false
+    t.bigint "users_id", null: false
     t.index ["trips_id"], name: "index_user_trip_statuses_on_trips_id"
     t.index ["users_id"], name: "index_user_trip_statuses_on_users_id"
   end
