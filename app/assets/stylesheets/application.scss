@@ -11,3 +11,13 @@
 
 // Pages
 @import "pages/trips_show";
+@import "components/field";
+@import "components/flashes";
+@import "components/devise_form";
+
+// Applicable to the whole app
+
+body {
+  background-color: $background ;
+  padding-top: 130px;
+}
