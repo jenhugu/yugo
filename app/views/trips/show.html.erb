@@ -1,0 +1,10 @@
+<div class="trips-show">
+  <div class="trips-show__container">
+    <div class="trips-show__header">
+      <h1 class="trips-show__title">My trips</h1>
+      <%= link_to "Create a trip", new_trip_path, class: "trips-show__create-btn" %>
+    </div>
+
+    <%= render "trip_card", trip: @trip %>
+  </div>
+</div>
