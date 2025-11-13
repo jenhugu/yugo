@@ -1,0 +1,112 @@
+<div class="trip-card">
+  <div class="trip-card__image">
+    <%# TODO: REFACTO - Replace with dynamic image when image_url column is added to trips table %>
+    <%= image_tag "paris-trip.jpg", alt: trip.name %>
+    <%# TODO: REFACTO - Calculate days until trip start date dynamically when date is converted to Date type %>
+    <div class="trip-card__tag">In 23 days</div>
+  </div>
+
+  <div class="trip-card__content">
+    <div class="trip-card__header">
+      <div>
+        <h2 class="trip-card__title"><%= trip.name %></h2>
+        <p class="trip-card__dates">
+          <%# TODO: REFACTO - Format date properly when date column is converted to Date type (e.g., "September 26th to 29th 2026") %>
+          <%= trip.destination %> - <%= trip.date %>
+        </p>
+      </div>
+      <div class="trip-card__avatar">
+        <%# TODO: REFACTO - Show creator's avatar: trip.user_trip_statuses.find_by(role: 'creator').user.avatar_url %>
+        <%= image_tag "https://i.pravatar.cc/150?img=1", alt: "Avatar" %>
+      </div>
+    </div>
+
+    <div class="trip-card__sections">
+      <div class="trip-card__section">
+        <div class="trip-card__section-title">
+          <%# TODO: REFACTO - Move this query to a model method: trip.pending_invitations_count %>
+          Pending invitations (<%= trip.user_trip_statuses.where(invitation_accepted: false).count %>)
+          <%# Bell icon SVG (notification indicator) - from Figma design system %>
+          <div class="trip-card__bell-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 5C10 4.46957 10.2107 3.96086 10.5858 3.58579C10.9609 3.21071 11.4696 3 12 3C12.5304 3 13.0391 3.21071 13.4142 3.58579C13.7893 3.96086 14 4.46957 14 5C15.1484 5.54303 16.1274 6.38833 16.8321 7.4453C17.5367 8.50227 17.9404 9.73107 18 11V14C18.0753 14.6217 18.2954 15.2171 18.6428 15.7381C18.9902 16.2592 19.4551 16.6914 20 17H4C4.54494 16.6914 5.00981 16.2592 5.35719 15.7381C5.70457 15.2171 5.92474 14.6217 6 14V11C6.05956 9.73107 6.4633 8.50227 7.16795 7.4453C7.8726 6.38833 8.85159 5.54303 10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 17V18C9 18.7956 9.31607 19.5587 9.87868 20.1213C10.4413 20.6839 11.2044 21 12 21C12.7956 21 13.5587 20.6839 14.1213 20.1213C14.6839 19.5587 15 18.7956 15 18V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="trip-card__section-avatars">
+          <%# TODO: REFACTO - Loop through actual pending users and show their avatars %>
+          <div class="trip-card__avatar">
+            <%= image_tag "https://i.pravatar.cc/150?img=2", alt: "Participant" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="trip-card__section">
+        <div class="trip-card__section-title">
+          <%# TODO: REFACTO - Move this query to a model method: trip.pending_preferences_count %>
+          Sharing preferences (<%= trip.user_trip_statuses.where(invitation_accepted: true, form_filled: false).count %>)
+          <%# Bell icon SVG (notification indicator) - same icon as above %>
+          <div class="trip-card__bell-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 5C10 4.46957 10.2107 3.96086 10.5858 3.58579C10.9609 3.21071 11.4696 3 12 3C12.5304 3 13.0391 3.21071 13.4142 3.58579C13.7893 3.96086 14 4.46957 14 5C15.1484 5.54303 16.1274 6.38833 16.8321 7.4453C17.5367 8.50227 17.9404 9.73107 18 11V14C18.0753 14.6217 18.2954 15.2171 18.6428 15.7381C18.9902 16.2592 19.4551 16.6914 20 17H4C4.54494 16.6914 5.00981 16.2592 5.35719 15.7381C5.70457 15.2171 5.92474 14.6217 6 14V11C6.05956 9.73107 6.4633 8.50227 7.16795 7.4453C7.8726 6.38833 8.85159 5.54303 10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 17V18C9 18.7956 9.31607 19.5587 9.87868 20.1213C10.4413 20.6839 11.2044 21 12 21C12.7956 21 13.5587 20.6839 14.1213 20.1213C14.6839 19.5587 15 18.7956 15 18V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="trip-card__section-avatars">
+          <%# TODO: REFACTO - Loop through actual users waiting to fill preferences %>
+          <div class="trip-card__avatar">
+            <%= image_tag "https://i.pravatar.cc/150?img=3", alt: "Participant" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="trip-card__section">
+        <div class="trip-card__section-title">
+          <%# TODO: REFACTO - Move this query to a model method: trip.reviewing_suggestions_count %>
+          Reviewing suggestions (<%= trip.user_trip_statuses.where(recommendation_reviewed: false, form_filled: true).count %>)
+          <%# Bell icon SVG (notification indicator) - same icon as above %>
+          <div class="trip-card__bell-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 5C10 4.46957 10.2107 3.96086 10.5858 3.58579C10.9609 3.21071 11.4696 3 12 3C12.5304 3 13.0391 3.21071 13.4142 3.58579C13.7893 3.96086 14 4.46957 14 5C15.1484 5.54303 16.1274 6.38833 16.8321 7.4453C17.5367 8.50227 17.9404 9.73107 18 11V14C18.0753 14.6217 18.2954 15.2171 18.6428 15.7381C18.9902 16.2592 19.4551 16.6914 20 17H4C4.54494 16.6914 5.00981 16.2592 5.35719 15.7381C5.70457 15.2171 5.92474 14.6217 6 14V11C6.05956 9.73107 6.4633 8.50227 7.16795 7.4453C7.8726 6.38833 8.85159 5.54303 10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 17V18C9 18.7956 9.31607 19.5587 9.87868 20.1213C10.4413 20.6839 11.2044 21 12 21C12.7956 21 13.5587 20.6839 14.1213 20.1213C14.6839 19.5587 15 18.7956 15 18V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="trip-card__section-avatars">
+          <%# TODO: REFACTO - Loop through actual users reviewing suggestions %>
+          <div class="trip-card__avatar">
+            <%= image_tag "https://i.pravatar.cc/150?img=4", alt: "Participant" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="trip-card__section">
+        <div class="trip-card__section-title">
+          <%# TODO: REFACTO - Clarify what "There yugo" means and adjust logic if needed %>
+          There yugo (<%= trip.users.count %>)
+          <%# Bell icon SVG (notification indicator) - same icon as above %>
+          <div class="trip-card__bell-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 5C10 4.46957 10.2107 3.96086 10.5858 3.58579C10.9609 3.21071 11.4696 3 12 3C12.5304 3 13.0391 3.21071 13.4142 3.58579C13.7893 3.96086 14 4.46957 14 5C15.1484 5.54303 16.1274 6.38833 16.8321 7.4453C17.5367 8.50227 17.9404 9.73107 18 11V14C18.0753 14.6217 18.2954 15.2171 18.6428 15.7381C18.9902 16.2592 19.4551 16.6914 20 17H4C4.54494 16.6914 5.00981 16.2592 5.35719 15.7381C5.70457 15.2171 5.92474 14.6217 6 14V11C6.05956 9.73107 6.4633 8.50227 7.16795 7.4453C7.8726 6.38833 8.85159 5.54303 10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 17V18C9 18.7956 9.31607 19.5587 9.87868 20.1213C10.4413 20.6839 11.2044 21 12 21C12.7956 21 13.5587 20.6839 14.1213 20.1213C14.6839 19.5587 15 18.7956 15 18V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="trip-card__section-avatars">
+          <%# TODO: REFACTO - Loop through all trip participants with limit (show first 3, then +X indicator) %>
+          <div class="trip-card__avatar">
+            <%= image_tag "https://i.pravatar.cc/150?img=5", alt: "Participant" %>
+          </div>
+          <div class="trip-card__avatar">
+            <%= image_tag "https://i.pravatar.cc/150?img=6", alt: "Participant" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%# TODO: REFACTO - Implement review_suggestions action in TripsController %>
+    <%= link_to "Review suggestions", review_suggestions_trip_path(trip), class: "trip-card__button" %>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+.trips-show {
+  background: $background;
+  min-height: 100vh;
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 54px 112px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 77px;
+  }
+
+  &__title {
+    font-family: $headers-font;
+    font-size: 40px;
+    font-weight: 600;
+    color: $main-text;
+    margin: 0;
+  }
+
+  &__create-btn {
+    background: $terracotta-dark;
+    border: none;
+    border-radius: 15px;
+    padding: 14px 32px;
+    font-family: $body-font;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+      background: $terracotta-light;
+    }
+
+    &:active {
+      background: $terracotta-light;
+    }
+  }
+}
