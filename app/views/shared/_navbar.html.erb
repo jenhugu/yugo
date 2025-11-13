@@ -12,12 +12,12 @@
       <% if user_signed_in? %>
         <%= link_to "My trips", "#", class: "navbar-link" %>
 
-        <div class="navbar-avatar-dropdown">
-          <%= link_to "#", class: "navbar-avatar", id: "avatar-button" do %>
+        <div class="navbar-avatar-dropdown" data-controller="dropdown" data-action="click@window->dropdown#hide">
+          <%= link_to "#", class: "navbar-avatar", data: { action: "click->dropdown#toggle" } do %>
             <%= image_tag "ross-avatar.svg", alt: "User avatar" %>
           <% end %>
 
-          <div class="dropdown-menu" id="dropdown-menu">
+          <div class="dropdown-menu" data-dropdown-target="menu">
             <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item dropdown-logout" %>
           </div>
         </div>

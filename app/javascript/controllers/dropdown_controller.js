@@ -1,19 +1,22 @@
-// Toggle dropdown on avatar click
-document.addEventListener('turbo:load', () => {
-  const avatarButton = document.getElementById('avatar-button');
-  const dropdownMenu = document.getElementById('dropdown-menu');
+import { Controller } from "@hotwired/stimulus"
 
-  if (avatarButton && dropdownMenu) {
-    avatarButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      dropdownMenu.classList.toggle('show');
-    });
+export default class extends Controller {
+  static targets = ["menu"]
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!avatarButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
-        dropdownMenu.classList.remove('show');
-      }
-    });
+  toggle(event) {
+    event.preventDefault()
+    this.menuTarget.classList.toggle("show")
   }
-});
+
+  hide(event) {
+    // Ne ferme pas si on clique à l'intérieur du dropdown
+    if (!this.element.contains(event.target)) {
+      this.menuTarget.classList.remove("show")
+    }
+  }
+
+  disconnect() {
+    // Nettoie l'event listener quand le controller est détruit
+    document.removeEventListener("click", this.hide)
+  }
+}
