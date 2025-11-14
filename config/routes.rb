@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     member do
       get :review_suggestions
     end
+    resources :itineraries, only: %i[show]
   end
 
   # Route permettant de passer invitation_accepted de false à true en cas d'acceptation de l'invitation.
