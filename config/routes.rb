@@ -15,4 +15,11 @@ Rails.application.routes.draw do
     end
     resources :itineraries, only: %i[show]
   end
+
+  # Route permettant de passer invitation_accepted de false à true en cas d'acceptation de l'invitation.
+  resources :user_trip_statuses, only: [] do
+    member do
+      patch :accept_invitation
+    end
+  end
 end

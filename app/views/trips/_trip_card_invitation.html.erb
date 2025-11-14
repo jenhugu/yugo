@@ -1,0 +1,36 @@
+<div id="trip_card_<%= user_trip_status.id %>" class="trip-card trip-card--invitation" data-controller="trip-invitation" data-trip-invitation-user-trip-status-id-value="<%= user_trip_status.id %>">
+  <div class="trip-card__image">
+    <%# TODO: REFACTO - Replace with dynamic image when image_url column is added to trips table %>
+    <%= image_tag "paris-trip.jpg", alt: user_trip_status.trip.name %>
+    <div class="trip-card__tag trip-card__tag--pending">Pending invitation</div>
+  </div>
+
+  <div class="trip-card__content">
+    <div class="trip-card__header">
+      <div>
+        <h2 class="trip-card__title"><%= user_trip_status.trip.name %></h2>
+        <p class="trip-card__dates">
+          <%= user_trip_status.trip.destination %> - <%= user_trip_status.trip.date %>
+        </p>
+      </div>
+    </div>
+
+    <div class="trip-card__invitation-message">
+      <p class="trip-card__invitation-text">
+        <strong><%= user_trip_status.trip.user_trip_statuses.find_by(role: 'creator')&.user&.first_name || "Someone" %></strong> has invited you to join "<strong><%= user_trip_status.trip.name %></strong>"
+      </p>
+      <p class="trip-card__invitation-description">
+        Join this trip to share your preferences, review personalized suggestions, and help shape the final itinerary together.
+      </p>
+    </div>
+
+    <div class="trip-card__invitation-actions">
+      <button class="trip-card__button trip-card__button--decline" data-action="click->trip-invitation#decline">
+        Decline
+      </button>
+      <button class="trip-card__button trip-card__button--accept" data-action="click->trip-invitation#accept">
+        Accept
+      </button>
+    </div>
+  </div>
+</div>

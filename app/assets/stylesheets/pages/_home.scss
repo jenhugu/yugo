@@ -1,0 +1,115 @@
+.home-hero {
+  width: 100%;
+  background: $background;
+  padding: 80px 0;
+
+  &__container {
+    max-width: 1271px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 60px; // Espace entre le contenu et l'image
+  }
+
+  &__content {
+    flex: 0 0 auto; // Ne prend que l'espace nécessaire
+    display: flex;
+    flex-direction: column;
+    max-width: 550px;
+  }
+
+  &__title {
+    font-family: $headers-font;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: $main-text;
+    margin: 0 0 32px 0;
+  }
+
+  &__description {
+    font-family: $body-font;
+    font-size: 20px;
+    line-height: 1.6;
+    color: $secondary-text;
+    margin: 0 0 48px 0;
+    max-width: 500px;
+  }
+
+  &__button {
+    background: $terracotta-dark;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 32px;
+    font-family: $body-font;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: fit-content;
+
+    &:hover {
+      background: $terracotta-light;
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  &__image {
+    flex-shrink: 0; // L'image ne rétrécit pas
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    max-height: 700px;
+    height: 700px;
+    margin-left: auto; // Pousse l'image vers la droite
+
+    img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .home-hero {
+    padding: 40px 0;
+
+    &__container {
+      flex-direction: column;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    &__content {
+      max-width: 100%;
+    }
+
+    &__title {
+      font-size: 40px;
+    }
+
+    &__description {
+      font-size: 18px;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      max-height: 350px;
+      margin-left: 0;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
