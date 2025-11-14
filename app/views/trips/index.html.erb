@@ -1,0 +1,16 @@
+<div class="trips-show">
+  <div class="trips-show__container">
+    <div class="trips-show__header">
+      <h1 class="trips-show__title">My trips</h1>
+      <%= link_to "Create a trip", new_trip_path, class: "trips-show__create-btn" %>
+    </div>
+
+    <% @user_trip_statuses.each do |user_trip_status| %>
+      <% if pending_invitation?(user_trip_status) %>
+        <%= render "trip_card_invitation", user_trip_status: user_trip_status %>
+      <% else %>
+        <%= render "trip_card", trip: user_trip_status.trip %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

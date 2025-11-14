@@ -153,3 +153,74 @@
     }
   }
 }
+
+.trip-card--invitation {
+  .trip-card__content {
+    justify-content: space-between;
+  }
+
+  .trip-card__header {
+    margin-bottom: 40px;
+  }
+
+  .trip-card__tag--pending {
+    background: $pink-dark;
+    position: absolute;
+    top: 26px;
+    right: 27px;
+    left: auto;
+  }
+
+  .trip-card__invitation-message {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+  }
+
+  .trip-card__invitation-text {
+    font-family: $body-font;
+    font-size: 18px;
+    line-height: 1.6;
+    color: $main-text;
+    margin: 0 0 20px 0;
+    text-align: center;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  .trip-card__invitation-description {
+    font-family: $body-font;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    color: $secondary-text;
+    margin: 0;
+    text-align: center;
+  }
+
+  .trip-card__invitation-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .trip-card__button--decline {
+    flex: 1;
+    background: $background;
+    border: 2px solid $terracotta-dark;
+    color: $terracotta-dark;
+
+    &:hover {
+      background: rgba($terracotta-dark, 0.05);
+      color: $terracotta-dark;
+    }
+  }
+
+  .trip-card__button--accept {
+    flex: 1;
+  }
+}

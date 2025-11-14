@@ -1,12 +1,12 @@
 <% if notice %>
   <div class="notice-flash" role="alert">
-    <button type="button" class="btn-close-flash" data-bs-dismiss="alert" aria-label="Close"></button>
     <%= notice %>
+    <button type="button" class="btn-close-notice-flash" aria-label="Close" onclick="this.parentElement.remove()">×</button>
   </div>
 <% end %>
 <% if alert %>
   <div class="alert-flash" role="alert">
-    <button type="button" class="btn-close-flash" data-bs-dismiss="alert" aria-label="Close"></button>
     <%= alert %>
+    <button type="button" class="btn-close-flash" aria-label="Close" onclick="this.parentElement.remove()">×</button>
   </div>
 <% end %>

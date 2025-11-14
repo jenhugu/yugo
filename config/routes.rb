@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get 'up' => 'rails/health#show', as: :rails_health_check
 
+  # Defines the root path route ("/")
   root to: 'pages#home'
   resources :trips, only: %i[index show new create edit update] do
     member do
@@ -14,6 +15,10 @@ Rails.application.routes.draw do
     end
   end
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Route permettant de passer invitation_accepted de false à true en cas d'acceptation de l'invitation.
+  resources :user_trip_statuses, only: [] do
+    member do
+      patch :accept_invitation
+    end
+  end
 end
