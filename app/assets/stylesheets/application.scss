@@ -8,9 +8,11 @@
 // Your CSS partials
 @import "components/navbar";
 @import "components/trip_card";
+@import "components/itinerary_card";
 
 // Pages
 @import "pages/trips_show";
+@import "pages/itineraries_show";
 @import "components/field";
 @import "components/flashes";
 @import "components/devise_form";
