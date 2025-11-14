@@ -1,5 +1,6 @@
 class ItinerariesController < ApplicationController
   def show
-    #@itinerary = Itinerary.find(params[trip[:id]])
+    # @trip = Trip.find(params[:trip_id])
+    # @itinerary = @trip.itineraries.find(params[:id])
   end
 end

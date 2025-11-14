@@ -12,9 +12,8 @@ Rails.application.routes.draw do
     member do
       get :review_suggestions
     end
+    resources :itineraries, only: %i[show]
   end
-  resources :itineraries, only: %i[show]
-
   # Defines the root path route ("/")
   # root "posts#index"
 end
