@@ -1,4 +1,4 @@
-<div class="trip-card">
+<div id="trip_card_<%= trip.user_trip_statuses.find_by(user: current_user)&.id %>" class="trip-card">
   <div class="trip-card__image">
     <%# TODO: REFACTO - Replace with dynamic image when image_url column is added to trips table %>
     <%= image_tag "paris-trip.jpg", alt: trip.name %>
