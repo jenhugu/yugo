@@ -4,20 +4,6 @@
   position: relative;
   overflow: hidden;
 
-  // Ellipse orange décorative fixe en bas à gauche
-  &::before {
-    content: '';
-    position: fixed;
-    bottom: -650px;
-    left: -550px;
-    width: 1315px;
-    height: 1297px;
-    background: $terracotta-light;
-    border-radius: 50%;
-    z-index: 0;
-    transform: rotate(-34deg);
-  }
-
   &__container {
     max-width: 1271px;
     margin: 0 auto;
