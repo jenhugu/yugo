@@ -119,4 +119,31 @@
     display: flex;
     gap: 10px;
   }
+
+  &__section-day {
+    background: #d97706;
+    color: white;
+    position: relative;
+    border-radius: 8px;
+    margin-top: 24px;
+    padding: 16px 8px;
+    max-height: 66px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__tag-date {
+    padding: 16px 8px;
+    margin-bottom: auto;
+    margin-top: auto;
+    color: white;
+  }
+
+  &__day-time {
+    font-family: $body-font;
+    font-size: 16px;
+    color: $secondary-text;
+    margin-top: 14px;
+    margin-bottom: 0;
+  }
 }
