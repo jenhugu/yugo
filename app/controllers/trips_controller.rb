@@ -16,9 +16,12 @@ class TripsController < ApplicationController
   end
 
   def new
+    @trip = Trip.new
   end
 
   def create
+    @trip = Trip.create(param[:id])
+    @trip.save
   end
 
   def destroy
