@@ -9,6 +9,7 @@
 @import "components/navbar";
 @import "components/trip_card";
 @import "components/itinerary_card";
+@import "components/activity_info";
 
 // Pages
 @import "pages/trips_show";
@@ -24,4 +25,12 @@
 body {
   background-color: $background ;
   padding-top: 130px;
+}
+
+.secondary-title {
+    font-family: $body-font;
+    font-size: 16px;
+    color: $secondary-text;
+    margin-top: 14px;
+    margin-bottom: 14px;
 }

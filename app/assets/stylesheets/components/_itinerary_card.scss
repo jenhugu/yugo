@@ -36,26 +36,11 @@
     flex-direction: column;
   }
 
-  &__secondary-title {
-    font-family: $body-font;
-    font-size: 16px;
-    color: $secondary-text;
-    margin-top: 14px;
-    margin-bottom: 14px;
-  }
-
-  &__sections {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    flex: 1;
-  }
-
   &__section {
     background: rgba(245, 158, 11, 0.1);
-    position: relative;
     border-radius: 8px;
     padding: 16px 8px;
+    position: relative;
     max-height: 237px;
     display: flex;
     flex-direction: column;
@@ -72,11 +57,6 @@
     gap: 8px;
   }
 
-  &__section-avatars {
-    display: flex;
-    gap: 10px;
-  }
-
   &__section-day {
     background: #d97706;
     color: white;
@@ -88,31 +68,4 @@
     display: flex;
     justify-content: space-between;
   }
-
-/* Conteneur principal : aligne les 3 infos sur une ligne */
-.itinerary-card__info {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  position: absolute;
-  bottom: 1rem;
-}
-
-.adress-icon {
-  display: flex;
-  align-items: center;
-  left: 1rem;
-}
-
-.adress-icon svg {
-  width: 24px;
-  height: 24px;
-}
-
-/* Chaque item icône + texte */
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
 }
