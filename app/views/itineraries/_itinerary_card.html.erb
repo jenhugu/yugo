@@ -1,0 +1,61 @@
+<div>
+  <div class="itinerary-card__section-day">
+  <%# remplacer par itinerary_item day n° %>
+    <h3>Day n°</h3>
+  <%# remplacer par itinerary_item date %>
+    <div class="itinerary-card__date">Date</div>
+  </div>
+  <%# iteration sur les activités %>
+  <div class="trip-card__dates">Time of the activity</div>
+    <div class="itinerary-card">
+
+      <%# iteration sur l'image %>
+      <div class="itinerary-card__image">
+        <%#= image_tag "paris-trip.jpg", alt: trip.name %>
+        <%= image_tag "paris-trip.jpg"%>
+      </div>
+      <div class="itinerary-card__content">
+        <h1 class="trip-card__title">Parc des Princes exclusive tour</h1>
+        <p class="secondary-title">Home of PSG, This is where the city's heartbeat is the strongest</p>
+          <div class="activity-card__info">
+
+            <!-- Adresse -->
+            <div class="info-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <title>Lieu</title>
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#F43F5E"/>
+                <circle cx="12" cy="9" r="2.5" fill="#F43F5E"/>
+              </svg>
+              <%# iteration sur l'adresse %>
+              <p class="secondary-title">17, rue de la forge royale - 75011 Paris</p>
+            </div>
+
+            <!-- Durée -->
+            <div class="info-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <title>Durée</title>
+                <circle cx="12" cy="12" r="10" stroke="#F43F5E" stroke-width="2" fill="none"/>
+                <line x1="12" y1="6" x2="12" y2="12" stroke="#F43F5E" stroke-width="2"/>
+                <line x1="12" y1="12" x2="16" y2="14" stroke="#F43F5E" stroke-width="2"/>
+              </svg>
+              <%# iteration sur le temps %>
+              <p class="secondary-title">2 hours</p>
+            </div>
+
+            <!-- Prix -->
+            <div class="info-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <title>Prix</title>
+                <circle cx="12" cy="12" r="10" stroke="#F43F5E" stroke-width="2" fill="none"/>
+                <text x="12" y="16" text-anchor="middle" font-size="10" fill="#F43F5E">€</text>
+              </svg>
+              <%# iteration sur le prix %>
+              <p class="secondary-title">25€/person</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

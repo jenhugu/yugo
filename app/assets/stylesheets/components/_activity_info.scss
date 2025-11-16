@@ -1,0 +1,26 @@
+/* Conteneur principal : aligne les 3 infos sur une ligne */
+.activity-card__info {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 1rem;
+}
+
+.activity-icons {
+  display: flex;
+  align-items: center;
+  left: 1rem;
+}
+
+.activity-icons svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Chaque item icône + texte */
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
