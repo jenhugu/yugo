@@ -35,7 +35,7 @@
       a {
         display: block;
         padding: 0.75rem 1.5rem;
-        color: #495057;
+        color: $secondary-text;
         text-decoration: none;
         transition: all 0.2s;
 
@@ -64,9 +64,15 @@
 
   .component-example {
     padding: 2rem;
-    background-color: #f8f9fa;
+    background-color: white;
     border-radius: 8px;
     margin: 1.5rem 0;
+
+    hr {
+      border: none;
+      border-top: 1px solid #dee2e6; // ou utilise une de tes variables de couleur
+      margin: 2rem 0;
+    }
   }
 
   .component-label {
@@ -92,5 +98,41 @@ html {
   p {
     color: #6c757d;
     font-size: 1.125rem;
+  }
+}
+
+// Colors Grid
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 3rem;
+}
+
+.color-item {
+  text-align: center;
+
+  .color-swatch {
+    height: 100px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .color-info {
+    strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 14px;
+    }
+
+    code {
+      font-size: 0.75rem;
+      color: $secondary-text;
+      background-color: #f8f9fa;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
   }
 }

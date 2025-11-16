@@ -1,6 +1,7 @@
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
+@import "config/typography";
 
 // External libraries
 // @import "font-awesome";
@@ -18,7 +19,7 @@
 @import "components/flashes";
 @import "components/devise_form";
 @import "pages/home";
-@import "styleguide";
+@import "pages/styleguide";
 
 // Applicable to the whole app
 
