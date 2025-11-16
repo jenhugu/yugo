@@ -3,4 +3,9 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def styleguide
+    # Chargement de données de test
+    @sample_activity = ActivityItem.first
+  end
 end

@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     resources :itineraries, only: %i[show create]
   end
 
+  # Style guide (accessible uniquement en dev)
+  get 'styleguide', to: 'pages#styleguide' if Rails.env.development?
+
   # Route permettant de passer invitation_accepted de false à true en cas d'acceptation de l'invitation.
   resources :user_trip_statuses, only: [] do
     member do
