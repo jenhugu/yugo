@@ -1,0 +1,18 @@
+<h2>What's your pace ?</h2>
+
+<%= form_with model: preferences_form,
+              url: preferences_form_path(preferences_form),
+              method: :patch,
+              data: { turbo_frame: "form_wrapper" } do |f| %>
+
+  <%= f.label :travel_pace, "Travel pace" %>
+  <%= f.range_field :travel_pace, min: 1, max: 10 %>
+
+  <%= f.label :steps_per_day, "Steps per day" %>
+  <%= f.range_field :steps_per_day, min: 1000, max: 20000, step: 500 %>
+
+  <%= f.hidden_field :step, value: 2 %>
+
+  <%= f.submit "Suivant →", data: { action: "click->slide#next" } %>
+
+<% end %>

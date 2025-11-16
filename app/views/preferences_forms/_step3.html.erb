@@ -1,0 +1,13 @@
+<h2>What is your budget ?</h2>
+
+<%= form_with model: preferences_form,
+              url: preferences_form_path(preferences_form),
+              method: :patch,
+              data: { turbo_frame: "form_wrapper" } do |f| %>
+
+  <%= f.label :budget, "Budget" %>
+  <%= f.range_field :budget, min: 0, max: 100 %>
+
+  <%= f.submit "Terminer ✓", data: { action: "click->slide#submit" } %>
+
+<% end %>

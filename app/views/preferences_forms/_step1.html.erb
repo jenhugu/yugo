@@ -1,0 +1,37 @@
+<div class="step-container" data-controller="sliders">
+
+  <h2 class="step-title">What are your interests for this trip?</h2>
+
+  <%= form_with model: preferences_form,
+                url: preferences_forms_path,
+                method: :post,
+                data: { turbo_frame: "form_wrapper" } do |f| %>
+
+    <% sliders = {
+      culture: "Culture",
+      food: "Food",
+      nightlife: "Nightlife",
+      nature: "Nature",
+      shopping: "Shopping",
+      sport: "Sport"
+    } %>
+
+    <% sliders.each do |field, label| %>
+      <div class="slider-row">
+        <label><%= label %></label>
+
+        <input type="range"
+               name="preferences_form[<%= field %>]"
+               min="0"
+               max="100"
+               class="styled-slider"
+               data-sliders-target="input"
+               oninput="this.dispatchEvent(new Event('change'))" />
+      </div>
+    <% end %>
+
+    <%= f.hidden_field :step, value: 1 %>
+    <%= f.submit "Next →", class: "next-button" %>
+
+  <% end %>
+</div>
