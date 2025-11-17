@@ -1,22 +1,39 @@
-<div>
-  <div class="itinerary-card__section-day">
-  <%# remplacer par itinerary_item day n° %>
-    <h3>Day n°</h3>
-  <%# remplacer par itinerary_item date %>
-    <div class="itinerary-card__date">Date</div>
-  </div>
-  <%# iteration sur les activités %>
-  <div class="trip-card__dates">Time of the activity</div>
-    <div class="itinerary-card">
+<%# Grouper les activités par date %>
+<% itinerary_items_by_date = itinerary.itinerary_items.order(:date, :time).group_by(&:date) %>
 
-      <%# iteration sur l'image %>
-      <div class="itinerary-card__image">
-        <%#= image_tag "paris-trip.jpg", alt: trip.name %>
-        <%= image_tag "paris-trip.jpg"%>
-      </div>
-      <div class="itinerary-card__content">
-        <h1 class="trip-card__title">Parc des Princes exclusive tour</h1>
-        <p class="secondary-title">Home of PSG, This is where the city's heartbeat is the strongest</p>
+<%# Itération sur chaque jour %>
+<% itinerary_items_by_date.each_with_index do |(date, items), index| %>
+  <div>
+    <div class="itinerary-card__section-day">
+      <%# Affiche le numéro du jour %>
+      <h3>Day <%= index + 1 %></h3>
+      <%# Affiche la date formatée %>
+      <div class="itinerary-card__date"><%= Date.parse(date).strftime("%d %B %Y") %></div>
+    </div>
+
+    <%# Itération sur les activités du jour %>
+    <% items.each do |item| %>
+      <%# Affiche l'heure de l'activité %>
+      <div class="trip-card__dates"><%= item.time %></div>
+      <div class="itinerary-card">
+
+        <%# Affiche l'image de l'activité ou un message si pas d'image %>
+        <div class="itinerary-card__image">
+          <% if item.activity_item.image.attached? %>
+            <%= image_tag item.activity_item.image, alt: item.activity_item.name %>
+          <% else %>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #f3f4f6; height: 100%; gap: 8px;">
+              <p style="font-size: 48px; margin: 0;">🏖️</p>
+              <p class="secondary-title" style="margin: 0; text-align: center;">The activity picture went on holiday before you</p>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="itinerary-card__content">
+          <%# Affiche le nom de l'activité %>
+          <h1 class="trip-card__title"><%= item.activity_item.name %></h1>
+          <%# Affiche le tagline/description courte %>
+          <p class="secondary-title"><%= item.activity_item.tagline %></p>
           <div class="activity-card__info">
 
             <!-- Adresse -->
@@ -26,8 +43,8 @@
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#F43F5E"/>
                 <circle cx="12" cy="9" r="2.5" fill="#F43F5E"/>
               </svg>
-              <%# iteration sur l'adresse %>
-              <p class="secondary-title">17, rue de la forge royale - 75011 Paris</p>
+              <%# Affiche l'adresse de l'activité %>
+              <p class="secondary-title"><%= item.activity_item.address %></p>
             </div>
 
             <!-- Durée -->
@@ -38,8 +55,8 @@
                 <line x1="12" y1="6" x2="12" y2="12" stroke="#F43F5E" stroke-width="2"/>
                 <line x1="12" y1="12" x2="16" y2="14" stroke="#F43F5E" stroke-width="2"/>
               </svg>
-              <%# iteration sur le temps %>
-              <p class="secondary-title">2 hours</p>
+              <%# Affiche la durée en minutes %>
+              <p class="secondary-title"><%= item.activity_item.duration %> minutes</p>
             </div>
 
             <!-- Prix -->
@@ -49,13 +66,13 @@
                 <circle cx="12" cy="12" r="10" stroke="#F43F5E" stroke-width="2" fill="none"/>
                 <text x="12" y="16" text-anchor="middle" font-size="10" fill="#F43F5E">€</text>
               </svg>
-              <%# iteration sur le prix %>
-              <p class="secondary-title">25€/person</p>
+              <%# Affiche le prix par personne %>
+              <p class="secondary-title"><%= item.activity_item.price %>€/person</p>
             </div>
 
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
-</div>
+<% end %>

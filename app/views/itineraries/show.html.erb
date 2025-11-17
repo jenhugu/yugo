@@ -10,11 +10,11 @@
         <h1 class="trip-card__title">Itinerary for "<%= @trip.name %>"</h1>
         <% days_until_trip = (Date.parse(@trip.date) - Date.today).to_i %>
         <div class="trip-card__tag" style="right: 27px">
-          <%= days_until_trip > 0 ? "In #{days_until_trip} days" : "Trip started" %>
+          <%= days_until_trip > 0 ? "In #{days_until_trip} days" : "Let's go !" %>
         </div>
       </div>
-      <%# mettre la date du trip %>
-      <p class="secondary-title"><%= @trip.destination %> - <%= Date.parse(@trip.date).strftime("%B %e, %Y") %></p>
+      <%# Affiche la destination et la date du trip (format: "26 September 2026") %>
+      <p class="secondary-title"><%= @trip.destination %> - <%= Date.parse(@trip.date).strftime("%d %B %Y") %></p>
       <p class="itinerary-card__section-title">Participants</p>
         <div class="trip-card__section-avatars">
           <% @trip.users.each_with_index do |user, index| %>
