@@ -67,5 +67,10 @@
     max-height: 66px;
     display: flex;
     justify-content: space-between;
+    align-items: center;  // Aligne verticalement "Day 1" et la date
+
+    h3 {
+      margin: 0;  // Supprime les marges par défaut du h3
+    }
   }
 }
