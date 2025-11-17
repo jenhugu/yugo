@@ -25,4 +25,17 @@ Rails.application.routes.draw do
       patch :accept_invitation
     end
   end
+
+  # Route pour la page de review des recommendations
+  resources :trips do
+    get 'recommendations/review', to: 'recommendations#review', as: 'review_recommendations'
+  end
+
+  # Routes pour les actions like/dislike (pour plus tard)
+  resources :recommendation_items, only: [] do
+    member do
+      patch :like
+      patch :dislike
+    end
+  end
 end
