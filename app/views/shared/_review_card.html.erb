@@ -64,13 +64,13 @@
   </div>
 </div>
 
-<!-- Action buttons -->
+<!-- Action buttons (static for now) - REFACTO à prévoir à l'intégration du like dislike -->
 <div class="review-card-actions">
-  <%= button_to recommendation_item_path(recommendation_item, recommendation_item: { like: true }), method: :patch, class: "action-btn btn-like", form: { data: { turbo: false } } do %>
+  <button class="action-btn btn-like">
     <i class="fa-solid fa-thumbs-up"></i>
-  <% end %>
+  </button>
 
-  <%= button_to recommendation_item_path(recommendation_item, recommendation_item: { like: false }), method: :patch, class: "action-btn btn-dislike", form: { data: { turbo: false } } do %>
+  <button class="action-btn btn-dislike">
     <i class="fa-solid fa-thumbs-down"></i>
-  <% end %>
+  </button>
 </div>

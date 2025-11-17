@@ -91,7 +91,7 @@ class RecommendationGenerator
     # Créer l'objet Recommendation
     recommendation = Recommendation.create!(
       trip: @trip,
-      accepted: false,
+      accepted: nil,
       system_prompt: "Generated recommendations based on group preferences"
     )
 
