@@ -1,7 +1,6 @@
 class PreferencesFormsController < ApplicationController
   before_action :set_preferences_form, only: [:step2, :step3, :update, :show]
 
-  # STEP 1 ( activity )
   def new
     @preferences_form = PreferencesForm.new
   end
@@ -11,51 +10,42 @@ class PreferencesFormsController < ApplicationController
     @preferences_form.user_trip_status = current_user_trip_status
 
     if @preferences_form.save
-      render turbo_stream: turbo_stream.replace(
-        "form_wrapper",
-        partial: "preferences_forms/step2",
-        locals: { preferences_form: @preferences_form }
-      )
+      render :step2, locals: { preferences_form: @preferences_form }
     else
-      pp @preferences_form.errors.full_messages
-      render :new, status: :unprocessable_content
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # STEP 2 ( pace )
   def step2
-    render partial: "preferences_forms/step2", locals: { preferences_form: @preferences_form }
+    # step2.html.erb rendra _step2.html.erb automatiquement
   end
 
-  # STEP 3 (budget)
   def step3
-    render partial: "preferences_forms/step3", locals: { preferences_form: @preferences_form }
+    # step3.html.erb rendra _step3.html.erb automatiquement
   end
 
-  # FINAL SAVE
   def update
     case params[:step]
+
     when "2"
       if @preferences_form.update(preferences_form_params_step2)
-        render turbo_stream: turbo_stream.replace(
-          "form_wrapper",
-          partial: "preferences_forms/step3",
-          locals: { preferences_form: @preferences_form }
-        )
+        render :step3, locals: { preferences_form: @preferences_form }
       else
-        render :step2, status: :unprocessable_content
+        render :step2, status: :unprocessable_entity
       end
 
     when "3"
       if @preferences_form.update(preferences_form_params_step3)
         redirect_to @preferences_form
       else
-        render :step3, status: :unprocessable_content
+        render :step3, status: :unprocessable_entity
       end
     end
   end
 
-  def show; end
+  def show
+    # page recap plus tard
+  end
 
   private
 
@@ -64,12 +54,11 @@ class PreferencesFormsController < ApplicationController
   end
 
   def current_user_trip_status
-    current_user.user_trip_statuses.last    # 👈 Logique par défaut
+    current_user.user_trip_statuses.last
   end
 
-  # Strong params
   def preferences_form_params_step1
-    params.require(:preferences_form).permit(:culture, :food, :shopping, :nightlife, :nature, :sport)
+    params.require(:preferences_form).permit(:culture, :food, :nightlife, :nature, :shopping, :sport)
   end
 
   def preferences_form_params_step2

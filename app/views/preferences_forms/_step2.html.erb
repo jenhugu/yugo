@@ -1,18 +1,50 @@
-<h2>What's your pace ?</h2>
+<div class="step-container">
+  <h2 class="step-title">Which rhythm do you wish for?</h2>
 
-<%= form_with model: preferences_form,
-              url: preferences_form_path(preferences_form),
-              method: :patch,
-              data: { turbo_frame: "form_wrapper" } do |f| %>
+  <%= form_with model: preferences_form,
+                url: preferences_form_path(preferences_form),
+                method: :patch,
+                data: { turbo_frame: "form_wrapper" },
+                class: "step-form" do |f| %>
 
-  <%= f.label :travel_pace, "Travel pace" %>
-  <%= f.range_field :travel_pace, min: 1, max: 10 %>
+    <p class="subtitle">Select your preferred travel pace</p>
 
-  <%= f.label :steps_per_day, "Steps per day" %>
-  <%= f.range_field :steps_per_day, min: 1000, max: 20000, step: 500 %>
+    <input type="range"
+           class="styled-slider"
+           name="preferences_form[travel_pace]"
+           min="0"
+           max="100"
+           value="<%= preferences_form.travel_pace || 50 %>">
 
-  <%= f.hidden_field :step, value: 2 %>
+    <div class="scale-row">
+      <span class="left-label">Chill</span>
+      <span class="right-label">Intense</span>
+    </div>
 
-  <%= f.submit "Suivant →", data: { action: "click->slide#next" } %>
+    <p class="subtitle">How many steps a day ?</p>
 
-<% end %>
+    <input type="range"
+           class="styled-slider"
+           name="preferences_form[steps_per_day]"
+           min="0"
+           max="20000"
+           step="500"
+           value="<%= preferences_form.steps_per_day || 10000 %>">
+
+    <div class="scale-row">
+      <span class="left-label">0</span>
+      <span class="right-label">20k +</span>
+    </div>
+
+    <input type="hidden" name="step" value="2">
+
+    <div class="button-row">
+      <%= link_to "← Back",
+          new_preferences_form_path,
+          data: { turbo_frame: "form_wrapper" },
+          class: "back-button" %>
+
+      <%= f.submit "Next →", class: "next-button" %>
+    </div>
+  <% end %>
+</div>
