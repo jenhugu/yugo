@@ -1,0 +1,14 @@
+.review-page {
+  background-color: $background;
+  min-height: 100vh;
+  padding: 2rem;
+
+  .review-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1 {
+      color: $main-text;
+    }
+  }
+}

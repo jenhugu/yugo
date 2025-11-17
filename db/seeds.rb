@@ -1723,3 +1723,59 @@ puts "  • Trip 1 (#{trip1.name}): ID #{trip1.id} - All pending invitations"
 puts "  • Trip 2 (#{trip2.name}): ID #{trip2.id} - Mixed statuses"
 puts "  • Trip 3 (#{trip3.name}): ID #{trip3.id} - All reviewing suggestions"
 puts "="*50
+
+puts "\n🧪 Creating test data for recommendations..."
+
+# Créer un trip de test
+trip = Trip.create!(
+  name: "Paris Weekend",
+  destination: "Paris",
+  date: "2025-12-15 to 2025-12-17",
+  trip_type: "weekend"
+)
+
+# Créer 2 utilisateurs
+user1 = User.create!(
+  first_name: "Alice",
+  last_name: "Martin",
+  email: "alice@test.com",
+  password: "password"
+)
+
+user2 = User.create!(
+  first_name: "Bob",
+  last_name: "Dubois",
+  email: "bob@test.com",
+  password: "password"
+)
+
+# Créer les UserTripStatus avec form_filled: true
+UserTripStatus.create!(
+  user: user1,
+  trip: trip,
+  form_filled: true,
+  role: "creator",
+  trip_status: "active",
+  is_invited: false,
+  recommendation_reviewed: false,
+  invitation_accepted: true
+)
+
+UserTripStatus.create!(
+  user: user2,
+  trip: trip,
+  form_filled: true,
+  role: "participant",
+  trip_status: "active",
+  is_invited: true,
+  recommendation_reviewed: false,
+  invitation_accepted: true
+)
+
+# Générer les recommendations automatiquement
+puts "Generating recommendations for trip #{trip.id}..."
+trip.generate_recommendations_if_ready
+
+puts "✅ Test trip created with ID: #{trip.id}"
+puts "✅ #{trip.recommendations.count} recommendation(s) generated"
+puts "✅ #{trip.recommendations.first&.recommendation_items&.count} recommendation items created"
