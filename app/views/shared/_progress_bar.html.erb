@@ -1,0 +1,28 @@
+<div class="trips-progress">
+  <div class="trips-progress__bar"></div>
+
+  <div class="trips-progress__step <%= 'trips-progress__step--active' if current_step == 1 %> <%= 'trips-progress__step--completed' if current_step > 1 %>">
+    <span class="trips-progress__dot"></span>
+    <span class="trips-progress__label">Trip details</span>
+  </div>
+
+  <div class="trips-progress__step <%= 'trips-progress__step--active' if current_step == 2 %> <%= 'trips-progress__step--completed' if current_step > 2 %>">
+    <span class="trips-progress__dot"></span>
+    <span class="trips-progress__label">Invite friends</span>
+  </div>
+
+  <div class="trips-progress__step <%= 'trips-progress__step--active' if current_step == 3 %> <%= 'trips-progress__step--completed' if current_step > 3 %>">
+    <span class="trips-progress__dot"></span>
+    <span class="trips-progress__label">Preferences</span>
+  </div>
+
+  <div class="trips-progress__step <%= 'trips-progress__step--active' if current_step == 4 %> <%= 'trips-progress__step--completed' if current_step > 4 %>">
+    <span class="trips-progress__dot"></span>
+    <span class="trips-progress__label">Suggestions</span>
+  </div>
+
+  <div class="trips-progress__step <%= 'trips-progress__step--active' if current_step == 5 %> <%= 'trips-progress__step--completed' if current_step > 5 %>">
+    <span class="trips-progress__dot"></span>
+    <span class="trips-progress__label">Itinerary</span>
+  </div>
+</div>
