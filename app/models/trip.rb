@@ -19,7 +19,7 @@ class Trip < ApplicationRecord
     return false unless all_forms_filled?
 
     # Vérifier qu'on n'a pas déjà généré des recommendations
-    return false if recommendations.exists?
+    return false if recommendations.where(accepted: nil).any?
 
     RecommendationGenerator.new(self).call
     true
