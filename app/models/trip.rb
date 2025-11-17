@@ -8,4 +8,20 @@ class Trip < ApplicationRecord
   has_many :recommendation_items, through: :recommendations
   has_many :itinerary_items, through: :itineraries
   has_many :preferences_forms, through: :user_trip_statuses
+
+  # Vérifie si tous les participants ont rempli leur formulaire
+  def all_forms_filled?
+    user_trip_statuses.all? { |status| status.form_filled == true }
+  end
+
+  # Génère les recommendations si tous les forms sont remplis
+  def generate_recommendations_if_ready
+    return false unless all_forms_filled?
+
+    # Vérifier qu'on n'a pas déjà généré des recommendations
+    return false if recommendations.exists?
+
+    RecommendationGenerator.new(self).call
+    true
+  end
 end
