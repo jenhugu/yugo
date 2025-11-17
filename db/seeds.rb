@@ -1706,6 +1706,218 @@ RecommendationItem.create!(
 
 puts "✅ Trip 3 created with #{trip3.user_trip_statuses.count} participants and #{recommendation.recommendation_items.count} recommendations"
 
+# ==============================================
+# TRIP 2: Adding finalized recommendation
+# ==============================================
+puts "\n💡 Creating finalized recommendation for Trip 2..."
+
+recommendation_paris = Recommendation.create!(
+  trip: trip2,
+  accepted: true,
+  system_prompt: "Generate cultural and gastronomy activities for Paris based on user preferences"
+)
+
+# Create recommendation items with likes/dislikes
+RecommendationItem.create!(
+  recommendation: recommendation_paris,
+  activity_item: ActivityItem.find_by(name: "Musée d'Orsay"),
+  like: true
+)
+
+RecommendationItem.create!(
+  recommendation: recommendation_paris,
+  activity_item: ActivityItem.find_by(name: "Le Comptoir du Relais"),
+  like: true
+)
+
+RecommendationItem.create!(
+  recommendation: recommendation_paris,
+  activity_item: ActivityItem.find_by(name: "Café de Flore"),
+  like: false
+)
+
+RecommendationItem.create!(
+  recommendation: recommendation_paris,
+  activity_item: ActivityItem.find_by(name: "Sainte-Chapelle"),
+  like: true
+)
+
+RecommendationItem.create!(
+  recommendation: recommendation_paris,
+  activity_item: ActivityItem.find_by(name: "Septime"),
+  like: true
+)
+
+RecommendationItem.create!(
+  recommendation: recommendation_paris,
+  activity_item: ActivityItem.find_by(name: "Centre Pompidou"),
+  like: nil
+)
+
+RecommendationItem.create!(
+  recommendation: recommendation_paris,
+  activity_item: ActivityItem.find_by(name: "L'As du Fallafel"),
+  like: true
+)
+
+RecommendationItem.create!(
+  recommendation: recommendation_paris,
+  activity_item: ActivityItem.find_by(name: "Musée Rodin"),
+  like: nil
+)
+
+puts "✅ Trip 2 finalized recommendation created with #{recommendation_paris.recommendation_items.count} items"
+
+# ==============================================
+# TRIP 2: Creating completed itinerary
+# ==============================================
+puts "\n📅 Creating completed itinerary for Trip 2..."
+
+itinerary_paris = Itinerary.create!(
+  trip: trip2,
+  system_prompt: "Generate a 3-day cultural and gastronomy itinerary for Paris"
+)
+
+# Day 1 - 2026-09-26
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Holybelly"),
+  date: "2026-09-26",
+  slot: "morning",
+  time: "09:00",
+  position: "1"
+)
+
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Sainte-Chapelle"),
+  date: "2026-09-26",
+  slot: "morning",
+  time: "11:00",
+  position: "2"
+)
+
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "L'As du Fallafel"),
+  date: "2026-09-26",
+  slot: "afternoon",
+  time: "13:00",
+  position: "3"
+)
+
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Musée Picasso"),
+  date: "2026-09-26",
+  slot: "afternoon",
+  time: "15:00",
+  position: "4"
+)
+
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Le Comptoir du Relais"),
+  date: "2026-09-26",
+  slot: "evening",
+  time: "19:30",
+  position: "5"
+)
+
+# Day 2 - 2026-09-27
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Café Kitsuné"),
+  date: "2026-09-27",
+  slot: "morning",
+  time: "09:00",
+  position: "1"
+)
+
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Musée d'Orsay"),
+  date: "2026-09-27",
+  slot: "morning",
+  time: "10:00",
+  position: "2"
+)
+
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Angelina"),
+  date: "2026-09-27",
+  slot: "afternoon",
+  time: "13:00",
+  position: "3"
+)
+
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Musée Rodin"),
+  date: "2026-09-27",
+  slot: "afternoon",
+  time: "15:00",
+  position: "4"
+)
+
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Septime"),
+  date: "2026-09-27",
+  slot: "evening",
+  time: "19:30",
+  position: "5"
+)
+
+# Day 3 - 2026-09-28
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Claus"),
+  date: "2026-09-28",
+  slot: "morning",
+  time: "09:00",
+  position: "1"
+)
+
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Centre Pompidou"),
+  date: "2026-09-28",
+  slot: "morning",
+  time: "11:00",
+  position: "2"
+)
+
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Breizh Café"),
+  date: "2026-09-28",
+  slot: "afternoon",
+  time: "13:00",
+  position: "3"
+)
+
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Croisière sur la Seine"),
+  date: "2026-09-28",
+  slot: "afternoon",
+  time: "15:00",
+  position: "4"
+)
+
+ItineraryItem.create!(
+  itinerary: itinerary_paris,
+  activity_item: ActivityItem.find_by(name: "Frenchie"),
+  date: "2026-09-28",
+  slot: "evening",
+  time: "19:00",
+  position: "5"
+)
+
+puts "✅ Itinerary created with #{itinerary_paris.itinerary_items.count} activities over 3 days"
+
 # Summary
 puts "\n" + "="*50
 puts "🎉 SEED COMPLETED!"
@@ -1718,8 +1930,10 @@ puts "  📋 Preferences Forms: #{PreferencesForm.count}"
 puts "  🎯 Activity Items: #{ActivityItem.count}"
 puts "  💡 Recommendations: #{Recommendation.count}"
 puts "  ⭐ Recommendation Items: #{RecommendationItem.count}"
+puts "  📅 Itineraries: #{Itinerary.count}"
+puts "  🗓️  Itinerary Items: #{ItineraryItem.count}"
 puts "\n✨ You can now test your trips:"
 puts "  • Trip 1 (#{trip1.name}): ID #{trip1.id} - All pending invitations"
-puts "  • Trip 2 (#{trip2.name}): ID #{trip2.id} - Mixed statuses"
+puts "  • Trip 2 (#{trip2.name}): ID #{trip2.id} - Mixed statuses + Finalized recommendation + Complete itinerary (3 days)"
 puts "  • Trip 3 (#{trip3.name}): ID #{trip3.id} - All reviewing suggestions"
 puts "="*50
