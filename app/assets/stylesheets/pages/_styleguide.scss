@@ -51,7 +51,8 @@
 .styleguide-content {
   margin-left: 260px;
   flex: 1;
-  padding: 3rem 2rem;
+  padding: 3rem 1rem;
+  max-width: 1440px;
 
   .styleguide-section {
     padding: 3rem 0;
@@ -63,10 +64,16 @@
   }
 
   .component-example {
-    padding: 2rem;
-    background-color: white;
+    padding: 2rem 1rem;
+    background-color: $background;
     border-radius: 8px;
     margin: 1.5rem 0;
+
+    &.component-example--wide {
+      padding: 2rem 0.5rem;
+      max-width: none;
+
+    }
 
     hr {
       border: none;

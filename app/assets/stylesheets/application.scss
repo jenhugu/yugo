@@ -4,13 +4,14 @@
 @import "config/typography";
 
 // External libraries
-// @import "font-awesome";
+@import "font-awesome";
 
 // Your CSS partials
 @import "components/navbar";
 @import "components/trip_card";
 @import "components/itinerary_card";
 @import "components/activity_info";
+@import "components/review_card";
 
 // Pages
 @import "pages/trips_show";
@@ -21,6 +22,7 @@
 @import "components/devise_form";
 @import "pages/home";
 @import "pages/styleguide";
+@import "pages/recommendations_review";
 
 // Applicable to the whole app
 

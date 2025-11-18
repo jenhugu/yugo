@@ -184,7 +184,32 @@
     <!-- Section: Cards -->
     <section id="cards" class="styleguide-section">
       <h2>Cards</h2>
-      <p>Under construction...</p>
+        <h3>Review Card</h3>
+        <p class="component-label">Card pour afficher les suggestions d'activités à reviewer</p>
+
+        <div class="component-example component-example--wide">
+          <% if ActivityItem.first %>
+            <%
+              # Créer un recommendation_item fictif pour le style guide
+              sample_activity = ActivityItem.first
+              sample_recommendation = Recommendation.new(id: 999)
+              sample_recommendation_item = RecommendationItem.new(
+                id: 999,
+                activity_item: sample_activity,
+                recommendation: sample_recommendation,
+                like: nil
+              )
+            %>
+            <%= render 'shared/review_card', recommendation_item: sample_recommendation_item %>
+          <% else %>
+            <p style="color: #6c757d;">Aucune activité disponible. Lance <code>rails db:seed</code> pour créer des données de test.</p>
+          <% end %>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <p class="component-label">Code d'utilisation :</p>
+          <pre style="background: #f8f9fa; padding: 1rem; border-radius: 8px; overflow-x: auto;"><code>&lt;%= render 'shared/review_card', recommendation_item: @recommendation_item %&gt;</code></pre>
+        </div>
     </section>
 
     <!-- Section: Navigation -->
