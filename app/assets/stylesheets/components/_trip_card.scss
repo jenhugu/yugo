@@ -1,0 +1,225 @@
+.trip-card {
+  background: $background;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  position: relative;
+  height: 599px;
+  display: flex;
+
+  &__image {
+    width: 687px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__tag {
+    position: absolute;
+    top: 26px;
+    background: $pink-dark;
+    border-radius: 5px;
+    padding: 3px 9px;
+    font-family: $body-font;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    z-index: 10;
+  }
+
+  &__content {
+    flex: 1;
+    padding: 26px 33px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+  }
+
+  &__title {
+    font-family: $headers-font;
+    font-size: 30px;
+    font-weight: 600;
+    color: $main-text;
+    margin: 0;
+  }
+
+  &__dates {
+    font-family: $body-font;
+    font-size: 16px;
+    color: $secondary-text;
+    margin-top: 14px;
+    margin-bottom: 0;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    flex: 1;
+  }
+
+  &__section {
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: 8px;
+    padding: 13px 17px;
+    position: relative;
+    height: 83px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__section-title {
+    font-family: $body-font;
+    font-size: 16px;
+    font-weight: 600;
+    color: $terracotta-dark;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__section-avatars {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__bell-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      color: $terracotta-dark;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: 24px;
+    background: $terracotta-dark;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 0;
+    font-family: $body-font;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: $terracotta-light;
+      color: white;
+      text-decoration: none;
+    }
+
+    &:active {
+      background: $terracotta-light;
+    }
+  }
+}
+
+.trip-card--invitation {
+  .trip-card__content {
+    justify-content: space-between;
+  }
+
+  .trip-card__header {
+    margin-bottom: 40px;
+  }
+
+  .trip-card__tag--pending {
+    background: $pink-dark;
+    position: absolute;
+    top: 26px;
+    right: 27px;
+    left: auto;
+  }
+
+  .trip-card__invitation-message {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+  }
+
+  .trip-card__invitation-text {
+    font-family: $body-font;
+    font-size: 18px;
+    line-height: 1.6;
+    color: $main-text;
+    margin: 0 0 20px 0;
+    text-align: center;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  .trip-card__invitation-description {
+    font-family: $body-font;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    color: $secondary-text;
+    margin: 0;
+    text-align: center;
+  }
+
+  .trip-card__invitation-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .trip-card__button--decline {
+    flex: 1;
+    background: $background;
+    border: 2px solid $terracotta-dark;
+    color: $terracotta-dark;
+
+    &:hover {
+      background: rgba($terracotta-dark, 0.05);
+      color: $terracotta-dark;
+    }
+  }
+
+  .trip-card__button--accept {
+    flex: 1;
+  }
+}

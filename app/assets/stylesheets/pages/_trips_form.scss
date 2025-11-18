@@ -1,0 +1,317 @@
+.trips-form {
+  background: $background;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  &__container {
+    max-width: 1271px;
+    margin: 0 auto;
+    padding: 54px 40px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__title {
+    font-family: $headers-font;
+    font-size: 40px;
+    font-weight: 600;
+    color: $main-text;
+    text-align: center;
+    margin: 0 0 60px 0;
+    position: absolute;
+    top: 54px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__form {
+    width: 380px;
+    margin-top: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-shrink: 0;
+  }
+
+  &__field {
+    margin-bottom: 31px;
+
+    label {
+      display: block;
+      font-family: $body-font;
+      font-size: 16px;
+      font-weight: 300;
+      color: $main-text;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      height: 56px;
+      padding: 0 17px;
+      border: 1px solid $secondary-text;
+      border-radius: 5px;
+      background: $background;
+      font-family: $body-font;
+      font-size: 16px;
+      font-weight: 300;
+      color: $main-text;
+      box-sizing: border-box;
+
+      &::placeholder {
+        color: #D1D5DB;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $terracotta-dark;
+      }
+    }
+  }
+
+  // Bouton "+" pour ajouter des participants (page invite)
+  &__add-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #E2E8F0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: darken(#E2E8F0, 5%);
+      transform: scale(1.05);
+    }
+  }
+
+  &__add-icon {
+    font-size: 32px;
+    color: $main-text;
+    line-height: 1;
+  }
+
+  // Texte d'information (page invite)
+  &__info {
+    font-family: $body-font;
+    font-size: 20px;
+    font-weight: 300;
+    color: $main-text;
+    text-align: center;
+    margin: 40px 0 48px 0;
+    line-height: 1.2;
+    max-width: 534px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Bouton submit (page invite)
+  &__submit {
+    width: 250px;
+    height: 56px;
+    border-radius: 8px;
+    font-family: $body-font;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    background: $terracotta-dark;
+    color: white;
+    display: block;
+    margin: 0 auto;
+
+    &:hover {
+      background: $terracotta-light;
+    }
+  }
+
+  &__question {
+    font-family: $body-font;
+    font-size: 20px;
+    font-weight: 300;
+    color: $main-text;
+    text-align: center;
+    margin: 50px 0 24px 0;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 34px;
+    margin-left: -95px;
+    width: 570px;
+  }
+
+  &__button {
+    flex: 1;
+    height: 56px;
+    border-radius: 8px;
+    font-family: $body-font;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    min-width: 250px;
+
+    &--primary {
+      background: $terracotta-dark;
+      color: white;
+
+      &:hover {
+        background: $terracotta-light;
+      }
+    }
+
+    &--secondary {
+      background: transparent;
+      color: $terracotta-dark;
+      border: 2px solid $terracotta-dark;
+
+      &:hover {
+        background: rgba($terracotta-dark, 0.05);
+      }
+    }
+  }
+
+  // Widget de progression sur le côté droit - aligné avec le bord droit
+  &__progress {
+    width: 194px;
+    height: 252px;
+    margin-top: 140px;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  &__progress-bar {
+    position: absolute;
+    left: 5px;
+    top: 69px;
+    width: 1px;
+    height: 168px;
+    background: $terracotta-light;
+  }
+
+  &__progress-step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 34px;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__progress-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: 1px solid $terracotta-light;
+    background: $background;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  &__progress-step--active &__progress-dot {
+    background: $terracotta-light;
+  }
+
+  &__progress-label {
+    font-family: $body-font;
+    font-size: 16px;
+    font-weight: 400;
+    color: $main-text;
+  }
+
+  // Tip en bas à gauche - fixe sur l'ellipse
+  &__tip {
+    position: fixed;
+    bottom: 100px;
+    left: 44px;
+    width: 223px;
+    color: $background;
+    z-index: 2;
+  }
+
+  &__tip-title {
+    font-family: $body-font;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 0 4px 0;
+  }
+
+  &__tip-text {
+    font-family: $body-font;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+// Progress bar component (utilisé dans le partial shared/progress_bar)
+.trips-progress {
+  width: 194px;
+  height: 252px;
+  margin-top: 140px;
+  position: relative;
+  flex-shrink: 0;
+
+  &__bar {
+    position: absolute;
+    left: 5px;
+    top: 69px;
+    width: 1px;
+    height: 168px;
+    background: $terracotta-light;
+  }
+
+  &__step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 34px;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--completed &__dot {
+      background: $terracotta-light;
+    }
+
+    &--active &__dot {
+      background: $terracotta-light;
+    }
+  }
+
+  &__dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: 1px solid $terracotta-light;
+    background: $background;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  &__label {
+    font-family: $body-font;
+    font-size: 16px;
+    font-weight: 400;
+    color: $main-text;
+  }
+}

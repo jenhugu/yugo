@@ -1,0 +1,32 @@
+<div class="itineraries-show">
+  <div class="itineraries-show__container">
+      <%# Renvois vers la page my trips %>
+      <%= link_to trips_path, class: "secondary-title back-link" do %>
+        ← Back to my trips
+      <% end %>
+    <div class="itinerary-card__section">
+      <div>
+      <%# Fais apparaitre le nom du trip %>
+        <h1 class="trip-card__title">Itinerary for "<%= @trip.name %>"</h1>
+        <% days_until_trip = (Date.parse(@trip.date) - Date.today).to_i %>
+        <div class="trip-card__tag" style="right: 27px">
+          <%= days_until_trip > 0 ? "In #{days_until_trip} days" : "Let's go !" %>
+        </div>
+      </div>
+      <%# Affiche la destination et la date du trip (format: "26 September 2026") %>
+      <p class="secondary-title"><%= @trip.destination %> - <%= Date.parse(@trip.date).strftime("%d %B %Y") %></p>
+      <p class="itinerary-card__section-title">Participants</p>
+        <div class="trip-card__section-avatars">
+          <% @trip.users.each_with_index do |user, index| %>
+            <div class="trip-card__avatar">
+              <%= image_tag "https://i.pravatar.cc/150?img=#{index + 5}", alt: user.email %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <%# render itinerary_card %>
+      <%= render "itinerary_card", itinerary: @itinerary %>
+      <%# fin du render  %>
+    </div>
+  </div>
+</div>

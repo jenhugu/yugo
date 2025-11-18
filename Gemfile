@@ -29,6 +29,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Added
+gem "ostruct"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -49,6 +52,17 @@ gem "bootsnap", require: false
 
 # Use SCSS for front-end
 gem 'sassc-rails'
+
+# Installing Devise
+gem "devise"
+gem "devise_invitable"
+
+# Installing Fontawesome
+gem 'font-awesome-sass', '~> 6.5.1'
+
+# Installing Ruby LLM
+gem "ruby_llm", "~> 1.6.4"
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

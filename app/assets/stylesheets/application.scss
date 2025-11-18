@@ -1,14 +1,41 @@
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
+@import "config/typography";
 
 // External libraries
-// @import "font-awesome";
+@import "font-awesome";
 
 // Your CSS partials
 @import "components/navbar";
-@import "preference";
+@import "components/trip_card";
+@import "components/itinerary_card";
+@import "components/activity_info";
+@import "components/review_card";
+
+// Pages
+@import "pages/trips_show";
+@import "pages/trips_form";
+@import "pages/itineraries_show";
+@import "components/field";
+@import "components/flashes";
+@import "components/devise_form";
+@import "pages/home";
+@import "pages/styleguide";
+@import "pages/recommendations_review";
+@import "pages/preference";
+
+// Applicable to the whole app
 
 body {
-  font-family: 'Inter', sans-serif;
+  background-color: $background ;
+  padding-top: 130px;
+}
+
+.secondary-title {
+    font-family: $body-font;
+    font-size: 16px;
+    color: $secondary-text;
+    margin-top: 14px;
+    margin-bottom: 14px;
 }

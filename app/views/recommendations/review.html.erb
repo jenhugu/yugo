@@ -1,0 +1,9 @@
+<div class="review-page">
+  <!-- Header avec compteur -->
+  <div class="review-header">
+    <h1>Suggestions to review (<%= @current_position %>/<%= @total_items %>)</h1>
+  </div>
+
+  <!-- Review Card -->
+  <%= render 'shared/review_card', recommendation_item: @current_item %>
+</div>

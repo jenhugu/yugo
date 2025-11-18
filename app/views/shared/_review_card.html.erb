@@ -1,0 +1,76 @@
+<%#
+  Review Card Component
+
+  Usage:
+  render 'shared/review_card', recommendation_item: @recommendation_item
+
+  Props:
+  - recommendation_item: RecommendationItem object (with activity_item association)
+%>
+
+<% activity = recommendation_item.activity_item %>
+
+<div class="review-card">
+  <!-- Image -->
+  <div class="review-card-image">
+    <%= image_tag activity.image if activity.image.attached? %>
+  </div>
+
+  <!-- Content -->
+  <div class="review-card-content">
+    <!-- Tags -->
+    <div class="review-card-tags">
+      <% if activity.activity_type.present? %>
+        <span class="tag tag-<%= activity.activity_type.parameterize %>">
+          <%= activity.activity_type.titleize %>
+        </span>
+      <% end %>
+    </div>
+
+    <!-- Title -->
+    <h2 class="review-card-title"><%= activity.name %></h2>
+
+    <!-- Tagline -->
+    <% if activity.tagline.present? %>
+      <p class="review-card-tagline"><%= activity.tagline %></p>
+    <% end %>
+
+    <!-- Description -->
+    <p class="review-card-description"><%= activity.description %></p>
+
+    <!-- Info items -->
+    <div class="review-card-info">
+      <% if activity.address.present? %>
+        <div class="info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span><%= activity.address %></span>
+        </div>
+      <% end %>
+
+      <% if activity.opening_hours.present? %>
+        <div class="info-item">
+          <i class="fa-regular fa-clock"></i>
+          <span><%= activity.opening_hours %></span>
+        </div>
+      <% end %>
+
+      <% if activity.price.present? %>
+        <div class="info-item">
+          <i class="fa-solid fa-euro-sign"></i>
+          <span>Average price: <%= activity.price %>€ / person</span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Action buttons (static for now) - REFACTO à prévoir à l'intégration du like dislike -->
+<div class="review-card-actions">
+  <button class="action-btn btn-like">
+    <i class="fa-solid fa-thumbs-up"></i>
+  </button>
+
+  <button class="action-btn btn-dislike">
+    <i class="fa-solid fa-thumbs-down"></i>
+  </button>
+</div>
