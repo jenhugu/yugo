@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_11_17_204658) do
+ActiveRecord::Schema[7.1].define(version: 2025_11_18_173641) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,7 +86,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_17_204658) do
     t.string "activity_types"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "trips_id", null: false
     t.bigint "user_trip_status_id", null: false
     t.integer "culture"
     t.integer "food"
@@ -95,7 +94,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_17_204658) do
     t.integer "nature"
     t.integer "sport"
     t.integer "steps_per_day"
-    t.index ["trips_id"], name: "index_preferences_forms_on_trips_id"
     t.index ["user_trip_status_id"], name: "index_preferences_forms_on_user_trip_status_id"
   end
 
