@@ -1,11 +1,13 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def current_user
-    User.first # TEMP pour les tests
-  end
+  # Ne pas appeler le User.first dans une méthode current_user car ça fait péter la navbar
+  # Je pense une méthode test_current pourrait fonctionner
+
+  # def test_current_user
+  #  User.first
+  # end
 
   protected
 
