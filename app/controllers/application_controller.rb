@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  # helper_method :test_current_user
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -7,7 +6,7 @@ class ApplicationController < ActionController::Base
   # Je pense une méthode test_current pourrait fonctionner
 
   # def test_current_user
-  #  User.first # TEMP pour les tests
+  #  User.first 
   # end
 
   protected
