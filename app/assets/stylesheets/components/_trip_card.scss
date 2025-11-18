@@ -6,6 +6,7 @@
   position: relative;
   height: 599px;
   display: flex;
+  margin-bottom: 42px;
 
   &__image {
     width: 687px;
@@ -154,6 +155,9 @@
 }
 
 .trip-card--invitation {
+
+  margin-bottom: 42px;
+
   .trip-card__content {
     justify-content: space-between;
   }

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   # Je pense une méthode test_current pourrait fonctionner
 
   # def test_current_user
-  #  User.first 
+  #  User.first
   # end
 
   protected
