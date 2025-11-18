@@ -8,6 +8,7 @@
 
 // Your CSS partials
 @import "components/navbar";
+<<<<<<< HEAD
 @import "components/trip_card";
 @import "components/itinerary_card";
 @import "components/activity_info";
@@ -23,6 +24,7 @@
 @import "pages/home";
 @import "pages/styleguide";
 @import "pages/recommendations_review";
+@import "pages/preference";
 
 // Applicable to the whole app
 
@@ -38,3 +40,6 @@ body {
     margin-top: 14px;
     margin-bottom: 14px;
 }
+=======
+@import "preference";
+>>>>>>> 08696af963aeebeeb147d0cb9c3e415196213e33

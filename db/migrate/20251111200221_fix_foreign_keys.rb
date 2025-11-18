@@ -1,5 +1,6 @@
 class FixForeignKeys < ActiveRecord::Migration[7.1]
   def change
+
     # 1. Supprimer trips_id de preferences_forms (ne devrait avoir que user_trip_status_id)
     remove_foreign_key :preferences_forms, :trips
 
@@ -12,6 +13,8 @@ class FixForeignKeys < ActiveRecord::Migration[7.1]
     # preferences_forms
     rename_column :preferences_forms, :user_trip_statuses_id, :user_trip_status_id
 
+    # Supprimer trips_id de preferences_forms
+    remove_column :preferences_forms, :trips_id, :integer
     # itineraries
     rename_column :itineraries, :trips_id, :trip_id
 

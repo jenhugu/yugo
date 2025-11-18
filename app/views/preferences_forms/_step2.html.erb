@@ -1,0 +1,50 @@
+<div class="step-container">
+  <h2 class="step-title">Which rhythm do you wish for?</h2>
+
+  <%= form_with model: preferences_form,
+                url: preferences_form_path(preferences_form),
+                method: :patch,
+                data: { turbo_frame: "form_wrapper" },
+                class: "step-form" do |f| %>
+
+    <p class="subtitle">Select your preferred travel pace</p>
+
+    <input type="range"
+           class="styled-slider"
+           name="preferences_form[travel_pace]"
+           min="0"
+           max="100"
+           value="<%= preferences_form.travel_pace || 50 %>">
+
+    <div class="scale-row">
+      <span class="left-label">Chill</span>
+      <span class="right-label">Intense</span>
+    </div>
+
+    <p class="subtitle">How many steps a day ?</p>
+
+    <input type="range"
+           class="styled-slider"
+           name="preferences_form[steps_per_day]"
+           min="0"
+           max="20000"
+           step="500"
+           value="<%= preferences_form.steps_per_day || 10000 %>">
+
+    <div class="scale-row">
+      <span class="left-label">0</span>
+      <span class="right-label">20k +</span>
+    </div>
+
+    <input type="hidden" name="step" value="2">
+
+    <div class="button-row">
+      <%= link_to "← Back",
+          new_preferences_form_path,
+          data: { turbo_frame: "form_wrapper" },
+          class: "back-button" %>
+
+      <%= f.submit "Next →", class: "next-button" %>
+    </div>
+  <% end %>
+</div>

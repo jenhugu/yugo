@@ -1,0 +1,38 @@
+<div class="step-container" data-controller="budget">
+  <h2 class="step-title">What’s your daily budget?</h2>
+  <p class="step-subtitle">Travel & accommodation not included</p>
+
+  <%= form_with model: preferences_form,
+                url: preferences_form_path(preferences_form),
+                method: :patch,
+                data: { turbo_frame: "form_wrapper" },
+                class: "step-form" do |f| %>
+
+    <%= f.range_field :budget,
+                      min: 1,
+                      max: 500,
+                      value: (preferences_form.budget || 200),
+                      class: "styled-slider",
+                      data: { budget_target: "range", action: "input->budget#update" } %>
+
+    <div class="budget-value" data-budget-target="value">
+    </div>
+
+    <div class="scale-row">
+      <span>1€</span>
+      <span>250€</span>
+      <span>500€</span>
+    </div>
+
+    <input type="hidden" name="step" value="3">
+
+    <div class="button-row">
+      <%= link_to "← Back",
+          step2_preferences_form_path(preferences_form),
+          data: { turbo_frame: "form_wrapper" },
+          class: "back-button" %>
+
+      <%= f.submit "Finish ✓", class: "next-button" %>
+    </div>
+  <% end %>
+</div>
