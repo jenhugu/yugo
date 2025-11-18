@@ -1,4 +1,4 @@
-.trips-new {
+.trips-form {
   background: $background;
   min-height: 100vh;
   position: relative;
@@ -48,7 +48,8 @@
       margin-bottom: 10px;
     }
 
-    input[type="text"] {
+    input[type="text"],
+    input[type="email"] {
       width: 100%;
       height: 56px;
       padding: 0 17px;
@@ -69,6 +70,67 @@
         outline: none;
         border-color: $terracotta-dark;
       }
+    }
+  }
+
+  // Bouton "+" pour ajouter des participants (page invite)
+  &__add-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #E2E8F0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: darken(#E2E8F0, 5%);
+      transform: scale(1.05);
+    }
+  }
+
+  &__add-icon {
+    font-size: 32px;
+    color: $main-text;
+    line-height: 1;
+  }
+
+  // Texte d'information (page invite)
+  &__info {
+    font-family: $body-font;
+    font-size: 20px;
+    font-weight: 300;
+    color: $main-text;
+    text-align: center;
+    margin: 40px 0 48px 0;
+    line-height: 1.2;
+    max-width: 534px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Bouton submit (page invite)
+  &__submit {
+    width: 250px;
+    height: 56px;
+    border-radius: 8px;
+    font-family: $body-font;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    background: $terracotta-dark;
+    color: white;
+    display: block;
+    margin: 0 auto;
+
+    &:hover {
+      background: $terracotta-light;
     }
   }
 
@@ -195,5 +257,61 @@
     font-weight: 300;
     margin: 0;
     line-height: 1.5;
+  }
+}
+
+// Progress bar component (utilisé dans le partial shared/progress_bar)
+.trips-progress {
+  width: 194px;
+  height: 252px;
+  margin-top: 140px;
+  position: relative;
+  flex-shrink: 0;
+
+  &__bar {
+    position: absolute;
+    left: 5px;
+    top: 69px;
+    width: 1px;
+    height: 168px;
+    background: $terracotta-light;
+  }
+
+  &__step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 34px;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--completed &__dot {
+      background: $terracotta-light;
+    }
+
+    &--active &__dot {
+      background: $terracotta-light;
+    }
+  }
+
+  &__dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: 1px solid $terracotta-light;
+    background: $background;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  &__label {
+    font-family: $body-font;
+    font-size: 16px;
+    font-weight: 400;
+    color: $main-text;
   }
 }

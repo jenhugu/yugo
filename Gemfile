@@ -55,6 +55,7 @@ gem 'sassc-rails'
 
 # Installing Devise
 gem "devise"
+gem "devise_invitable"
 
 # Installing Fontawesome
 gem 'font-awesome-sass', '~> 6.5.1'

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :trips, only: %i[index show new create edit update] do
     member do
       get :review_suggestions
+      get :invite
+      post :add_participants
     end
     resources :itineraries, only: %i[show create]
   end
