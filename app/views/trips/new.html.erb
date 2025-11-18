@@ -1,67 +1,40 @@
-<div class="trips-new">
-  <div class="trips-new__container">
-    <h1 class="trips-new__title">Create a trip</h1>
+<div class="trips-form">
+  <div class="trips-form__container">
+    <h1 class="trips-form__title">Create a trip</h1>
 
-    <%= form_with model: @trip, url: trips_path, class: "trips-new__form" do |f| %>
+    <%= form_with model: @trip, url: trips_path, class: "trips-form__form" do |f| %>
 
-      <div class="trips-new__field">
+      <div class="trips-form__field">
         <%= f.label :name, "Trip name" %>
-        <%= f.text_field :name, placeholder: "Summer trip in London" %>
+        <%= f.text_field :name, placeholder: "Summer trip in Paris" %>
       </div>
 
-      <div class="trips-new__field">
+      <div class="trips-form__field">
         <%= f.label :destination, "Destination" %>
-        <%= f.text_field :destination, placeholder: "London" %>
+        <%= f.text_field :destination, placeholder: "Paris" %>
       </div>
 
-      <div class="trips-new__field">
+      <div class="trips-form__field">
         <%= f.label :date, "Dates" %>
         <%= f.text_field :date, placeholder: "01/07/25 - 05/07/25" %>
       </div>
 
-      <p class="trips-new__question">Are you planning this trip alone or with a group?</p>
+      <p class="trips-form__question">Are you planning this trip alone or with a group?</p>
 
-      <div class="trips-new__buttons">
-        <button type="button" class="trips-new__button trips-new__button--secondary">
+      <div class="trips-form__buttons">
+        <button type="button" class="trips-form__button trips-form__button--secondary">
           I'm traveling alone
         </button>
-        <%= f.submit "With a group", class: "trips-new__button trips-new__button--primary" %>
+        <%= f.submit "With a group", class: "trips-form__button trips-form__button--primary" %>
       </div>
 
     <% end %>
 
-    <div class="trips-new__progress">
-      <div class="trips-new__progress-bar"></div>
+    <%= render 'shared/progress_bar', current_step: 1 %>
 
-      <div class="trips-new__progress-step trips-new__progress-step--active">
-        <span class="trips-new__progress-dot"></span>
-        <span class="trips-new__progress-label">Trip details</span>
-      </div>
-
-      <div class="trips-new__progress-step">
-        <span class="trips-new__progress-dot"></span>
-        <span class="trips-new__progress-label">Invite friends</span>
-      </div>
-
-      <div class="trips-new__progress-step">
-        <span class="trips-new__progress-dot"></span>
-        <span class="trips-new__progress-label">Preferences</span>
-      </div>
-
-      <div class="trips-new__progress-step">
-        <span class="trips-new__progress-dot"></span>
-        <span class="trips-new__progress-label">Suggestions</span>
-      </div>
-
-      <div class="trips-new__progress-step">
-        <span class="trips-new__progress-dot"></span>
-        <span class="trips-new__progress-label">Itinerary</span>
-      </div>
-    </div>
-
-    <div class="trips-new__tip">
-      <p class="trips-new__tip-title">Tip #1</p>
-      <p class="trips-new__tip-text">Choose the right place and time  it can make or break your trip.</p>
+    <div class="trips-form__tip">
+      <p class="trips-form__tip-title">Tip #1</p>
+      <p class="trips-form__tip-text">Choose the right place and time  it can make or break your trip.</p>
     </div>
   </div>
 </div>

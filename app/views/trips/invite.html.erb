@@ -1,0 +1,38 @@
+<div class="trips-form">
+  <div class="trips-form__container">
+    <h1 class="trips-form__title">Who do you want to plan this trip with?</h1>
+
+    <%= form_with url: add_participants_trip_path(@trip), method: :post, class: "trips-form__form", data: { controller: "participants" } do |f| %>
+
+      <div id="participants-container" data-participants-target="container">
+        <div class="trips-form__field">
+          <%= label_tag "participant_emails[]", "Traveler #1" %>
+          <%= email_field_tag "participant_emails[]", nil, placeholder: "summer@example.com" %>
+        </div>
+
+        <div class="trips-form__field">
+          <%= label_tag "participant_emails[]", "Traveler #2" %>
+          <%= email_field_tag "participant_emails[]", nil, placeholder: "friend@example.com" %>
+        </div>
+      </div>
+
+      <button type="button" class="trips-form__add-btn" data-action="click->participants#add">
+        <span class="trips-form__add-icon">+</span>
+      </button>
+
+      <p class="trips-form__info">
+        Your co-travelers will receive an email invitation to join the trip and share their expectations.
+      </p>
+
+      <%= f.submit "Send invitations", class: "trips-form__submit" %>
+
+    <% end %>
+
+    <%= render 'shared/progress_bar', current_step: 2 %>
+
+    <div class="trips-form__tip">
+      <p class="trips-form__tip-title">Tip #2</p>
+      <p class="trips-form__tip-text">The secret to a great trip is the people you travel with.</p>
+    </div>
+  </div>
+</div>
