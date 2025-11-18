@@ -152,7 +152,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_17_204658) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-<<<<<<< HEAD
     t.string "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
@@ -165,9 +164,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_17_204658) do
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
     t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by"
-=======
-    t.index ["email"], name: "index_users_on_email", unique: true
->>>>>>> 08696af963aeebeeb147d0cb9c3e415196213e33
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
