@@ -38,10 +38,25 @@
   }
 
   &__button {
-    @extend .btn-primary;
+    background: $terracotta-dark;
+    border: none;
+    border-radius: 8px;
     padding: 16px 32px;
+    font-family: $body-font;
     font-size: 18px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s;
     width: fit-content;
+
+    &:hover {
+      background: $terracotta-light;
+      color: white;
+      text-decoration: none;
+    }
   }
 
   &__image {

@@ -126,11 +126,31 @@
   }
 
   &__button {
-    @extend .btn-primary;
     width: 100%;
     margin-top: 24px;
+    background: $terracotta-dark;
+    border: none;
+    border-radius: 8px;
     padding: 14px 0;
+    font-family: $body-font;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    text-decoration: none;
     display: block;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: $terracotta-light;
+      color: white;
+      text-decoration: none;
+    }
+
+    &:active {
+      background: $terracotta-light;
+    }
   }
 }
 
@@ -192,8 +212,15 @@
   }
 
   .trip-card__button--decline {
-    @extend .btn-secondary;
     flex: 1;
+    background: $background;
+    border: 2px solid $terracotta-dark;
+    color: $terracotta-dark;
+
+    &:hover {
+      background: rgba($terracotta-dark, 0.05);
+      color: $terracotta-dark;
+    }
   }
 
   .trip-card__button--accept {

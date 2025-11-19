@@ -81,9 +81,25 @@
 
 .next-button,
 .back-button {
-  @extend .btn-primary;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+
   width: 150px;
+  padding: 12px 20px;
+
+  background-color: $terracotta-dark;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+
+  border-radius: 16px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.next-button:hover,
+.back-button:hover {
+  background-color: $terracotta-light;
 }

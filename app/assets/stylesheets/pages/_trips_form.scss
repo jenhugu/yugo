@@ -115,11 +115,23 @@
 
   // Bouton submit (page invite)
   &__submit {
-    @extend .btn-primary;
     width: 250px;
     height: 56px;
+    border-radius: 8px;
+    font-family: $body-font;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    background: $terracotta-dark;
+    color: white;
     display: block;
     margin: 0 auto;
+
+    &:hover {
+      background: $terracotta-light;
+    }
   }
 
   &__question {
@@ -141,14 +153,32 @@
   &__button {
     flex: 1;
     height: 56px;
+    border-radius: 8px;
+    font-family: $body-font;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
     min-width: 250px;
 
     &--primary {
-      @extend .btn-primary;
+      background: $terracotta-dark;
+      color: white;
+
+      &:hover {
+        background: $terracotta-light;
+      }
     }
 
     &--secondary {
-      @extend .btn-secondary;
+      background: transparent;
+      color: $terracotta-dark;
+      border: 2px solid $terracotta-dark;
+
+      &:hover {
+        background: rgba($terracotta-dark, 0.05);
+      }
     }
   }
 
