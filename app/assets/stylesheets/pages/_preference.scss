@@ -9,14 +9,15 @@
 .step-title {
   font-size: 28px;
   font-weight: 700;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   color: #2d2d2d;
 }
 
 .step-subtitle {
-  font-size: 16px;
-  color: #666;
-  margin-bottom: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
 }
 
 .slider-row,
@@ -30,6 +31,7 @@
   display: block;
   text-align: center;
   margin-bottom: 8px;
+  color: black;
 }
 
 .styled-slider {
@@ -37,7 +39,7 @@
   -webkit-appearance: none;
   height: 6px;
   border-radius: 4px;
-  background: #d59d3b;
+  background: $terracotta-dark;
   outline: none;
 }
 
@@ -49,7 +51,7 @@
   height: 22px;
   border-radius: 50%;
   background: white;
-  border: 3px solid #d59d3b;
+  border: 3px solid $terracotta-dark;
   cursor: pointer;
 }
 
@@ -58,7 +60,7 @@
   height: 22px;
   border-radius: 50%;
   background: white;
-  border: 3px solid #d59d3b;
+  border: 3px solid $terracotta-dark;
   cursor: pointer;
 }
 
@@ -86,7 +88,7 @@
   width: 150px;
   padding: 12px 20px;
 
-  background-color: #d59d3b;
+  background-color: $terracotta-dark;
   color: white;
   font-size: 17px;
   font-weight: 600;
@@ -99,5 +101,5 @@
 
 .next-button:hover,
 .back-button:hover {
-  background-color: #c18b32;
+  background-color: $terracotta-light;
 }
