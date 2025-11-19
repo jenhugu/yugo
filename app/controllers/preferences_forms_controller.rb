@@ -1,13 +1,20 @@
 class PreferencesFormsController < ApplicationController
-  before_action :set_preferences_form, only: [:step2, :step3, :step4,:update, :show]
+  before_action :set_preferences_form, only: [:step2, :step3, :step4, :update, :show]
 
   def new
     @preferences_form = PreferencesForm.new
   end
 
   def create
-    @preferences_form = PreferencesForm.new(preferences_form_params_step1)
+  puts "\n\n===== STEP 1 PARAMS ====="
+  pp params
+  puts "=========================\n\n"
+
+    @preferences_form = PreferencesForm.new
     @preferences_form.user_trip_status = current_user_trip_status
+
+    # STEP 1 → Save interests JSON
+    @preferences_form.interests = extract_interests(params[:preferences_form])
 
     if @preferences_form.save
       render :step2, locals: { preferences_form: @preferences_form }
@@ -16,49 +23,47 @@ class PreferencesFormsController < ApplicationController
     end
   end
 
-  def step2
-    # step2.html.erb rendra _step2.html.erb automatiquement
-  end
-
-  def step3
-    # step3.html.erb rendra _step3.html.erb automatiquement
-  end
+  def step2; end
+  def step3; end
 
   def step4
     render :step4, locals: { preferences_form: @preferences_form }
   end
 
+def update
+  # Preserve interests through steps
+  if params[:preferences_form]
+    params[:preferences_form][:interests] ||= @preferences_form.interests
+  end
 
-  def update
-    case params[:step]
+  case params[:step]
+  when "2"
+    if @preferences_form.update(preferences_form_params_step2)
+      render :step3
+    else
+      render :step2, status: :unprocessable_entity
+    end
 
-    when "2"
-      if @preferences_form.update(preferences_form_params_step2)
-        render :step3, locals: { preferences_form: @preferences_form }
-      else
-        render :step2, status: :unprocessable_entity
-      end
+  when "3"
+    if @preferences_form.update(preferences_form_params_step3)
+      redirect_to step4_preferences_form_path(@preferences_form)
+    else
+      render :step3, status: :unprocessable_entity
+    end
 
-    when "3"
-      if @preferences_form.update(preferences_form_params_step3)
-        redirect_to step4_preferences_form_path(@preferences_form)
-      else
-        render :step3, status: :unprocessable_entity
-      end
-
-    when "4"
-      if @preferences_form.update(preferences_form_params_step4)
-        redirect_to @preferences_form, status: :see_other
-      else
-        render :step4, status: :unprocessable_entity
-      end
-
+  when "4"
+    if @preferences_form.update(preferences_form_params_step4)
+      redirect_to @preferences_form, status: :see_other
+    else
+      render :step4, status: :unprocessable_entity
     end
   end
+end
+
 
   def show
-    # page recap plus tard
   end
+
 
   private
 
@@ -70,19 +75,29 @@ class PreferencesFormsController < ApplicationController
     current_user.user_trip_statuses.last
   end
 
-  def preferences_form_params_step1
-    params.require(:preferences_form).permit(:culture, :food, :nightlife, :nature, :shopping, :sport)
+  # Convert sliders to JSON for interests column
+  def extract_interests(form_params)
+    {
+      culture:    form_params[:culture].to_i,
+      food:       form_params[:food].to_i,
+      nightlife:  form_params[:nightlife].to_i,
+      nature:     form_params[:nature].to_i,
+      shopping:   form_params[:shopping].to_i,
+      sport:      form_params[:sport].to_i
+    }
   end
 
+  # STRONG PARAMS ------------------------------------------
+
   def preferences_form_params_step2
-    params.require(:preferences_form).permit(:travel_pace, :steps_per_day)
+    params.require(:preferences_form).permit(:travel_pace, :steps_per_day, :interests)
   end
 
   def preferences_form_params_step3
-    params.require(:preferences_form).permit(:budget)
+    params.require(:preferences_form).permit(:budget, :interests)
   end
 
   def preferences_form_params_step4
-    params.require(:preferences_form).permit(activity_types: [])
+    params.require(:preferences_form).permit(:interests, activity_types: [])
   end
 end
