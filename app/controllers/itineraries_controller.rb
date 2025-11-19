@@ -1,5 +1,5 @@
 class ItinerariesController < ApplicationController
-  before_action :recommendation_accepted
+  before_action :recommendation_ok, only: [:create]
 
   def show
     @trip = Trip.find(params[:trip_id])
@@ -22,7 +22,7 @@ class ItinerariesController < ApplicationController
 
   private
 
-  def recommendation_accepted
+  def recommendation_ok
     @recommendation_reviewed = User_trip_status.invitation_accepted
     @recommendation_accepted = Recommendation.accepted
     return if @recommendation_reviewed == 'true' && @recommendation_accepted == 'true'
