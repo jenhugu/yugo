@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :preferences_forms do
     member do
+      get :step1
       get :step2
       get :step3
       get :step4
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
   resources :user_trip_statuses, only: [] do
     member do
       patch :accept_invitation
+      get :fill_preferences
     end
   end
 

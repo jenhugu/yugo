@@ -1,5 +1,5 @@
 class PreferencesFormsController < ApplicationController
-  before_action :set_preferences_form, only: [:step2, :step3, :step4, :update, :show]
+  before_action :set_preferences_form, only: [:step1, :step2, :step3, :step4, :update, :show]
 
   def new
     @preferences_form = PreferencesForm.new
@@ -23,6 +23,8 @@ class PreferencesFormsController < ApplicationController
     end
   end
 
+  def step1; end
+
   def step2; end
   def step3; end
 
@@ -37,6 +39,13 @@ def update
   end
 
   case params[:step]
+  when "1"
+    if @preferences_form.update(preferences_form_params_step1)
+      render :step2
+    else
+      render :step1, status: :unprocessable_entity
+    end
+
   when "2"
     if @preferences_form.update(preferences_form_params_step2)
       render :step3
@@ -53,6 +62,13 @@ def update
 
   when "4"
     if @preferences_form.update(preferences_form_params_step4)
+      # Marquer le formulaire comme rempli
+      @preferences_form.user_trip_status.update(form_filled: true)
+
+      # Déclencher la génération des recommendations si tous les formulaires sont remplis
+      trip = @preferences_form.user_trip_status.trip
+      trip.generate_recommendations_if_ready
+
       redirect_to @preferences_form, status: :see_other
     else
       render :step4, status: :unprocessable_entity
@@ -88,6 +104,11 @@ end
   end
 
   # STRONG PARAMS ------------------------------------------
+
+  def preferences_form_params_step1
+    interests_data = extract_interests(params[:preferences_form])
+    { interests: interests_data }
+  end
 
   def preferences_form_params_step2
     params.require(:preferences_form).permit(:travel_pace, :steps_per_day, :interests)

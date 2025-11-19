@@ -25,12 +25,7 @@
     </div>
 
     <div class="trip-card__invitation-actions">
-      <button class="trip-card__button trip-card__button--decline" data-action="click->trip-invitation#decline">
-        Decline
-      </button>
-      <button class="trip-card__button trip-card__button--accept" data-action="click->trip-invitation#accept">
-        Accept
-      </button>
+      <%= button_to "Accept", accept_invitation_user_trip_status_path(user_trip_status), method: :patch, class: "trip-card__button trip-card__button--accept" %>
     </div>
   </div>
 </div>

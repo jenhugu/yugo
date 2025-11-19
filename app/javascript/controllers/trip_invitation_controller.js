@@ -16,22 +16,19 @@ export default class extends Controller {
     fetch(url, {
       method: "PATCH",
       headers: {
-        "Accept": "text/vnd.turbo-stream.html",
         "X-CSRF-Token": csrfToken
-      }
+      },
+      redirect: "manual"
     })
     .then(response => {
-      if (response.ok) {
-        return response.text()
+      // Chercher le header Location pour le redirect
+      const location = response.headers.get("location")
+      if (location) {
+        // Naviguer vers l'URL du redirect
+        window.location.href = location
       } else {
-        throw new Error("Network response was not ok")
+        throw new Error("No redirect location provided")
       }
-    })
-    .then(html => {
-      Turbo.renderStreamMessage(html)
-
-      // Afficher le flash message
-      this.showFlashMessage("You've successfully accepted this invitation", "notice")
     })
     .catch(error => {
       console.error("Error:", error)
