@@ -1,11 +1,11 @@
 <div class="step-container">
   <h2 class="step-title">What are your major interests during this trip?</h2>
 
-  <%= form_with model: preferences_form,
-                url: preferences_forms_path,
-                method: :post,
-                data: { turbo_frame: "form_wrapper" },
-                class: "step-form" do |f| %>
+  <%= form_with scope: :preferences_form,
+              url: preferences_forms_path,
+              method: :post,
+              data: { turbo_frame: "form_wrapper" },
+              class: "step-form" do |f| %>
 
     <% sliders = {
       culture: "Culture",
@@ -19,12 +19,14 @@
     <% sliders.each do |field, label| %>
       <div class="slider-row">
         <label><%= label %></label>
+
         <input type="range"
-               class="styled-slider"
-               name="preferences_form[#{field}]"
-               min="0"
-               max="100"
-               value="<%= preferences_form.send(field) || 50 %>">
+                class="styled-slider"
+                name="preferences_form[<%= field %>]"
+                min="0"
+                max="100"
+                value="<%= preferences_form.send(field) || 50 %>">
+
       </div>
     <% end %>
 
