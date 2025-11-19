@@ -10,7 +10,7 @@
       <div>
         <h2 class="trip-card__title"><%= user_trip_status.trip.name %></h2>
         <p class="trip-card__dates">
-          <%= user_trip_status.trip.destination %> - <%= user_trip_status.trip.date %>
+          <%= user_trip_status.trip.destination %> - <%= user_trip_status.trip.start_date.strftime("%b %d") if user_trip_status.trip.start_date %> to <%= user_trip_status.trip.end_date.strftime("%b %d, %Y") if user_trip_status.trip.end_date %>
         </p>
       </div>
     </div>
