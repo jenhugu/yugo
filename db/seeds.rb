@@ -150,7 +150,7 @@ PreferencesForm.create!(
   travel_pace: "moderate",
   budget: 2000,
   interests: "museums, gastronomy, architecture",
-  activity_types: "cultural, food"
+  activity_types: ["cultural, food"]
 )
 
 # Eve accepted invitation but hasn't filled preferences
@@ -208,7 +208,7 @@ PreferencesForm.create!(
   travel_pace: "intense",
   budget: 3500,
   interests: "temples, technology, anime, food",
-  activity_types: "cultural, shopping, nightlife"
+  activity_types: ["cultural, shopping, nightlife"]
 )
 
 # Henry also reviewing suggestions
@@ -228,7 +228,7 @@ PreferencesForm.create!(
   travel_pace: "moderate",
   budget: 3000,
   interests: "temples, sushi, gardens",
-  activity_types: "cultural, food, nature"
+  activity_types: ["cultural, food, nature"]
 )
 
 # Create some activity items for recommendations
