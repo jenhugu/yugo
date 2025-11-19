@@ -5,22 +5,21 @@
   <%= form_with model: preferences_form,
                 url: preferences_form_path(preferences_form),
                 method: :patch,
-                data: { turbo_frame: "form_wrapper" },
+                data: { turbo: false},
                 class: "step-form" do |f| %>
 
     <%= f.range_field :budget,
                       min: 1,
                       max: 500,
-                      value: (preferences_form.budget || 250),
+                      value: (preferences_form.budget.presence || 250),
                       class: "styled-slider",
-                      data: { budget_target: "range", action: "input->budget#update" } %>
+                      data: { budget_target: "range", budget_initial_value_value: 250, action: "input->budget#update" } %>
 
-    <div class="budget-value" data-budget-target="value">
-    </div>
+
+    <div class="budget-value" data-budget-target="value"></div>
 
     <div class="scale-row">
       <span>1€</span>
-      <span>250€</span>
       <span>500€</span>
     </div>
 
@@ -32,7 +31,7 @@
           data: { turbo_frame: "form_wrapper" },
           class: "back-button" %>
 
-      <%= f.submit "Next", class: "next-button" %>
+<%= f.submit "Next →", class: "next-button" %>
     </div>
   <% end %>
 </div>

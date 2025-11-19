@@ -1,0 +1,11 @@
+<turbo-frame id="form_wrapper">
+  <h1>Your preferences are saved 🎉</h1>
+
+  <p>Budget: <%= @preferences_form.budget %>€</p>
+  <p>Travel pace: <%= @preferences_form.travel_pace %></p>
+  <p>Steps per day: <%= @preferences_form.steps_per_day %></p>
+
+  <p>Activity types: <%= @preferences_form.activity_types.join(", ") %></p>
+
+  <%= link_to "Start over", new_preferences_form_path, data: { turbo: false } %>
+</turbo-frame>

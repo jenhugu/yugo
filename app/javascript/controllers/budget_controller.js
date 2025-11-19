@@ -2,15 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["range", "value"]
+  static values = { initial: Number }
 
   connect() {
-    // Update immediately
-    this.update()
-
-    // Update again after Turbo finishes rendering the frame
-    document.addEventListener("turbo:frame-load", () => {
-      this.update()
-    })
+    this.valueTarget.textContent = `${this.initialValue}€`
   }
 
   update() {
