@@ -1,0 +1,71 @@
+// Button Components
+// Primary and secondary button styles used throughout the application
+
+.btn-primary {
+  background: $terracotta-dark;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: $body-font;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+
+  &:hover {
+    background: $terracotta-light;
+    color: white;
+    text-decoration: none;
+  }
+
+  &:active {
+    background: $terracotta-light;
+  }
+}
+
+.btn-secondary {
+  background: $background;
+  border: 2px solid $terracotta-dark;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: $body-font;
+  font-size: 16px;
+  font-weight: 600;
+  color: $terracotta-dark;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+
+  &:hover {
+    background: rgba($terracotta-dark, 0.05);
+    color: $terracotta-dark;
+  }
+
+  &:active {
+    background: rgba($terracotta-dark, 0.1);
+    color: $terracotta-dark;
+  }
+}
+
+// Block-level button (full width)
+.btn-block {
+  width: 100%;
+  display: block;
+}
+
+// Button size variants
+.btn-large {
+  padding: 16px 24px;
+  font-size: 18px;
+}
+
+.btn-small {
+  padding: 8px 12px;
+  font-size: 14px;
+}
