@@ -2,17 +2,17 @@
 <% itinerary_items_by_date = itinerary.itinerary_items.order(:date, :time).group_by(&:date) %>
 
 <%# Itération sur chaque jour %>
-<% itinerary_items_by_date.each_with_index do |(date, items), index| %>
+<% itinerary_items_by_date.each_with_index do |(date, activities), index| %>
   <div>
     <div class="itinerary-card__section-day">
       <%# Affiche le numéro du jour %>
       <h3>Day <%= index + 1 %></h3>
       <%# Affiche la date formatée %>
-      <div class="itinerary-card__date"><%= Date.parse(date).strftime("%d %B %Y") %></div>
+      <div class="itinerary-card__date"><%= Date.parse(@trip.date).strftime("%d %B %Y") %></div>
     </div>
 
     <%# Itération sur les activités du jour %>
-    <% items.each do |item| %>
+    <% activities.each do |item| %>
       <%# Affiche l'heure de l'activité %>
       <div class="trip-card__dates"><%= item.time %></div>
       <div class="itinerary-card">
