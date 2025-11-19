@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_11_18_173641) do
+ActiveRecord::Schema[7.1].define(version: 2025_11_19_155845) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,7 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_18_173641) do
   end
 
   create_table "itinerary_items", force: :cascade do |t|
-    t.string "date"
+    t.date "date"
     t.string "slot"
     t.string "time"
     t.string "position"
