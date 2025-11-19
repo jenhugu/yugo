@@ -1,5 +1,5 @@
 class PreferencesFormsController < ApplicationController
-  before_action :set_preferences_form, only: [:step2, :step3, :update, :show]
+  before_action :set_preferences_form, only: [:step2, :step3, :step4,:update, :show]
 
   def new
     @preferences_form = PreferencesForm.new
@@ -24,6 +24,11 @@ class PreferencesFormsController < ApplicationController
     # step3.html.erb rendra _step3.html.erb automatiquement
   end
 
+  def step4
+    render :step4, locals: { preferences_form: @preferences_form }
+  end
+
+
   def update
     case params[:step]
 
@@ -36,10 +41,18 @@ class PreferencesFormsController < ApplicationController
 
     when "3"
       if @preferences_form.update(preferences_form_params_step3)
-        redirect_to @preferences_form
+        redirect_to step4_preferences_form_path(@preferences_form)
       else
         render :step3, status: :unprocessable_entity
       end
+
+    when "4"
+      if @preferences_form.update(preferences_form_params_step4)
+        redirect_to @preferences_form, status: :see_other
+      else
+        render :step4, status: :unprocessable_entity
+      end
+
     end
   end
 
@@ -67,5 +80,9 @@ class PreferencesFormsController < ApplicationController
 
   def preferences_form_params_step3
     params.require(:preferences_form).permit(:budget)
+  end
+
+  def preferences_form_params_step4
+    params.require(:preferences_form).permit(activity_types: [])
   end
 end
