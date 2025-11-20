@@ -1965,7 +1965,8 @@ user2 = User.create!(
 )
 
 # Créer les UserTripStatus avec form_filled: true
-UserTripStatus.create!(
+# Note: On doit stocker les UserTripStatus dans des variables pour pouvoir créer les PreferencesForm associés après
+uts_user1 = UserTripStatus.create!(
   user: user1,
   trip: trip,
   form_filled: true,
@@ -1976,7 +1977,7 @@ UserTripStatus.create!(
   invitation_accepted: true
 )
 
-UserTripStatus.create!(
+uts_user2 = UserTripStatus.create!(
   user: user2,
   trip: trip,
   form_filled: true,
@@ -1985,6 +1986,24 @@ UserTripStatus.create!(
   is_invited: true,
   recommendation_reviewed: false,
   invitation_accepted: true
+)
+
+# Créer les PreferencesForm pour ces utilisateurs
+# Important: Si form_filled est true, il FAUT créer un PreferencesForm sinon generate_recommendations_if_ready va planter
+PreferencesForm.create!(
+  user_trip_status: uts_user1,
+  travel_pace: "moderate",
+  budget: 1500,
+  interests: "museums, food, history",
+  activity_types: "cultural, food"
+)
+
+PreferencesForm.create!(
+  user_trip_status: uts_user2,
+  travel_pace: "relaxed",
+  budget: 1200,
+  interests: "cafes, shopping, architecture",
+  activity_types: "shopping, cultural"
 )
 
 # Générer les recommendations automatiquement
