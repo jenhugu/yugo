@@ -24,4 +24,15 @@ class Trip < ApplicationRecord
     RecommendationGenerator.new(self).call
     true
   end
+
+  # Récupère le créateur du trip
+  def creator
+    user_trip_statuses.find_by(role: "creator")&.user
+  end
+
+  # Récupère le preferences_form du créateur
+  def creator_preferences_form
+    creator_status = user_trip_statuses.find_by(role: "creator")
+    creator_status&.preferences_form
+  end
 end

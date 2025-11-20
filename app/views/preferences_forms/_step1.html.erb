@@ -2,8 +2,8 @@
   <h2 class="step-title">What are your major interests during this trip?</h2>
 
   <%= form_with scope: :preferences_form,
-              url: preferences_forms_path,
-              method: :post,
+              url: preferences_form_path(preferences_form, step: 1),
+              method: :patch,
               data: { turbo_frame: "form_wrapper" },
               class: "step-form" do |f| %>
 

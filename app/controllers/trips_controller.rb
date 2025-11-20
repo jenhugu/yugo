@@ -89,6 +89,11 @@ class TripsController < ApplicationController
   def update
   end
 
+  def review_suggestions
+    @trip = Trip.find(params[:id])
+    redirect_to trip_review_recommendations_path(@trip)
+  end
+
   private
 
   def trip_params

@@ -106,7 +106,14 @@
       </div>
     </div>
 
-    <%# TODO: REFACTO - Implement review_suggestions action in TripsController %>
-    <%= link_to "Review suggestions", review_suggestions_trip_path(trip), class: "trip-card__button" %>
+    <% creator_pref_form = trip.creator_preferences_form %>
+    <% if creator_pref_form.nil? && trip.creator == current_user %>
+      <!-- Créateur doit remplir son formulaire -->
+      <%= button_to "Share your preferences", fill_preferences_user_trip_status_path(trip.user_trip_statuses.find_by(role: "creator")), method: :get, class: "trip-card__button" %>
+    <% elsif trip.all_forms_filled? && trip.recommendations.where(accepted: nil).any? %>
+      <%= link_to "Suggestions are ready to review", review_suggestions_trip_path(trip), class: "trip-card__button" %>
+    <% else %>
+      <%= link_to "Review suggestions", review_suggestions_trip_path(trip), class: "trip-card__button" %>
+    <% end %>
   </div>
 </div>

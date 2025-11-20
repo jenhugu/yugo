@@ -1,37 +1,22 @@
 class UserTripStatusesController < ApplicationController
-  before_action :set_user_trip_status, only: [:accept_invitation]
+  before_action :set_user_trip_status, only: [:accept_invitation, :fill_preferences]
 
   def accept_invitation
     if @user_trip_status.update(invitation_accepted: true)
-      # Répondre en format Turbo Stream pour mise à jour AJAX
-      respond_to do |format|
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.replace(
-            "trip_card_#{@user_trip_status.id}",
-            partial: "trips/trip_card",
-            locals: { trip: @user_trip_status.trip }
-          )
-        end
-        format.html do
-          flash[:notice] = "You've successfully accepted this invitation"
-          redirect_to trips_path
-        end
-      end
+      # Rediriger vers fill_preferences qui créera le form et affichera Step 1
+      redirect_to fill_preferences_user_trip_status_path(@user_trip_status), notice: "You've successfully accepted this invitation", status: :see_other
     else
-      respond_to do |format|
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.replace(
-            "trip_card_#{@user_trip_status.id}",
-            partial: "trips/trip_card_invitation",
-            locals: { user_trip_status: @user_trip_status }
-          )
-        end
-        format.html do
-          flash[:alert] = "Something went wrong"
-          redirect_to trips_path
-        end
-      end
+      flash[:alert] = "Something went wrong"
+      redirect_to trips_path
     end
+  end
+
+  def fill_preferences
+    # Créer le PreferencesForm s'il n'existe pas déjà
+    @preferences_form = @user_trip_status.preferences_form || @user_trip_status.create_preferences_form!
+
+    # Rendre la vue Step 1
+    render "preferences_forms/step1"
   end
 
   private

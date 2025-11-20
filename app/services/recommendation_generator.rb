@@ -16,20 +16,35 @@ class RecommendationGenerator
 
   private
 
-  def mock_preferences
-    <<~PREFS
-      Participant 1:
-      - Budget: 50€ per activity
-      - Travel pace: relaxed
-      - Interests: art, food, history
-      - Activity types: museum, restaurant, cultural
+  def aggregate_preferences
+    participants_data = []
 
-      Participant 2:
-      - Budget: 40€ per activity
-      - Travel pace: moderate
-      - Interests: food, nightlife
-      - Activity types: restaurant, bar, concert
-    PREFS
+    @trip.user_trip_statuses.each_with_index do |user_trip_status, index|
+      preferences_form = user_trip_status.preferences_form
+
+      # Formatter les intérêts avec leurs scores
+      interests_str = if preferences_form.interests.present?
+                        preferences_form.interests.map { |key, value| "#{key}: #{value}/100" }.join(", ")
+                      else
+                        "None specified"
+                      end
+
+      # Formatter les activity_types
+      activity_types_str = preferences_form.activity_types.present? ?
+        preferences_form.activity_types.join(", ") :
+        "No preferences"
+
+      participants_data << <<~PARTICIPANT
+        Participant #{index + 1}:
+        - Budget: #{preferences_form.budget}€ per activity
+        - Travel pace: #{preferences_form.travel_pace}
+        - Steps per day: #{preferences_form.steps_per_day || 'Not specified'} steps
+        - Interests: #{interests_str}
+        - Activity types: #{activity_types_str}
+      PARTICIPANT
+    end
+
+    participants_data.join("\n")
   end
 
   def build_prompt
@@ -38,8 +53,8 @@ class RecommendationGenerator
         "ID: #{activity.id} | #{activity.name} | Type: #{activity.activity_type} | Price: #{activity.price}€ | #{activity.tagline}"
       end.join("\n")
 
-      # Préférences mockées (en attendant le vrai formulaire)
-      preferences = mock_preferences
+      # Récupérer les préférences de tous les participants
+      preferences = aggregate_preferences
 
       <<~PROMPT
         You are a travel recommendation expert for Paris.

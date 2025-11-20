@@ -189,14 +189,25 @@
     display: flex;
     gap: 16px;
     margin-top: 24px;
+
+    > * {
+      flex: 1;
+    }
+
+    button {
+      width: 100%;
+    }
+
+    form {
+      display: flex;
+    }
   }
 
   .trip-card__button--decline {
     @extend .btn-secondary;
-    flex: 1;
   }
 
   .trip-card__button--accept {
-    flex: 1;
+    // styles inherited from parent
   }
 }
