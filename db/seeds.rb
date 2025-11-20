@@ -149,7 +149,6 @@ uts_diana = UserTripStatus.create!(
 # Diana's preferences
 PreferencesForm.create!(
   user_trip_status: uts_diana,
-  trips_id: trip2.id,
   travel_pace: "moderate",
   budget: 2000,
   interests: "museums, gastronomy, architecture",
@@ -209,7 +208,6 @@ uts_grace = UserTripStatus.create!(
 
 PreferencesForm.create!(
   user_trip_status: uts_grace,
-  trips_id: trip3.id,
   travel_pace: "intense",
   budget: 3500,
   interests: "temples, technology, anime, food",
@@ -230,7 +228,6 @@ uts_henry = UserTripStatus.create!(
 
 PreferencesForm.create!(
   user_trip_status: uts_henry,
-  trips_id: trip3.id,
   travel_pace: "moderate",
   budget: 3000,
   interests: "temples, sushi, gardens",
