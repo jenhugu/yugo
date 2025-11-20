@@ -2,8 +2,12 @@
   <div class="trip-card__image">
     <%# TODO: REFACTO - Replace with dynamic image when image_url column is added to trips table %>
     <%= image_tag "paris-trip.jpg", alt: trip.name %>
-    <%# TODO: REFACTO - Calculate days until trip start date dynamically when date is converted to Date type %>
-    <div class="trip-card__tag" style="left: 27px">In 23 days</div>
+    <% if trip.start_date %>
+      <% days_until_trip = (trip.start_date - Date.today).to_i %>
+      <div class="trip-card__tag" style="left: 27px">
+        <%= days_until_trip > 0 ? "In #{days_until_trip} days" : "Let's go!" %>
+      </div>
+    <% end %>
   </div>
 
   <div class="trip-card__content">
@@ -11,8 +15,7 @@
       <div>
         <h2 class="trip-card__title"><%= trip.name %></h2>
         <p class="trip-card__dates">
-          <%# TODO: REFACTO - Format date properly when date column is converted to Date type (e.g., "September 26th to 29th 2026") %>
-          <%= trip.destination %> - <%= trip.date %>
+          <%= trip.destination %> - <%= trip.start_date.strftime("%b %d") if trip.start_date %> to <%= trip.end_date.strftime("%b %d, %Y") if trip.end_date %>
         </p>
       </div>
       <div class="trip-card__avatar">
