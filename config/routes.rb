@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       get :invite
       post :add_participants
     end
-    resources :itineraries, only: %i[show create]
+    resources :itineraries, only: %i[show]
   end
 
   # Style guide (accessible uniquement en dev)
