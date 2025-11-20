@@ -67,10 +67,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_19_194748) do
   end
 
   create_table "itinerary_items", force: :cascade do |t|
-    t.string "date"
+    t.date "date"
     t.string "slot"
-    t.string "time"
-    t.string "position"
+    t.time "time"
+    t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "itinerary_id", null: false
@@ -82,7 +82,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_19_194748) do
   create_table "preferences_forms", force: :cascade do |t|
     t.string "travel_pace"
     t.integer "budget"
-    t.string "interests"
     t.string "activity_types"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -94,6 +93,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_19_194748) do
     t.integer "nature"
     t.integer "sport"
     t.integer "steps_per_day"
+    t.jsonb "interests", default: {}
     t.index ["user_trip_status_id"], name: "index_preferences_forms_on_user_trip_status_id"
   end
 
