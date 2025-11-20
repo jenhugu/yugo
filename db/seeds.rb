@@ -79,7 +79,8 @@ puts "\n🌍 Creating Trip 1: Weekend in London (All pending invitations)..."
 trip1 = Trip.create!(
   name: "Weekend in London",
   destination: "London, UK",
-  date: "2026-03-15",
+  start_date: "2026-03-15",
+  end_date: "2026-03-17",
   trip_type: "city_break"
 )
 
@@ -128,7 +129,8 @@ puts "\n🗼 Creating Trip 2: The one in Paris (Mixed statuses)..."
 trip2 = Trip.create!(
   name: "The one in Paris",
   destination: "Paris, France",
-  date: "2026-09-26",
+  start_date: "2026-09-26",
+  end_date: "2026-09-28",
   trip_type: "cultural"
 )
 
@@ -146,11 +148,12 @@ uts_diana = UserTripStatus.create!(
 
 # Diana's preferences
 PreferencesForm.create!(
-  user_trip_status_id: uts_diana.id,
+  user_trip_status: uts_diana,
+  trips_id: trip2.id,
   travel_pace: "moderate",
   budget: 2000,
   interests: "museums, gastronomy, architecture",
-  activity_types: ["cultural, food"]
+  activity_types: "cultural, food"
 )
 
 # Eve accepted invitation but hasn't filled preferences
@@ -187,7 +190,8 @@ puts "\n🗾 Creating Trip 3: Summer in Tokyo (All reviewing suggestions)..."
 trip3 = Trip.create!(
   name: "Summer in Tokyo",
   destination: "Tokyo, Japan",
-  date: "2026-07-10",
+  start_date: "2026-07-10",
+  end_date: "2026-07-24",
   trip_type: "adventure"
 )
 
@@ -204,11 +208,12 @@ uts_grace = UserTripStatus.create!(
 )
 
 PreferencesForm.create!(
-  user_trip_status_id: uts_grace.id,
+  user_trip_status: uts_grace,
+  trips_id: trip3.id,
   travel_pace: "intense",
   budget: 3500,
   interests: "temples, technology, anime, food",
-  activity_types: ["cultural, shopping, nightlife"]
+  activity_types: "cultural, shopping, nightlife"
 )
 
 # Henry also reviewing suggestions
@@ -224,11 +229,12 @@ uts_henry = UserTripStatus.create!(
 )
 
 PreferencesForm.create!(
-  user_trip_status_id: uts_henry.id,
+  user_trip_status: uts_henry,
+  trips_id: trip3.id,
   travel_pace: "moderate",
   budget: 3000,
   interests: "temples, sushi, gardens",
-  activity_types: ["cultural, food, nature"]
+  activity_types: "cultural, food, nature"
 )
 
 # Create some activity items for recommendations
@@ -1941,7 +1947,8 @@ puts "\n🧪 Creating test data for recommendations..."
 trip = Trip.create!(
   name: "Paris Weekend",
   destination: "Paris",
-  date: "2025-12-15 to 2025-12-17",
+  start_date: "2025-12-15",
+  end_date: "2025-12-17",
   trip_type: "weekend"
 )
 
