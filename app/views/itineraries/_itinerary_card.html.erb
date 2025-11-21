@@ -7,14 +7,14 @@
     <div class="itinerary-card__section-day">
       <%# Affiche le numéro du jour %>
       <h3>Day <%= index + 1 %></h3>
-      <%# Affiche la date formatée %>
-      <div class="itinerary-card__date"><%= Date.parse(@trip.date).strftime("%d %B %Y") %></div>
+      <%# Affiche la date formatée (utilise la date de l'itinerary item, pas du trip) %>
+      <div class="itinerary-card__date"><%= date.strftime("%d %B %Y") %></div>
     </div>
 
     <%# Itération sur les activités du jour %>
     <% activities.each do |item| %>
-      <%# Affiche l'heure de l'activité %>
-      <div class="trip-card__dates"><%= item.time %></div>
+      <%# Affiche l'heure de l'activité au format "9h00" %>
+      <div class="trip-card__dates"><%= item.time.strftime("%-Hh%M") %></div>
       <div class="itinerary-card">
 
         <%# Affiche l'image de l'activité ou un message si pas d'image %>

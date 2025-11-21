@@ -61,7 +61,7 @@ class RecommendationGenerator
 
         TRIP INFORMATION:
         - Destination: #{@trip.destination}
-        - Dates: #{@trip.date}
+        - Dates: #{@trip.start_date} to #{@trip.end_date}
         - Trip type: #{@trip.trip_type}
 
         GROUP PREFERENCES:
