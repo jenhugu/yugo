@@ -76,8 +76,8 @@ class TripsController < ApplicationController
       )
     end
 
-    # Rediriger vers la page du trip (ou preferences plus tard)
-    redirect_to trip_path(@trip), notice: "Participants invited successfully!"
+    # Rediriger vers le formulaire des préférences
+    redirect_to new_preferences_form_path, notice: "Participants invited successfully!"
   end
 
   def destroy
