@@ -10,7 +10,10 @@
 
 <% activity = recommendation_item.activity_item %>
 
-<div class="review-card">
+<div class="review-card"
+     id="review-card"
+     data-controller="review"
+     data-item-id="<%= recommendation_item.id %>">
   <!-- Image -->
   <div class="review-card-image">
     <%= image_tag activity.image if activity.image.attached? %>
@@ -62,15 +65,17 @@
       <% end %>
     </div>
   </div>
-</div>
 
-<!-- Action buttons (static for now) - REFACTO à prévoir à l'intégration du like dislike -->
-<div class="review-card-actions">
-  <button class="action-btn btn-like">
-    <i class="fa-solid fa-thumbs-up"></i>
-  </button>
+  <!-- Action buttons -->
+  <div class="review-card-actions">
+    <button class="action-btn btn-like"
+            data-action="<%= "click->review#like" %>">
+      <i class="fa-solid fa-thumbs-up"></i>
+    </button>
 
-  <button class="action-btn btn-dislike">
-    <i class="fa-solid fa-thumbs-down"></i>
-  </button>
+    <button class="action-btn btn-dislike"
+            data-action="<%= "click->review#dislike" %>">
+      <i class="fa-solid fa-thumbs-down"></i>
+    </button>
+  </div>
 </div>

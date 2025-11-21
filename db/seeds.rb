@@ -1,5 +1,6 @@
 # Clean database
 puts "🧹 Cleaning database..."
+RecommendationVote.destroy_all
 RecommendationItem.destroy_all
 ItineraryItem.destroy_all
 Recommendation.destroy_all
@@ -1676,32 +1677,28 @@ puts "📋 Creating recommendations..."
 
 recommendation = Recommendation.create!(
   trip: trip3,
-  accepted: false,
+  accepted: nil,
   system_prompt: "Generate cultural and food activities for Tokyo in summer"
 )
 
 RecommendationItem.create!(
   recommendation: recommendation,
-  activity_item: ActivityItem.find_by(name: "Musée d'Orsay"),
-  like: nil
+  activity_item: ActivityItem.find_by(name: "Musée d'Orsay")
 )
 
 RecommendationItem.create!(
   recommendation: recommendation,
-  activity_item: ActivityItem.find_by(name: "Le Comptoir du Relais"),
-  like: nil
+  activity_item: ActivityItem.find_by(name: "Le Comptoir du Relais")
 )
 
 RecommendationItem.create!(
   recommendation: recommendation,
-  activity_item: ActivityItem.find_by(name: "Tour Eiffel"),
-  like: nil
+  activity_item: ActivityItem.find_by(name: "Tour Eiffel")
 )
 
 RecommendationItem.create!(
   recommendation: recommendation,
-  activity_item: ActivityItem.find_by(name: "Sainte-Chapelle"),
-  like: nil
+  activity_item: ActivityItem.find_by(name: "Sainte-Chapelle")
 )
 
 puts "✅ Trip 3 created with #{trip3.user_trip_statuses.count} participants and #{recommendation.recommendation_items.count} recommendations"
@@ -1717,54 +1714,56 @@ recommendation_paris = Recommendation.create!(
   system_prompt: "Generate cultural and gastronomy activities for Paris based on user preferences"
 )
 
-# Create recommendation items with likes/dislikes
-RecommendationItem.create!(
+# Create recommendation items (without likes - votes are tracked separately)
+item1 = RecommendationItem.create!(
   recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Musée d'Orsay"),
-  like: true
+  activity_item: ActivityItem.find_by(name: "Musée d'Orsay")
 )
 
-RecommendationItem.create!(
+item2 = RecommendationItem.create!(
   recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Le Comptoir du Relais"),
-  like: true
+  activity_item: ActivityItem.find_by(name: "Le Comptoir du Relais")
 )
 
-RecommendationItem.create!(
+item3 = RecommendationItem.create!(
   recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Café de Flore"),
-  like: false
+  activity_item: ActivityItem.find_by(name: "Café de Flore")
 )
 
-RecommendationItem.create!(
+item4 = RecommendationItem.create!(
   recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Sainte-Chapelle"),
-  like: true
+  activity_item: ActivityItem.find_by(name: "Sainte-Chapelle")
 )
 
-RecommendationItem.create!(
+item5 = RecommendationItem.create!(
   recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Septime"),
-  like: true
+  activity_item: ActivityItem.find_by(name: "Septime")
 )
 
-RecommendationItem.create!(
+item6 = RecommendationItem.create!(
   recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Centre Pompidou"),
-  like: nil
+  activity_item: ActivityItem.find_by(name: "Centre Pompidou")
 )
 
-RecommendationItem.create!(
+item7 = RecommendationItem.create!(
   recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "L'As du Fallafel"),
-  like: true
+  activity_item: ActivityItem.find_by(name: "L'As du Fallafel")
 )
 
-RecommendationItem.create!(
+item8 = RecommendationItem.create!(
   recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Musée Rodin"),
-  like: nil
+  activity_item: ActivityItem.find_by(name: "Musée Rodin")
 )
+
+# Create sample votes for Diana (Trip 2 creator)
+RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item1, like: true)
+RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item2, like: true)
+RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item3, like: false)
+RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item4, like: true)
+RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item5, like: true)
+RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item6, like: nil)
+RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item7, like: true)
+RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item8, like: nil)
 
 puts "✅ Trip 2 finalized recommendation created with #{recommendation_paris.recommendation_items.count} items"
 
