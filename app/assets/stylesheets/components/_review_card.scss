@@ -12,11 +12,16 @@
   max-width: 1000px;
   margin: 0 auto;
   position: relative;
+  height: 550px !important;
+  min-height: 550px !important;
+  max-height: 550px !important;
 
   // Image section (left side)
   .review-card-image {
     flex: 0 0 400px;
     position: relative;
+    height: 100%;
+    overflow: hidden;
 
     img {
       width: 100%;
@@ -31,6 +36,7 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    height: 100%;
 
     // Tags at the top right
     .review-card-tags {

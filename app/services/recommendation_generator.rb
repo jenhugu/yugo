@@ -114,8 +114,7 @@ class RecommendationGenerator
     activity_ids.each do |activity_id|
       RecommendationItem.create!(
         recommendation: recommendation,
-        activity_item_id: activity_id,
-        like: nil  # Pas encore reviewé
+        activity_item_id: activity_id
       )
     end
 
