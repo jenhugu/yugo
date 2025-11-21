@@ -1,9 +1,13 @@
 <div class="step-container">
   <h2 class="step-title">What are your major interests during this trip?</h2>
 
+  <%# Gestion du formulaire pour step1 :
+      - Si le preferences_form n'existe pas encore en DB (persisted? = false) → POST vers create
+      - Si le preferences_form existe déjà (persisted? = true) → PATCH vers update avec step=1
+      Cela permet de gérer la première création et les modifications ultérieures %>
   <%= form_with scope: :preferences_form,
-              url: preferences_form_path(preferences_form, step: 1),
-              method: :patch,
+              url: preferences_form.persisted? ? preferences_form_path(preferences_form, step: 1) : preferences_forms_path,
+              method: preferences_form.persisted? ? :patch : :post,
               data: { turbo_frame: "form_wrapper" },
               class: "step-form" do |f| %>
 
