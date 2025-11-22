@@ -35,8 +35,7 @@ class Recommendation < ApplicationRecord
     update(accepted: items_majority)
   end
 
-  # Vérifie si tous les users ont reviewé, calcule l'acceptance et génère l'itinéraire
-  si accepté
+  # Vérifie si tous les users ont reviewé, calcule l'acceptance et génère l'itinéraire si accepté
   def verify_and_generate_itinerary!
     return false unless all_users_reviewed?
 
