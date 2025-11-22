@@ -17,30 +17,7 @@ class Trip < ApplicationRecord
   # Génère les recommendations si tous les forms sont remplis
   def generate_recommendations_if_ready
     return false unless all_forms_filled?
-
-    # ========================================================================
-    # MODIFICATION POUR PERMETTRE REGÉNÉRATION APRÈS REJET - CODE COMMENTÉ
-    # ========================================================================
-    # AVANT DE DÉCOMMENTER : Vérifier si cette modification n'a pas déjà été
-    # faite par quelqu'un d'autre dans l'équipe.
-    #
-    # ACTUELLEMENT : Cette ligne bloque la génération si une recommendation
-    # existe déjà (même si elle a été rejetée).
-    #
-    # MODIFICATION PROPOSÉE : Permettre de générer une nouvelle recommendation
-    # même si une précédente existe, tant qu'elle a été votée (accepted != nil).
-    #
-    # Voir le bloc de commentaires après cette méthode pour l'explication
-    # complète du problème.
-    # ========================================================================
-    #
-    # # Version originale (actuellement active) :
     return false if recommendations.where(accepted: nil).any?
-    #
-    # # Version modifiée (à activer pour permettre la regénération) :
-    # # Ne bloquer QUE s'il y a une recommendation en attente de votes
-    # # return false if recommendations.where(accepted: nil).any?
-    #
 
     RecommendationGenerator.new(self).call
     true
