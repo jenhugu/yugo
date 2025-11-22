@@ -45,13 +45,10 @@ class RecommendationItemsController < ApplicationController
       # Cet utilisateur a voté sur tous les items
       user_trip_status.update(recommendation_reviewed: true)
 
-      # Vérifier si tous les utilisateurs ont reviewé
-      if @recommendation.all_users_reviewed?
-        @recommendation.calculate_acceptance!
+      # Vérifier si tous les utilisateurs ont reviewé et générer l'itinéraire si accepté
+      all_done = @recommendation.verify_and_generate_itinerary!
 
-        # Déclencher le job GenerateItinerary si accepté
-        # GenerateItineraryJob.perform_later(@recommendation.id) if @recommendation.accepted
-
+      if all_done
         # Renvoyer une réponse JSON indiquant que c'est terminé pour tous
         render json: {
           completed: true,
