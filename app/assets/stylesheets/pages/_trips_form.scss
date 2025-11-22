@@ -49,7 +49,8 @@
     }
 
     input[type="text"],
-    input[type="email"] {
+    input[type="email"],
+    input[type="date"] {
       width: 100%;
       height: 56px;
       padding: 0 17px;
@@ -69,6 +70,16 @@
       &:focus {
         outline: none;
         border-color: $terracotta-dark;
+      }
+
+      // Style spécifique pour le date picker
+      &::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        opacity: 0.6;
+
+        &:hover {
+          opacity: 1;
+        }
       }
     }
   }

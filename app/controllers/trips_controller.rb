@@ -94,6 +94,17 @@ class TripsController < ApplicationController
     redirect_to trip_review_recommendations_path(@trip)
   end
 
+  def discover_itinerary
+    @trip = Trip.find(params[:id])
+    itinerary = @trip.itineraries.last
+
+    if itinerary
+      redirect_to trip_itinerary_path(@trip, itinerary)
+    else
+      redirect_to @trip, alert: "Itinerary is being generated. Please check back soon!"
+    end
+  end
+
   private
 
   def trip_params

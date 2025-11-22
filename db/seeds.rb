@@ -2012,3 +2012,244 @@ trip.generate_recommendations_if_ready
 puts "✅ Test trip created with ID: #{trip.id}"
 puts "✅ #{trip.recommendations.count} recommendation(s) generated"
 puts "✅ #{trip.recommendations.first&.recommendation_items&.count} recommendation items created"
+
+# ==============================================
+# TRIP 5: Votes don't match (accepted: false)
+# ==============================================
+puts "\n❌ Creating Trip 5: Barcelona Adventure (Votes don't match)..."
+
+trip5 = Trip.create!(
+  name: "Barcelona Adventure",
+  destination: "Barcelona, Spain",
+  start_date: "2026-05-10",
+  end_date: "2026-05-14",
+  trip_type: "adventure"
+)
+
+# Create two users with completed preferences and reviews
+user_julia = User.create!(
+  first_name: "Julia",
+  last_name: "Garcia",
+  email: "julia@yugo.com",
+  password: "password123"
+)
+
+user_marco = User.create!(
+  first_name: "Marco",
+  last_name: "Silva",
+  email: "marco@yugo.com",
+  password: "password123"
+)
+
+# Julia - creator (all done, reviewed)
+uts_julia = UserTripStatus.create!(
+  user: user_julia,
+  trip: trip5,
+  role: "creator",
+  trip_status: "reviewed",
+  is_invited: true,
+  invitation_accepted: true,
+  form_filled: true,
+  recommendation_reviewed: true
+)
+
+PreferencesForm.create!(
+  user_trip_status: uts_julia,
+  travel_pace: "intense",
+  budget: 1800,
+  interests: { culture: 90, food: 80, nightlife: 70, nature: 40, shopping: 30, sport: 60 },
+  activity_types: ["Museums", "Gastronomy", "Architecture"]
+)
+
+# Marco - participant (all done, reviewed)
+uts_marco = UserTripStatus.create!(
+  user: user_marco,
+  trip: trip5,
+  role: "participant",
+  trip_status: "reviewed",
+  is_invited: true,
+  invitation_accepted: true,
+  form_filled: true,
+  recommendation_reviewed: true
+)
+
+PreferencesForm.create!(
+  user_trip_status: uts_marco,
+  travel_pace: "moderate",
+  budget: 1500,
+  interests: { culture: 60, food: 70, nightlife: 50, nature: 80, shopping: 40, sport: 90 },
+  activity_types: ["Parks", "Sport events", "Photography"]
+)
+
+# Create recommendation with accepted: false (votes don't match)
+recommendation_barcelona = Recommendation.create!(
+  trip: trip5,
+  accepted: false,
+  system_prompt: "Generate cultural and sport activities for Barcelona"
+)
+
+# Create recommendation items
+item_b1 = RecommendationItem.create!(
+  recommendation: recommendation_barcelona,
+  activity_item: ActivityItem.find_by(name: "Musée d'Orsay") # Using Paris activities for demo
+)
+
+item_b2 = RecommendationItem.create!(
+  recommendation: recommendation_barcelona,
+  activity_item: ActivityItem.find_by(name: "Centre Pompidou")
+)
+
+item_b3 = RecommendationItem.create!(
+  recommendation: recommendation_barcelona,
+  activity_item: ActivityItem.find_by(name: "Tour Eiffel")
+)
+
+item_b4 = RecommendationItem.create!(
+  recommendation: recommendation_barcelona,
+  activity_item: ActivityItem.find_by(name: "Sainte-Chapelle")
+)
+
+# Create votes for both users (mostly dislikes to simulate disagreement)
+RecommendationVote.create!(user_trip_status: uts_julia, recommendation_item: item_b1, like: true)
+RecommendationVote.create!(user_trip_status: uts_julia, recommendation_item: item_b2, like: false)
+RecommendationVote.create!(user_trip_status: uts_julia, recommendation_item: item_b3, like: false)
+RecommendationVote.create!(user_trip_status: uts_julia, recommendation_item: item_b4, like: true)
+
+RecommendationVote.create!(user_trip_status: uts_marco, recommendation_item: item_b1, like: false)
+RecommendationVote.create!(user_trip_status: uts_marco, recommendation_item: item_b2, like: false)
+RecommendationVote.create!(user_trip_status: uts_marco, recommendation_item: item_b3, like: true)
+RecommendationVote.create!(user_trip_status: uts_marco, recommendation_item: item_b4, like: false)
+
+puts "✅ Trip 5 created with #{trip5.user_trip_statuses.count} participants - Votes DON'T match (accepted: false)"
+
+# ==============================================
+# TRIP 6: Votes match (accepted: true)
+# ==============================================
+puts "\n✅ Creating Trip 6: Rome Discovery (Votes match!)..."
+
+trip6 = Trip.create!(
+  name: "Rome Discovery",
+  destination: "Rome, Italy",
+  start_date: "2026-06-20",
+  end_date: "2026-06-25",
+  trip_type: "cultural"
+)
+
+# Create two users with completed preferences and reviews
+user_sophia = User.create!(
+  first_name: "Sophia",
+  last_name: "Rossi",
+  email: "sophia@yugo.com",
+  password: "password123"
+)
+
+user_luca = User.create!(
+  first_name: "Luca",
+  last_name: "Bianchi",
+  email: "luca@yugo.com",
+  password: "password123"
+)
+
+# Sophia - creator (all done, reviewed)
+uts_sophia = UserTripStatus.create!(
+  user: user_sophia,
+  trip: trip6,
+  role: "creator",
+  trip_status: "reviewed",
+  is_invited: true,
+  invitation_accepted: true,
+  form_filled: true,
+  recommendation_reviewed: true
+)
+
+PreferencesForm.create!(
+  user_trip_status: uts_sophia,
+  travel_pace: "moderate",
+  budget: 2000,
+  interests: { culture: 95, food: 85, nightlife: 50, nature: 60, shopping: 40, sport: 30 },
+  activity_types: ["Museums", "Architecture", "Gastronomy"]
+)
+
+# Luca - participant (all done, reviewed)
+uts_luca = UserTripStatus.create!(
+  user: user_luca,
+  trip: trip6,
+  role: "participant",
+  trip_status: "reviewed",
+  is_invited: true,
+  invitation_accepted: true,
+  form_filled: true,
+  recommendation_reviewed: true
+)
+
+PreferencesForm.create!(
+  user_trip_status: uts_luca,
+  travel_pace: "moderate",
+  budget: 1800,
+  interests: { culture: 90, food: 90, nightlife: 40, nature: 50, shopping: 30, sport: 35 },
+  activity_types: ["Museums", "Architecture", "Wine tasting"]
+)
+
+# Create recommendation with accepted: true (votes match!)
+recommendation_rome = Recommendation.create!(
+  trip: trip6,
+  accepted: true,
+  system_prompt: "Generate cultural and gastronomy activities for Rome"
+)
+
+# Create recommendation items
+item_r1 = RecommendationItem.create!(
+  recommendation: recommendation_rome,
+  activity_item: ActivityItem.find_by(name: "Musée Rodin")
+)
+
+item_r2 = RecommendationItem.create!(
+  recommendation: recommendation_rome,
+  activity_item: ActivityItem.find_by(name: "Septime")
+)
+
+item_r3 = RecommendationItem.create!(
+  recommendation: recommendation_rome,
+  activity_item: ActivityItem.find_by(name: "Le Comptoir du Relais")
+)
+
+item_r4 = RecommendationItem.create!(
+  recommendation: recommendation_rome,
+  activity_item: ActivityItem.find_by(name: "Panthéon")
+)
+
+item_r5 = RecommendationItem.create!(
+  recommendation: recommendation_rome,
+  activity_item: ActivityItem.find_by(name: "Café de Flore")
+)
+
+# Create votes for both users (mostly likes to simulate agreement)
+RecommendationVote.create!(user_trip_status: uts_sophia, recommendation_item: item_r1, like: true)
+RecommendationVote.create!(user_trip_status: uts_sophia, recommendation_item: item_r2, like: true)
+RecommendationVote.create!(user_trip_status: uts_sophia, recommendation_item: item_r3, like: true)
+RecommendationVote.create!(user_trip_status: uts_sophia, recommendation_item: item_r4, like: true)
+RecommendationVote.create!(user_trip_status: uts_sophia, recommendation_item: item_r5, like: false)
+
+RecommendationVote.create!(user_trip_status: uts_luca, recommendation_item: item_r1, like: true)
+RecommendationVote.create!(user_trip_status: uts_luca, recommendation_item: item_r2, like: true)
+RecommendationVote.create!(user_trip_status: uts_luca, recommendation_item: item_r3, like: true)
+RecommendationVote.create!(user_trip_status: uts_luca, recommendation_item: item_r4, like: false)
+RecommendationVote.create!(user_trip_status: uts_luca, recommendation_item: item_r5, like: true)
+
+puts "✅ Trip 6 created with #{trip6.user_trip_statuses.count} participants - Votes MATCH! (accepted: true)"
+
+# Final summary
+puts "\n" + "="*50
+puts "🎯 TEST TRIPS FOR VOTE STATES"
+puts "="*50
+puts "\n📊 New Test Trips:"
+puts "  ❌ Trip 5 (#{trip5.name}): ID #{trip5.id} - VOTES DON'T MATCH"
+puts "     → All users have reviewed"
+puts "     → Recommendation accepted: false"
+puts "     → Should show 'Review new suggestions' button (disabled)"
+puts ""
+puts "  ✅ Trip 6 (#{trip6.name}): ID #{trip6.id} - VOTES MATCH!"
+puts "     → All users have reviewed"
+puts "     → Recommendation accepted: true"
+puts "     → Should show 'Discover Itinerary' button (disabled)"
+puts "="*50
