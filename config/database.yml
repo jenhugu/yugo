@@ -27,12 +27,8 @@ test:
 production:
   primary:
     <<: *default
-    database: yugo_production
-    username: yugo
-    password: <%= ENV["YUGO_DATABASE_PASSWORD"] %>
+    url: <%= ENV.fetch("DATABASE_URL") %>
   queue:
     <<: *default
-    database: yugo_production_queue
-    username: yugo
-    password: <%= ENV["YUGO_DATABASE_PASSWORD"] %>
+    url: <%= ENV.fetch("DATABASE_URL") %>
     migrations_paths: db/queue_migrate
