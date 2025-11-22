@@ -4,18 +4,35 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *default
-  database: yugo_development
+  primary:
+    <<: *default
+    database: yugo_development
+  queue:
+    <<: *default
+    database: yugo_development_queue
+    migrations_paths: db/queue_migrate
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: yugo_test
+  primary:
+    <<: *default
+    database: yugo_test
+  queue:
+    <<: *default
+    database: yugo_test_queue
+    migrations_paths: db/queue_migrate
 
 production:
-  <<: *default
-  database: yugo_production
-  username: yugo
-  password: <%= ENV["YUGO_DATABASE_PASSWORD"] %>
+  primary:
+    <<: *default
+    database: yugo_production
+    username: yugo
+    password: <%= ENV["YUGO_DATABASE_PASSWORD"] %>
+  queue:
+    <<: *default
+    database: yugo_production_queue
+    username: yugo
+    password: <%= ENV["YUGO_DATABASE_PASSWORD"] %>
+    migrations_paths: db/queue_migrate
