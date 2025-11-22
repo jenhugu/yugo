@@ -40,6 +40,23 @@ class Recommendation < ApplicationRecord
       GenerateItineraryJob.perform_later(id)
       true
     else
+      # ========================================================================
+      # GESTION DU REJET - CODE COMMENTÉ
+      # ========================================================================
+      # PROBLÈME : Actuellement, quand on retourne false ici, le controller
+      # affiche "Waiting for other participants..." alors que tous ont déjà voté.
+      # Les participants seront bloqués indéfiniment.
+      #
+      # AVANT DE DÉCOMMENTER : Vérifier si cette fonctionnalité n'a pas déjà
+      # été implémentée par quelqu'un d'autre dans l'équipe.
+      #
+      # Voir app/models/trip.rb pour les méthodes associées et l'explication
+      # complète du problème.
+      # ========================================================================
+      #
+      # # Recommendation rejetée : générer une nouvelle avec les préférences mises à jour
+      # trip.generate_new_recommendation_after_rejection!
+      #
       false
     end
   end
