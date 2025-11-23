@@ -35,4 +35,30 @@ class Trip < ApplicationRecord
     creator_status = user_trip_statuses.find_by(role: "creator")
     creator_status&.preferences_form
   end
+
+  # Vérifie si tous les utilisateurs ont terminé de voter
+  def votes_completed?
+    return false unless all_forms_filled?
+
+    latest_recommendation = recommendations.where.not(accepted: nil).last
+    return false unless latest_recommendation
+
+    user_trip_statuses.all? { |status| status.recommendation_reviewed == true }
+  end
+
+  # Vérifie si les votes sont en accord (accepted: true)
+  def votes_match?
+    return false unless votes_completed?
+
+    latest_recommendation = recommendations.where.not(accepted: nil).last
+    latest_recommendation&.accepted == true
+  end
+
+  # Vérifie si les votes sont en désaccord (accepted: false)
+  def votes_dont_match?
+    return false unless votes_completed?
+
+    latest_recommendation = recommendations.where.not(accepted: nil).last
+    latest_recommendation&.accepted == false
+  end
 end
