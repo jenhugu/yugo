@@ -11,231 +11,60 @@ ActivityItem.destroy_all
 Trip.destroy_all
 User.destroy_all
 
-puts "👥 Creating users..."
+puts "👥 Creating users with avatars..."
 
-# Create users
-alice = User.create!(
-  first_name: "Alice",
-  last_name: "Johnson",
-  email: "alice@yugo.com",
+# Create Friends characters as users
+rachel = User.create!(
+  first_name: "Rachel",
+  last_name: "Green",
+  email: "rachel@yugo.com",
   password: "password123"
 )
+rachel.avatar.attach(io: File.open(Rails.root.join('app/assets/images/Rachel-avatar.png')), filename: 'Rachel-avatar.png', content_type: 'image/png')
 
-bob = User.create!(
-  first_name: "Bob",
-  last_name: "Smith",
-  email: "bob@yugo.com",
+monica = User.create!(
+  first_name: "Monica",
+  last_name: "Geller",
+  email: "monica@yugo.com",
   password: "password123"
 )
+monica.avatar.attach(io: File.open(Rails.root.join('app/assets/images/Monica-avatar.png')), filename: 'Monica-avatar.png', content_type: 'image/png')
 
-charlie = User.create!(
-  first_name: "Charlie",
-  last_name: "Brown",
-  email: "charlie@yugo.com",
+phoebe = User.create!(
+  first_name: "Phoebe",
+  last_name: "Buffay",
+  email: "phoebe@yugo.com",
   password: "password123"
 )
+phoebe.avatar.attach(io: File.open(Rails.root.join('app/assets/images/Phoebe-avatar.png')), filename: 'Phoebe-avatar.png', content_type: 'image/png')
 
-diana = User.create!(
-  first_name: "Diana",
-  last_name: "Prince",
-  email: "diana@yugo.com",
+ross = User.create!(
+  first_name: "Ross",
+  last_name: "Geller",
+  email: "ross@yugo.com",
   password: "password123"
 )
+ross.avatar.attach(io: File.open(Rails.root.join('app/assets/images/Ross_avatar.png')), filename: 'Ross_avatar.png', content_type: 'image/png')
 
-eve = User.create!(
-  first_name: "Eve",
-  last_name: "Martinez",
-  email: "eve@yugo.com",
+chandler = User.create!(
+  first_name: "Chandler",
+  last_name: "Bing",
+  email: "chandler@yugo.com",
   password: "password123"
 )
+chandler.avatar.attach(io: File.open(Rails.root.join('app/assets/images/Chandler-avatar.png')), filename: 'Chandler-avatar.png', content_type: 'image/png')
 
-frank = User.create!(
-  first_name: "Frank",
-  last_name: "Wilson",
-  email: "frank@yugo.com",
+joey = User.create!(
+  first_name: "Joey",
+  last_name: "Tribbiani",
+  email: "joey@yugo.com",
   password: "password123"
 )
+joey.avatar.attach(io: File.open(Rails.root.join('app/assets/images/Joey-avatar.png')), filename: 'Joey-avatar.png', content_type: 'image/png')
 
-grace = User.create!(
-  first_name: "Grace",
-  last_name: "Lee",
-  email: "grace@yugo.com",
-  password: "password123"
-)
+puts "✅ Created #{User.count} users with avatars"
 
-henry = User.create!(
-  first_name: "Henry",
-  last_name: "Taylor",
-  email: "henry@yugo.com",
-  password: "password123"
-)
-
-puts "✅ Created #{User.count} users"
-
-# ==============================================
-# TRIP 1: All participants are pending invitation
-# ==============================================
-puts "\n🌍 Creating Trip 1: Weekend in London (All pending invitations)..."
-
-trip1 = Trip.create!(
-  name: "Weekend in London",
-  destination: "London, UK",
-  start_date: "2026-03-15",
-  end_date: "2026-03-17",
-  trip_type: "city_break"
-)
-
-# Alice is the creator (accepted invitation, hasn't filled form yet)
-UserTripStatus.create!(
-  user: alice,
-  trip: trip1,
-  role: "creator",
-  trip_status: "pending_preferences",
-  is_invited: true,
-  invitation_accepted: true,
-  form_filled: false,
-  recommendation_reviewed: false
-)
-
-# Bob and Charlie are pending invitation
-UserTripStatus.create!(
-  user: bob,
-  trip: trip1,
-  role: "participant",
-  trip_status: "pending_invitation",
-  is_invited: true,
-  invitation_accepted: false,
-  form_filled: false,
-  recommendation_reviewed: false
-)
-
-UserTripStatus.create!(
-  user: charlie,
-  trip: trip1,
-  role: "participant",
-  trip_status: "pending_invitation",
-  is_invited: true,
-  invitation_accepted: false,
-  form_filled: false,
-  recommendation_reviewed: false
-)
-
-puts "✅ Trip 1 created with #{trip1.user_trip_statuses.count} participants"
-
-# ==============================================
-# TRIP 2: Mixed statuses (The one in Paris)
-# ==============================================
-puts "\n🗼 Creating Trip 2: The one in Paris (Mixed statuses)..."
-
-trip2 = Trip.create!(
-  name: "The one in Paris",
-  destination: "Paris, France",
-  start_date: "2026-09-26",
-  end_date: "2026-09-28",
-  trip_type: "cultural"
-)
-
-# Diana is the creator (accepted, form filled)
-uts_diana = UserTripStatus.create!(
-  user: diana,
-  trip: trip2,
-  role: "creator",
-  trip_status: "preferences_filled",
-  is_invited: true,
-  invitation_accepted: true,
-  form_filled: true,
-  recommendation_reviewed: false
-)
-
-# Diana's preferences
-PreferencesForm.create!(
-  user_trip_status: uts_diana,
-  travel_pace: "moderate",
-  budget: 2000,
-  interests: "museums, gastronomy, architecture",
-  activity_types: "cultural, food"
-)
-
-# Eve accepted invitation but hasn't filled preferences
-UserTripStatus.create!(
-  user: eve,
-  trip: trip2,
-  role: "participant",
-  trip_status: "pending_preferences",
-  is_invited: true,
-  invitation_accepted: true,
-  form_filled: false,
-  recommendation_reviewed: false
-)
-
-# Frank is pending invitation
-UserTripStatus.create!(
-  user: frank,
-  trip: trip2,
-  role: "participant",
-  trip_status: "pending_invitation",
-  is_invited: true,
-  invitation_accepted: false,
-  form_filled: false,
-  recommendation_reviewed: false
-)
-
-puts "✅ Trip 2 created with #{trip2.user_trip_statuses.count} participants"
-
-# ==============================================
-# TRIP 3: All reviewing suggestions
-# ==============================================
-puts "\n🗾 Creating Trip 3: Summer in Tokyo (All reviewing suggestions)..."
-
-trip3 = Trip.create!(
-  name: "Summer in Tokyo",
-  destination: "Tokyo, Japan",
-  start_date: "2026-07-10",
-  end_date: "2026-07-24",
-  trip_type: "adventure"
-)
-
-# Grace is the creator (all steps done except review)
-uts_grace = UserTripStatus.create!(
-  user: grace,
-  trip: trip3,
-  role: "creator",
-  trip_status: "reviewing_suggestions",
-  is_invited: true,
-  invitation_accepted: true,
-  form_filled: true,
-  recommendation_reviewed: false
-)
-
-PreferencesForm.create!(
-  user_trip_status: uts_grace,
-  travel_pace: "intense",
-  budget: 3500,
-  interests: "temples, technology, anime, food",
-  activity_types: "cultural, shopping, nightlife"
-)
-
-# Henry also reviewing suggestions
-uts_henry = UserTripStatus.create!(
-  user: henry,
-  trip: trip3,
-  role: "participant",
-  trip_status: "reviewing_suggestions",
-  is_invited: true,
-  invitation_accepted: true,
-  form_filled: true,
-  recommendation_reviewed: false
-)
-
-PreferencesForm.create!(
-  user_trip_status: uts_henry,
-  travel_pace: "moderate",
-  budget: 3000,
-  interests: "temples, sushi, gardens",
-  activity_types: "cultural, food, nature"
-)
-
-# Create some activity items for recommendations
+# Create activity items for recommendations
 puts "\n🎯 Creating Paris activity items..."
 
 # ========================================
@@ -1669,253 +1498,7 @@ ActivityItem.create!(
 )
 
 
-puts "🎉 Activity items are created.\n"
-
-
-# Create recommendation for Trip 3
-puts "📋 Creating recommendations..."
-
-recommendation = Recommendation.create!(
-  trip: trip3,
-  accepted: nil,
-  system_prompt: "Generate cultural and food activities for Tokyo in summer"
-)
-
-RecommendationItem.create!(
-  recommendation: recommendation,
-  activity_item: ActivityItem.find_by(name: "Musée d'Orsay")
-)
-
-RecommendationItem.create!(
-  recommendation: recommendation,
-  activity_item: ActivityItem.find_by(name: "Le Comptoir du Relais")
-)
-
-RecommendationItem.create!(
-  recommendation: recommendation,
-  activity_item: ActivityItem.find_by(name: "Tour Eiffel")
-)
-
-RecommendationItem.create!(
-  recommendation: recommendation,
-  activity_item: ActivityItem.find_by(name: "Sainte-Chapelle")
-)
-
-puts "✅ Trip 3 created with #{trip3.user_trip_statuses.count} participants and #{recommendation.recommendation_items.count} recommendations"
-
-# ==============================================
-# TRIP 2: Adding finalized recommendation
-# ==============================================
-puts "\n💡 Creating finalized recommendation for Trip 2..."
-
-recommendation_paris = Recommendation.create!(
-  trip: trip2,
-  accepted: true,
-  system_prompt: "Generate cultural and gastronomy activities for Paris based on user preferences"
-)
-
-# Create recommendation items (without likes - votes are tracked separately)
-item1 = RecommendationItem.create!(
-  recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Musée d'Orsay")
-)
-
-item2 = RecommendationItem.create!(
-  recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Le Comptoir du Relais")
-)
-
-item3 = RecommendationItem.create!(
-  recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Café de Flore")
-)
-
-item4 = RecommendationItem.create!(
-  recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Sainte-Chapelle")
-)
-
-item5 = RecommendationItem.create!(
-  recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Septime")
-)
-
-item6 = RecommendationItem.create!(
-  recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Centre Pompidou")
-)
-
-item7 = RecommendationItem.create!(
-  recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "L'As du Fallafel")
-)
-
-item8 = RecommendationItem.create!(
-  recommendation: recommendation_paris,
-  activity_item: ActivityItem.find_by(name: "Musée Rodin")
-)
-
-# Create sample votes for Diana (Trip 2 creator)
-RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item1, like: true)
-RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item2, like: true)
-RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item3, like: false)
-RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item4, like: true)
-RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item5, like: true)
-RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item6, like: nil)
-RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item7, like: true)
-RecommendationVote.create!(user_trip_status: uts_diana, recommendation_item: item8, like: nil)
-
-puts "✅ Trip 2 finalized recommendation created with #{recommendation_paris.recommendation_items.count} items"
-
-# ==============================================
-# TRIP 2: Creating completed itinerary
-# ==============================================
-puts "\n📅 Creating completed itinerary for Trip 2..."
-
-itinerary_paris = Itinerary.create!(
-  trip: trip2,
-  system_prompt: "Generate a 3-day cultural and gastronomy itinerary for Paris"
-)
-
-# Day 1 - 2026-09-26
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Holybelly"),
-  date: "2026-09-26",
-  slot: "morning",
-  time: "09:00",
-  position: "1"
-)
-
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Sainte-Chapelle"),
-  date: "2026-09-26",
-  slot: "morning",
-  time: "11:00",
-  position: "2"
-)
-
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "L'As du Fallafel"),
-  date: "2026-09-26",
-  slot: "afternoon",
-  time: "13:00",
-  position: "3"
-)
-
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Musée Picasso"),
-  date: "2026-09-26",
-  slot: "afternoon",
-  time: "15:00",
-  position: "4"
-)
-
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Le Comptoir du Relais"),
-  date: "2026-09-26",
-  slot: "evening",
-  time: "19:30",
-  position: "5"
-)
-
-# Day 2 - 2026-09-27
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Café Kitsuné"),
-  date: "2026-09-27",
-  slot: "morning",
-  time: "09:00",
-  position: "1"
-)
-
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Musée d'Orsay"),
-  date: "2026-09-27",
-  slot: "morning",
-  time: "10:00",
-  position: "2"
-)
-
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Angelina"),
-  date: "2026-09-27",
-  slot: "afternoon",
-  time: "13:00",
-  position: "3"
-)
-
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Musée Rodin"),
-  date: "2026-09-27",
-  slot: "afternoon",
-  time: "15:00",
-  position: "4"
-)
-
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Septime"),
-  date: "2026-09-27",
-  slot: "evening",
-  time: "19:30",
-  position: "5"
-)
-
-# Day 3 - 2026-09-28
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Claus"),
-  date: "2026-09-28",
-  slot: "morning",
-  time: "09:00",
-  position: "1"
-)
-
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Centre Pompidou"),
-  date: "2026-09-28",
-  slot: "morning",
-  time: "11:00",
-  position: "2"
-)
-
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Breizh Café"),
-  date: "2026-09-28",
-  slot: "afternoon",
-  time: "13:00",
-  position: "3"
-)
-
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Croisière sur la Seine"),
-  date: "2026-09-28",
-  slot: "afternoon",
-  time: "15:00",
-  position: "4"
-)
-
-ItineraryItem.create!(
-  itinerary: itinerary_paris,
-  activity_item: ActivityItem.find_by(name: "Frenchie"),
-  date: "2026-09-28",
-  slot: "evening",
-  time: "19:00",
-  position: "5"
-)
-
-puts "✅ Itinerary created with #{itinerary_paris.itinerary_items.count} activities over 3 days"
+puts "✅ Activity items created"
 
 # Summary
 puts "\n" + "="*50
@@ -1923,92 +1506,5 @@ puts "🎉 SEED COMPLETED!"
 puts "="*50
 puts "\n📊 Summary:"
 puts "  👥 Users: #{User.count}"
-puts "  🌍 Trips: #{Trip.count}"
-puts "  📝 User Trip Statuses: #{UserTripStatus.count}"
-puts "  📋 Preferences Forms: #{PreferencesForm.count}"
 puts "  🎯 Activity Items: #{ActivityItem.count}"
-puts "  💡 Recommendations: #{Recommendation.count}"
-puts "  ⭐ Recommendation Items: #{RecommendationItem.count}"
-puts "  📅 Itineraries: #{Itinerary.count}"
-puts "  🗓️  Itinerary Items: #{ItineraryItem.count}"
-puts "\n✨ You can now test your trips:"
-puts "  • Trip 1 (#{trip1.name}): ID #{trip1.id} - All pending invitations"
-puts "  • Trip 2 (#{trip2.name}): ID #{trip2.id} - Mixed statuses + Finalized recommendation + Complete itinerary (3 days)"
-puts "  • Trip 3 (#{trip3.name}): ID #{trip3.id} - All reviewing suggestions"
 puts "="*50
-
-puts "\n🧪 Creating test data for recommendations..."
-
-# Créer un trip de test
-trip = Trip.create!(
-  name: "Paris Weekend",
-  destination: "Paris",
-  start_date: "2025-12-15",
-  end_date: "2025-12-17",
-  trip_type: "weekend"
-)
-
-# Créer 2 utilisateurs
-user1 = User.create!(
-  first_name: "Alice",
-  last_name: "Martin",
-  email: "alice@test.com",
-  password: "password"
-)
-
-user2 = User.create!(
-  first_name: "Bob",
-  last_name: "Dubois",
-  email: "bob@test.com",
-  password: "password"
-)
-
-# Créer les UserTripStatus avec form_filled: true
-# Note: On doit stocker les UserTripStatus dans des variables pour pouvoir créer les PreferencesForm associés après
-uts_user1 = UserTripStatus.create!(
-  user: user1,
-  trip: trip,
-  form_filled: true,
-  role: "creator",
-  trip_status: "active",
-  is_invited: false,
-  recommendation_reviewed: false,
-  invitation_accepted: true
-)
-
-uts_user2 = UserTripStatus.create!(
-  user: user2,
-  trip: trip,
-  form_filled: true,
-  role: "participant",
-  trip_status: "active",
-  is_invited: true,
-  recommendation_reviewed: false,
-  invitation_accepted: true
-)
-
-# Créer les PreferencesForm pour ces utilisateurs
-# Important: Si form_filled est true, il FAUT créer un PreferencesForm sinon generate_recommendations_if_ready va planter
-PreferencesForm.create!(
-  user_trip_status: uts_user1,
-  travel_pace: "moderate",
-  budget: 1500,
-  interests: "museums, food, history",
-  activity_types: "cultural, food"
-)
-
-PreferencesForm.create!(
-  user_trip_status: uts_user2,
-  travel_pace: "relaxed",
-  budget: 1200,
-  interests: "cafes, shopping, architecture",
-  activity_types: "shopping, cultural"
-)
-
-# Générer les recommendations automatiquement
-puts "Generating recommendations for trip #{trip.id}..."
-trip.generate_recommendations_if_ready
-
-puts "✅ Test trip created with ID: #{trip.id}"
-puts "✅ #{trip.recommendations.count} recommendation(s) generated"
-puts "✅ #{trip.recommendations.first&.recommendation_items&.count} recommendation items created"
