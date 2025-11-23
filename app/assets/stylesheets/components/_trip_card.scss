@@ -132,6 +132,28 @@
     padding: 14px 0;
     display: block;
   }
+
+  &__section--full-width {
+    grid-column: 1 / -1;
+    height: auto;
+    min-height: 83px;
+  }
+
+  &__animation-placeholder {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0;
+
+    p {
+      font-family: $body-font;
+      font-size: 16px;
+      font-weight: 600;
+      color: $main-text;
+      margin: 0;
+    }
+  }
 }
 
 .trip-card--invitation {
