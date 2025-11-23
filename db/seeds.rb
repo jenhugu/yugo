@@ -1500,11 +1500,319 @@ ActivityItem.create!(
 
 puts "✅ Activity items created"
 
+# ==============================================
+# TRIP 1: trip created no invitation sent
+# ==============================================
+puts "\n🌍 Creating Trip 1: trip created no invitation sent..."
+
+trip1 = Trip.create!(
+  name: "trip created no invitation sent",
+  destination: "Paris, France",
+  start_date: "2026-05-10",
+  end_date: "2026-05-17",
+  trip_type: "cultural"
+)
+
+# Monica is the creator - has NOT filled preferences yet
+UserTripStatus.create!(
+  user: monica,
+  trip: trip1,
+  role: "creator",
+  trip_status: "pending_preferences",
+  is_invited: false,
+  invitation_accepted: true,
+  form_filled: false,
+  recommendation_reviewed: false
+)
+
+puts "✅ Trip 1 created: #{trip1.name}"
+
+# ==============================================
+# TRIP 2: trip created and activity to review
+# ==============================================
+puts "\n📋 Creating Trip 2: trip created and activity to review..."
+
+trip2 = Trip.create!(
+  name: "trip created and activity to review",
+  destination: "Paris, France",
+  start_date: "2026-07-01",
+  end_date: "2026-07-08",
+  trip_type: "cultural"
+)
+
+# Monica is the creator (form filled)
+uts_monica_trip2 = UserTripStatus.create!(
+  user: monica,
+  trip: trip2,
+  role: "creator",
+  trip_status: "reviewing_suggestions",
+  is_invited: false,
+  invitation_accepted: true,
+  form_filled: true,
+  recommendation_reviewed: false
+)
+
+PreferencesForm.create!(
+  user_trip_status: uts_monica_trip2,
+  travel_pace: "moderate",
+  budget: 2500,
+  interests: { "culture" => 4, "food" => 5, "shopping" => 3 },
+  activity_types: "cultural, food"
+)
+
+# Chandler participant (form filled)
+uts_chandler_trip2 = UserTripStatus.create!(
+  user: chandler,
+  trip: trip2,
+  role: "participant",
+  trip_status: "reviewing_suggestions",
+  is_invited: true,
+  invitation_accepted: true,
+  form_filled: true,
+  recommendation_reviewed: false
+)
+
+PreferencesForm.create!(
+  user_trip_status: uts_chandler_trip2,
+  travel_pace: "relaxed",
+  budget: 2000,
+  interests: { "culture" => 3, "food" => 4, "nightlife" => 4 },
+  activity_types: "cultural, food, nightlife"
+)
+
+# Rachel participant (form filled)
+uts_rachel_trip2 = UserTripStatus.create!(
+  user: rachel,
+  trip: trip2,
+  role: "participant",
+  trip_status: "reviewing_suggestions",
+  is_invited: true,
+  invitation_accepted: true,
+  form_filled: true,
+  recommendation_reviewed: false
+)
+
+PreferencesForm.create!(
+  user_trip_status: uts_rachel_trip2,
+  travel_pace: "moderate",
+  budget: 3000,
+  interests: { "culture" => 5, "shopping" => 5, "food" => 4 },
+  activity_types: "cultural, shopping, food"
+)
+
+# Create recommendations for Trip 2
+recommendation_trip2 = Recommendation.create!(
+  trip: trip2,
+  accepted: nil,
+  system_prompt: "Generate cultural and gastronomy activities for Paris"
+)
+
+# Add recommendation items
+[
+  "Musée d'Orsay",
+  "Le Comptoir du Relais",
+  "Sainte-Chapelle",
+  "Café de Flore",
+  "Centre Pompidou",
+  "Breizh Café",
+  "Musée Rodin",
+  "L'As du Fallafel"
+].each do |activity_name|
+  activity = ActivityItem.find_by(name: activity_name)
+  RecommendationItem.create!(
+    recommendation: recommendation_trip2,
+    activity_item: activity
+  ) if activity
+end
+
+puts "✅ Trip 2 created with #{trip2.user_trip_statuses.count} participants and #{recommendation_trip2.recommendation_items.count} recommendations"
+
+# ==============================================
+# TRIP 3: Finalized with 7-day itinerary
+# ==============================================
+puts "\n✈️ Creating Trip 3: Finalized with itinerary..."
+
+trip3 = Trip.create!(
+  name: "Paris Adventure - Complete",
+  destination: "Paris, France",
+  start_date: "2026-09-15",
+  end_date: "2026-09-21",
+  trip_type: "cultural"
+)
+
+# Monica is the creator (form filled)
+uts_monica_trip3 = UserTripStatus.create!(
+  user: monica,
+  trip: trip3,
+  role: "creator",
+  trip_status: "itinerary_ready",
+  is_invited: false,
+  invitation_accepted: true,
+  form_filled: true,
+  recommendation_reviewed: true
+)
+
+PreferencesForm.create!(
+  user_trip_status: uts_monica_trip3,
+  travel_pace: "intense",
+  budget: 3000,
+  interests: { "culture" => 5, "food" => 5, "shopping" => 2 },
+  activity_types: "cultural, food"
+)
+
+# Chandler participant (form filled)
+uts_chandler_trip3 = UserTripStatus.create!(
+  user: chandler,
+  trip: trip3,
+  role: "participant",
+  trip_status: "itinerary_ready",
+  is_invited: true,
+  invitation_accepted: true,
+  form_filled: true,
+  recommendation_reviewed: true
+)
+
+PreferencesForm.create!(
+  user_trip_status: uts_chandler_trip3,
+  travel_pace: "moderate",
+  budget: 2500,
+  interests: { "culture" => 3, "food" => 4, "nightlife" => 5 },
+  activity_types: "cultural, food, nightlife"
+)
+
+# Rachel participant (form filled)
+uts_rachel_trip3 = UserTripStatus.create!(
+  user: rachel,
+  trip: trip3,
+  role: "participant",
+  trip_status: "itinerary_ready",
+  is_invited: true,
+  invitation_accepted: true,
+  form_filled: true,
+  recommendation_reviewed: true
+)
+
+PreferencesForm.create!(
+  user_trip_status: uts_rachel_trip3,
+  travel_pace: "moderate",
+  budget: 3500,
+  interests: { "culture" => 5, "shopping" => 5, "food" => 5 },
+  activity_types: "cultural, shopping, food"
+)
+
+# Create accepted recommendations for Trip 3
+recommendation_trip3 = Recommendation.create!(
+  trip: trip3,
+  accepted: true,
+  system_prompt: "Generate cultural, gastronomy and shopping activities for Paris"
+)
+
+# Add recommendation items for Trip 3
+trip3_activities = [
+  "Musée d'Orsay", "Le Comptoir du Relais", "Sainte-Chapelle", "Café de Flore",
+  "Centre Pompidou", "Breizh Café", "Musée Rodin", "L'As du Fallafel",
+  "Angelina", "Musée Picasso", "Tour Eiffel", "Croisière sur la Seine",
+  "Pink Mamma", "Opéra Garnier"
+]
+
+trip3_activities.each do |activity_name|
+  activity = ActivityItem.find_by(name: activity_name)
+  RecommendationItem.create!(
+    recommendation: recommendation_trip3,
+    activity_item: activity
+  ) if activity
+end
+
+# Create 7-day itinerary for Trip 3
+puts "📅 Creating 7-day itinerary for Trip 3..."
+
+itinerary_trip3 = Itinerary.create!(
+  trip: trip3,
+  system_prompt: "Generate a 7-day cultural and gastronomy itinerary for Paris"
+)
+
+# Day 1 - 2026-09-15
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Café de Flore"), date: "2026-09-15", slot: "morning", time: "09:00", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Musée d'Orsay"), date: "2026-09-15", slot: "morning", time: "10:30", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "L'As du Fallafel"), date: "2026-09-15", slot: "afternoon", time: "13:00", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Sainte-Chapelle"), date: "2026-09-15", slot: "afternoon", time: "15:00", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Le Comptoir du Relais"), date: "2026-09-15", slot: "evening", time: "19:30", position: "5")
+
+# Day 2 - 2026-09-16
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Angelina"), date: "2026-09-16", slot: "morning", time: "09:00", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Musée Rodin"), date: "2026-09-16", slot: "morning", time: "11:00", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Breizh Café"), date: "2026-09-16", slot: "afternoon", time: "13:00", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Tour Eiffel"), date: "2026-09-16", slot: "afternoon", time: "15:30", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Pink Mamma"), date: "2026-09-16", slot: "evening", time: "20:00", position: "5")
+
+# Day 3 - 2026-09-17
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Café Kitsuné"), date: "2026-09-17", slot: "morning", time: "09:00", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Centre Pompidou"), date: "2026-09-17", slot: "morning", time: "11:00", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Nanashi"), date: "2026-09-17", slot: "afternoon", time: "13:00", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Musée Picasso"), date: "2026-09-17", slot: "afternoon", time: "15:00", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Frenchie"), date: "2026-09-17", slot: "evening", time: "19:30", position: "5")
+
+# Day 4 - 2026-09-18
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Holybelly"), date: "2026-09-18", slot: "morning", time: "09:30", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Opéra Garnier"), date: "2026-09-18", slot: "morning", time: "11:30", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Ellsworth"), date: "2026-09-18", slot: "afternoon", time: "13:30", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Palais Royal"), date: "2026-09-18", slot: "afternoon", time: "15:30", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Septime"), date: "2026-09-18", slot: "evening", time: "20:00", position: "5")
+
+# Day 5 - 2026-09-19
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Claus"), date: "2026-09-19", slot: "morning", time: "09:00", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Musée de l'Orangerie"), date: "2026-09-19", slot: "morning", time: "10:30", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Chez Janou"), date: "2026-09-19", slot: "afternoon", time: "13:00", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Atelier des Lumières"), date: "2026-09-19", slot: "afternoon", time: "16:00", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Bistrot Paul Bert"), date: "2026-09-19", slot: "evening", time: "20:00", position: "5")
+
+# Day 6 - 2026-09-20
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "KB CaféShop"), date: "2026-09-20", slot: "morning", time: "09:00", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Panthéon"), date: "2026-09-20", slot: "morning", time: "11:00", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Miznon"), date: "2026-09-20", slot: "afternoon", time: "13:00", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Jardin du Luxembourg"), date: "2026-09-20", slot: "afternoon", time: "15:00", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Le Chateaubriand"), date: "2026-09-20", slot: "evening", time: "19:30", position: "5")
+
+# Day 7 - 2026-09-21
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Carette"), date: "2026-09-21", slot: "morning", time: "10:00", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Croisière sur la Seine"), date: "2026-09-21", slot: "morning", time: "11:30", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Le Relais de l'Entrecôte"), date: "2026-09-21", slot: "afternoon", time: "13:30", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Arc de Triomphe"), date: "2026-09-21", slot: "afternoon", time: "16:00", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Le Train Bleu"), date: "2026-09-21", slot: "evening", time: "19:30", position: "5")
+
+puts "✅ Trip 3 created with #{trip3.user_trip_statuses.count} participants, #{recommendation_trip3.recommendation_items.count} recommendations, and #{itinerary_trip3.itinerary_items.count} itinerary items over 7 days"
+
 # Summary
 puts "\n" + "="*50
 puts "🎉 SEED COMPLETED!"
 puts "="*50
 puts "\n📊 Summary:"
 puts "  👥 Users: #{User.count}"
+puts "  🌍 Trips: #{Trip.count}"
+puts "  📝 User Trip Statuses: #{UserTripStatus.count}"
+puts "  📋 Preferences Forms: #{PreferencesForm.count}"
 puts "  🎯 Activity Items: #{ActivityItem.count}"
+puts "  💡 Recommendations: #{Recommendation.count}"
+puts "  ⭐ Recommendation Items: #{RecommendationItem.count}"
+puts "  📅 Itineraries: #{Itinerary.count}"
+puts "  🗓️  Itinerary Items: #{ItineraryItem.count}"
+puts "\n✨ Trips created:"
+puts "  • Trip 1: #{trip1.name} - Monica seule, pas de préférences"
+puts "  • Trip 2: #{trip2.name} - Monica + Chandler + Rachel, en review"
+puts "  • Trip 3: #{trip3.name} - Monica + Chandler + Rachel, itinéraire 7 jours"
+puts "="*50
+
+puts "\n🔑 Identifiants de connexion:"
+puts "-"*50
+puts "Monica Geller (créatrice des trips):"
+puts "  Email: monica@yugo.com"
+puts "  Password: password123"
+puts ""
+puts "Chandler Bing (participant):"
+puts "  Email: chandler@yugo.com"
+puts "  Password: password123"
+puts ""
+puts "Rachel Green (participante):"
+puts "  Email: rachel@yugo.com"
+puts "  Password: password123"
 puts "="*50
