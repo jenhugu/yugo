@@ -32,6 +32,10 @@ Rails.application.routes.draw do
   # Style guide (accessible uniquement en dev)
   get 'styleguide', to: 'pages#styleguide' if Rails.env.development?
 
+  # Get Inspired page
+  get 'get-inspired', to: 'pages#get_inspired', as: :get_inspired
+  get 'get-inspired/more', to: 'pages#get_inspired_more', as: :get_inspired_more
+
   # Route permettant de passer invitation_accepted de false à true en cas d'acceptation de l'invitation.
   resources :user_trip_statuses, only: [] do
     member do

@@ -259,6 +259,26 @@
           <p class="component-label">Code d'utilisation :</p>
           <pre style="background: #f8f9fa; padding: 1rem; border-radius: 8px; overflow-x: auto;"><code>&lt;%= render 'shared/review_card', recommendation_item: @recommendation_item %&gt;</code></pre>
         </div>
+
+        <h3 style="margin-top: 3rem;">Get Inspired Activity Card</h3>
+        <p class="component-label">Card pour afficher les activités aléatoires sur la page Get Inspired</p>
+
+        <div class="component-example">
+          <div class="get-inspired-grid">
+            <% if ActivityItem.first(3) %>
+              <% ActivityItem.first(3).each do |activity| %>
+                <%= render 'shared/get_inspired_activity_card', activity: activity %>
+              <% end %>
+            <% else %>
+              <p style="color: #6c757d;">Aucune activité disponible. Lance <code>rails db:seed</code> pour créer des données de test.</p>
+            <% end %>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <p class="component-label">Code d'utilisation :</p>
+          <pre style="background: #f8f9fa; padding: 1rem; border-radius: 8px; overflow-x: auto;"><code>&lt;%= render 'shared/get_inspired_activity_card', activity: @activity %&gt;</code></pre>
+        </div>
     </section>
 
     <!-- Section: Navigation -->

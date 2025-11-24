@@ -1,0 +1,63 @@
+// ============================================
+// GET INSPIRED PAGE
+// ============================================
+
+.get-inspired-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 3rem 2rem;
+}
+
+.get-inspired-header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    color: $main-text;
+    font-size: 40px;
+  }
+}
+
+.get-inspired-container {
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto 3rem auto;
+  align-self: center;
+  width: 100%;
+}
+
+.get-inspired-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.get-inspired-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  position: sticky;
+  bottom: 0;
+  background-color: $background;
+  z-index: 100;
+}
+
+.btn-large {
+  padding: 16px 48px;
+  font-size: 16px;
+  min-width: 200px;
+}

@@ -1,0 +1,69 @@
+<%#
+  Get Inspired Activity Card Component
+
+  Usage:
+  render 'shared/get_inspired_activity_card', activity: @activity
+
+  Props:
+  - activity: ActivityItem object
+%>
+
+<div class="get-inspired-card">
+  <!-- Image Section with Tags -->
+  <div class="get-inspired-card__image-wrapper">
+    <% if activity.image.attached? %>
+      <%= image_tag activity.image, alt: activity.name, class: "get-inspired-card__image" %>
+    <% else %>
+      <div class="get-inspired-card__image get-inspired-card__image--placeholder">
+        <p>🏖️</p>
+      </div>
+    <% end %>
+
+    <!-- Tags -->
+    <% if activity.activity_type.present? %>
+      <div class="get-inspired-card__tags">
+        <span class="tag tag-<%= activity.activity_type.parameterize %>">
+          <%= activity.activity_type.titleize %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Content Section -->
+  <div class="get-inspired-card__content">
+    <!-- Title -->
+    <h3 class="get-inspired-card__title"><%= activity.name %></h3>
+
+    <!-- Tagline -->
+    <% if activity.tagline.present? %>
+      <p class="get-inspired-card__tagline"><%= activity.tagline %></p>
+    <% end %>
+
+    <!-- Description -->
+    <p class="get-inspired-card__description"><%= activity.description %></p>
+
+    <!-- Info Items -->
+    <div class="get-inspired-card__info">
+      <% if activity.address.present? %>
+        <div class="get-inspired-card__info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span><%= activity.address %></span>
+        </div>
+      <% end %>
+
+      <% if activity.opening_hours.present? %>
+        <div class="get-inspired-card__info-item">
+          <i class="fa-regular fa-clock"></i>
+          <span><%= activity.opening_hours %></span>
+        </div>
+      <% end %>
+
+      <% if activity.price.present? %>
+        <div class="get-inspired-card__info-item">
+          <i class="fa-solid fa-euro-sign"></i>
+          <span>Average price: <%= activity.price %>€ / person</span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
