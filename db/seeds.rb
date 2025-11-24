@@ -1732,53 +1732,53 @@ itinerary_trip3 = Itinerary.create!(
 )
 
 # Day 1 - 2026-09-15
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Café de Flore"), date: "2026-09-15", slot: "morning", time: "09:00", position: "1")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Musée d'Orsay"), date: "2026-09-15", slot: "morning", time: "10:30", position: "2")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "L'As du Fallafel"), date: "2026-09-15", slot: "afternoon", time: "13:00", position: "3")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Sainte-Chapelle"), date: "2026-09-15", slot: "afternoon", time: "15:00", position: "4")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Le Comptoir du Relais"), date: "2026-09-15", slot: "evening", time: "19:30", position: "5")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Café de Flore"), date: "2026-09-15", time: "09:00", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Musée d'Orsay"), date: "2026-09-15", time: "10:30", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "L'As du Fallafel"), date: "2026-09-15", time: "13:00", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Sainte-Chapelle"), date: "2026-09-15", time: "15:00", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Le Comptoir du Relais"), date: "2026-09-15", time: "19:30", position: "5")
 
 # Day 2 - 2026-09-16
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Angelina"), date: "2026-09-16", slot: "morning", time: "09:00", position: "1")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Musée Rodin"), date: "2026-09-16", slot: "morning", time: "11:00", position: "2")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Breizh Café"), date: "2026-09-16", slot: "afternoon", time: "13:00", position: "3")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Tour Eiffel"), date: "2026-09-16", slot: "afternoon", time: "15:30", position: "4")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Pink Mamma"), date: "2026-09-16", slot: "evening", time: "20:00", position: "5")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Angelina"), date: "2026-09-16", time: "09:00", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Musée Rodin"), date: "2026-09-16", time: "11:00", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Breizh Café"), date: "2026-09-16", time: "13:00", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Tour Eiffel"), date: "2026-09-16", time: "15:30", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Pink Mamma"), date: "2026-09-16", time: "20:00", position: "5")
 
 # Day 3 - 2026-09-17
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Café Kitsuné"), date: "2026-09-17", slot: "morning", time: "09:00", position: "1")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Centre Pompidou"), date: "2026-09-17", slot: "morning", time: "11:00", position: "2")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Nanashi"), date: "2026-09-17", slot: "afternoon", time: "13:00", position: "3")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Musée Picasso"), date: "2026-09-17", slot: "afternoon", time: "15:00", position: "4")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Frenchie"), date: "2026-09-17", slot: "evening", time: "19:30", position: "5")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Café Kitsuné"), date: "2026-09-17", time: "09:00", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Centre Pompidou"), date: "2026-09-17", time: "11:00", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Nanashi"), date: "2026-09-17", time: "13:00", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Musée Picasso"), date: "2026-09-17", time: "15:00", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Frenchie"), date: "2026-09-17", time: "19:30", position: "5")
 
 # Day 4 - 2026-09-18
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Holybelly"), date: "2026-09-18", slot: "morning", time: "09:30", position: "1")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Opéra Garnier"), date: "2026-09-18", slot: "morning", time: "11:30", position: "2")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Ellsworth"), date: "2026-09-18", slot: "afternoon", time: "13:30", position: "3")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Palais Royal"), date: "2026-09-18", slot: "afternoon", time: "15:30", position: "4")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Septime"), date: "2026-09-18", slot: "evening", time: "20:00", position: "5")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Holybelly"), date: "2026-09-18", time: "09:30", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Opéra Garnier"), date: "2026-09-18", time: "11:30", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Ellsworth"), date: "2026-09-18", time: "13:30", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Palais Royal"), date: "2026-09-18", time: "15:30", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Septime"), date: "2026-09-18", time: "20:00", position: "5")
 
 # Day 5 - 2026-09-19
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Claus"), date: "2026-09-19", slot: "morning", time: "09:00", position: "1")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Musée de l'Orangerie"), date: "2026-09-19", slot: "morning", time: "10:30", position: "2")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Chez Janou"), date: "2026-09-19", slot: "afternoon", time: "13:00", position: "3")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Atelier des Lumières"), date: "2026-09-19", slot: "afternoon", time: "16:00", position: "4")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Bistrot Paul Bert"), date: "2026-09-19", slot: "evening", time: "20:00", position: "5")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Claus"), date: "2026-09-19", time: "09:00", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Musée de l'Orangerie"), date: "2026-09-19", time: "10:30", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Chez Janou"), date: "2026-09-19", time: "13:00", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Atelier des Lumières"), date: "2026-09-19", time: "16:00", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Bistrot Paul Bert"), date: "2026-09-19", time: "20:00", position: "5")
 
 # Day 6 - 2026-09-20
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "KB CaféShop"), date: "2026-09-20", slot: "morning", time: "09:00", position: "1")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Panthéon"), date: "2026-09-20", slot: "morning", time: "11:00", position: "2")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Miznon"), date: "2026-09-20", slot: "afternoon", time: "13:00", position: "3")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Jardin du Luxembourg"), date: "2026-09-20", slot: "afternoon", time: "15:00", position: "4")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Le Chateaubriand"), date: "2026-09-20", slot: "evening", time: "19:30", position: "5")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "KB CaféShop"), date: "2026-09-20", time: "09:00", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Panthéon"), date: "2026-09-20", time: "11:00", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Miznon"), date: "2026-09-20", time: "13:00", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Jardin du Luxembourg"), date: "2026-09-20", time: "15:00", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Le Chateaubriand"), date: "2026-09-20", time: "19:30", position: "5")
 
 # Day 7 - 2026-09-21
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Carette"), date: "2026-09-21", slot: "morning", time: "10:00", position: "1")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Croisière sur la Seine"), date: "2026-09-21", slot: "morning", time: "11:30", position: "2")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Le Relais de l'Entrecôte"), date: "2026-09-21", slot: "afternoon", time: "13:30", position: "3")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Arc de Triomphe"), date: "2026-09-21", slot: "afternoon", time: "16:00", position: "4")
-ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Le Train Bleu"), date: "2026-09-21", slot: "evening", time: "19:30", position: "5")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Carette"), date: "2026-09-21", time: "10:00", position: "1")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Croisière sur la Seine"), date: "2026-09-21", time: "11:30", position: "2")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Le Relais de l'Entrecôte"), date: "2026-09-21", time: "13:30", position: "3")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Arc de Triomphe"), date: "2026-09-21", time: "16:00", position: "4")
+ItineraryItem.create!(itinerary: itinerary_trip3, activity_item: ActivityItem.find_by(name: "Le Train Bleu"), date: "2026-09-21", time: "19:30", position: "5")
 
 puts "✅ Trip 3 created with #{trip3.user_trip_statuses.count} participants, #{recommendation_trip3.recommendation_items.count} recommendations, and #{itinerary_trip3.itinerary_items.count} itinerary items over 7 days"
 

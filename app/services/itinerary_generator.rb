@@ -36,7 +36,7 @@ class ItineraryGenerator
     end.join("\n\n")
 
     <<~PROMPT
-      You are a travel itinerary planner for Paris.
+      You are a travel itinerary planner for #{@trip.destination}.
 
       TRIP INFORMATION:
       - Destination: #{@trip.destination}
@@ -54,6 +54,12 @@ class ItineraryGenerator
       - Logical order (breakfast places in morning, restaurants at lunch/dinner time, etc.)
       - Geographic proximity when possible
       - Balanced distribution across days
+
+      MANDATORY MEAL CONSTRAINTS:
+      - EVERY day must have a food/restaurant activity between 12:00-14:00 (lunch)
+      - EVERY day must have a food/restaurant activity between 19:00-21:00 (dinner)
+      - Food activities include: restaurants, cafés, food markets, or any activity with food-related types
+      - These meal slots are NON-NEGOTIABLE and must be respected for each day of the trip
 
       IMPORTANT - RETURN FORMAT:
       Return ONLY a valid JSON array with this exact structure:
