@@ -87,3 +87,47 @@
   align-items: center;
   width: 150px;
 }
+
+// Activity selection grid (Step 4)
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.activity-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d2d2d;
+  min-height: 50px;
+  text-align: center;
+
+  &:hover {
+    border-color: $terracotta-dark;
+    background-color: #fff5f3;
+  }
+
+  &.selected {
+    background-color: $terracotta-dark;
+    border-color: $terracotta-dark;
+    color: white;
+  }
+
+  .activity-checkbox {
+    display: none; // Hide the checkbox visually but keep it functional
+  }
+
+  span {
+    pointer-events: none; // Ensure clicks go to the label
+  }
+}
