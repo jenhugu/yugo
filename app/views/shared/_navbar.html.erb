@@ -7,7 +7,7 @@
     </div>
 
     <div class="navbar-menu">
-      <%= link_to "Get inspired", "#", class: "navbar-link" %>
+      <%= link_to "Get inspired", get_inspired_path, class: "navbar-link" %>
 
       <% if user_signed_in? %>
         <%= link_to "My trips", trips_path, class: "navbar-link" %>
