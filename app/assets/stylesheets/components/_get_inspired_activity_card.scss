@@ -1,0 +1,207 @@
+// ============================================
+// GET INSPIRED ACTIVITY CARD COMPONENT
+// Card pour afficher les activités aléatoires
+// ============================================
+
+.get-inspired-card {
+  display: flex;
+  flex-direction: column;
+  background: $background;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  height: 100%;
+
+  &:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+
+  // Image section (top)
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; // 1:1 aspect ratio
+    overflow: hidden;
+    background: $background;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    &--placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f3f4f6;
+
+      p {
+        font-size: 48px;
+        margin: 0;
+      }
+    }
+  }
+
+  // Tags (positioned on image)
+  &__tags {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    z-index: 10;
+
+    .tag {
+      font-family: $body-font;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(4px);
+
+      &.tag-local-favorite {
+        background-color: rgba(79, 209, 197, 0.95);
+        color: white;
+      }
+
+      &.tag-hidden-gem {
+        background-color: rgba(245, 158, 11, 0.95);
+        color: white;
+      }
+
+      &.tag-cultural {
+        background-color: rgba(244, 63, 94, 0.95);
+        color: white;
+      }
+
+      &.tag-restaurant {
+        background-color: rgba(217, 119, 6, 0.95);
+        color: white;
+      }
+
+      &.tag-cafe {
+        background-color: rgba(245, 158, 11, 0.95);
+        color: white;
+      }
+
+      &.tag-art {
+        background-color: rgba(251, 113, 133, 0.95);
+        color: white;
+      }
+
+      &.tag-museum {
+        background-color: rgba(79, 209, 197, 0.95);
+        color: white;
+      }
+
+      &.tag-farm-to-table {
+        background-color: rgba(79, 209, 197, 0.95);
+        color: white;
+      }
+
+      &.tag-chefs-choice {
+        background-color: rgba(244, 63, 94, 0.95);
+        color: white;
+      }
+
+      &.tag-artistic-vibe {
+        background-color: rgba(251, 113, 133, 0.95);
+        color: white;
+      }
+
+      &.tag-great-coffee {
+        background-color: rgba(245, 158, 11, 0.95);
+        color: white;
+      }
+    }
+  }
+
+  // Content section (bottom)
+  &__content {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // Title
+  &__title {
+    @extend h3;
+    color: $main-text;
+    margin: 0 0 0.5rem 0;
+    font-size: 18px;
+  }
+
+  // Tagline
+  &__tagline {
+    @extend .subtitle-light;
+    color: $secondary-text;
+    margin: 0 0 0.75rem 0;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  // Description
+  &__description {
+    @extend .body-text;
+    color: $main-text;
+    margin: 0 0 1rem 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  // Info items (address, hours, price)
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+
+  &__info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    i {
+      color: $terracotta-light;
+      font-size: 14px;
+      width: 16px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    span {
+      @extend .card-info;
+      color: $secondary-text;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+  }
+}
+
+// Grid wrapper (will be used in the view)
+.get-inspired-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
