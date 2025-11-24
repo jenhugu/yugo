@@ -1,0 +1,53 @@
+// ============================================
+// GET INSPIRED PAGE
+// ============================================
+
+.get-inspired-page {
+  padding: 3rem 2rem;
+}
+
+.get-inspired-header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: $main-text;
+  }
+}
+
+.get-inspired-container {
+  max-width: 1400px;
+  margin: 0 auto 3rem auto;
+}
+
+.get-inspired-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.get-inspired-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.btn-large {
+  padding: 16px 48px;
+  font-size: 16px;
+  min-width: 200px;
+}

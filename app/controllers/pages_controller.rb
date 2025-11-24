@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :get_inspired]
+  skip_before_action :authenticate_user!, only: [:home, :get_inspired, :get_inspired_more]
 
   def home
   end
@@ -17,7 +17,7 @@ class PagesController < ApplicationController
   def get_inspired_more
     # Récupérer 3 activités aléatoires supplémentaires pour le lazy loading
     @activities = ActivityItem.order("RANDOM()").limit(3)
-    render :get_inspired_cards, layout: false
+    render partial: 'get_inspired_cards', layout: false
   end
 
   private
