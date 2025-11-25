@@ -154,6 +154,21 @@
       margin: 0;
     }
   }
+
+  &__animation {
+    max-width: 200px;
+    max-height: 200px;
+    animation: float 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
 }
 
 .trip-card--invitation {
@@ -229,7 +244,7 @@
     @extend .btn-secondary;
   }
 
-  .trip-card__button--accept {
+  //.trip-card__button--accept {
     // styles inherited from parent
-  }
+  //}
 }
