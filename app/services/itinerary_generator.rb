@@ -78,11 +78,15 @@ class ItineraryGenerator
         }
       ]
 
-      Rules:
+      CRITICAL RULES:
+      - Return ONLY the raw JSON array
+      - Do NOT wrap in markdown code blocks (no ```json or ```)
+      - Do NOT add any explanations before or after the JSON
       - Use 24-hour time format (HH:MM)
       - Dates must be between #{@trip.start_date} and #{@trip.end_date}
-      - Position starts at 1 and increments for each activity
-      - No explanations, no markdown, just the JSON array
+      - Position starts at 1 and increments for each activity on each day
+      - Do NOT use null for activity_id - only use IDs from the approved activities list above
+      - Ensure valid JSON syntax (no trailing commas)
     PROMPT
   end
 
@@ -90,14 +94,22 @@ class ItineraryGenerator
     chat = RubyLLM.chat(model: "gpt-4o")
     response = chat.ask(prompt)
 
+    # Nettoyer la réponse en supprimant les balises markdown
+    content = response.content.strip
+
+    # Supprimer les balises ```json et ``` si présentes
+    content = content.gsub(/^```json\s*\n?/, '').gsub(/\n?```\s*$/, '')
+
     # Parser la réponse JSON
-    JSON.parse(response.content)
+    JSON.parse(content)
   rescue JSON::ParserError => e
     Rails.logger.error "Failed to parse LLM itinerary response: #{e.message}"
-    Rails.logger.error "Response was: #{response.content}"
+    Rails.logger.error "Response was: #{response&.content || 'nil'}"
+    Rails.logger.error "Cleaned content was: #{content}" if content
     nil
   rescue => e
     Rails.logger.error "Failed to call LLM for itinerary: #{e.message}"
+    Rails.logger.error e.backtrace.first(5).join("\n")
     nil
   end
 
