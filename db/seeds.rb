@@ -75,422 +75,422 @@ puts "Creating restaurants and cafés..."
 
 ActivityItem.create!(
   name: "Le Comptoir du Relais",
-  description: "Bistrot parisien emblématique servant une cuisine française traditionnelle dans une ambiance animée. Réservation indispensable.",
+  description: "Emblematic Parisian bistro serving traditional French cuisine in a lively atmosphere. Reservation essential.",
   price: 45,
   reservation_url: "https://hotel-paris-relais-saint-germain.com",
   activity_type: "restaurant",
   address: "9 Carrefour de l'Odéon, 75006 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Sam: 12h-14h30, 19h-23h",
+  opening_hours: "Tue-Sat: 12:00 PM-2:30 PM, 7:00 PM-11:00 PM",
   duration: 120,
-  tagline: "Le bistrot préféré des Parisiens initiés"
+  tagline: "The Parisian insider's favorite bistro"
 )
 
 ActivityItem.create!(
   name: "Breizh Café",
-  description: "Les meilleures crêpes bretonnes de Paris, avec des produits bio et du cidre artisanal. Ambiance chaleureuse et authentique.",
+  description: "Best Breton crepes in Paris, featuring organic products and artisanal cider. Warm and authentic atmosphere.",
   price: 18,
   reservation_url: "https://breizhcafe.com",
   activity_type: "restaurant",
   address: "109 Rue Vieille du Temple, 75003 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mer-Dim: 11h30-23h",
+  opening_hours: "Wed-Sun: 11:30 AM-11:00 PM",
   duration: 90,
-  tagline: "La Bretagne au cœur du Marais"
+  tagline: "Brittany in the heart of Le Marais"
 )
 
 ActivityItem.create!(
   name: "L'As du Fallafel",
-  description: "Institution du quartier juif servant les meilleurs falafels de Paris depuis 1979. File d'attente garantie mais ça vaut le coup !",
+  description: "Jewish Quarter institution serving the best falafels in Paris since 1979. Expect a queue, but it's worth the wait!",
   price: 8,
   reservation_url: "",
   activity_type: "restaurant",
   address: "34 Rue des Rosiers, 75004 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Dim-Jeu: 11h-23h, Ven: 11h-18h",
+  opening_hours: "Sun-Thu: 11:00 AM-11:00 PM, Fri: 11:00 AM-6:00 PM",
   duration: 45,
-  tagline: "Le falafel légendaire du Marais"
+  tagline: "Le Marais's legendary falafel"
 )
 
 ActivityItem.create!(
   name: "Café de Flore",
-  description: "Café historique de Saint-Germain-des-Prés, repaire des intellectuels et artistes depuis 1887. Ambiance Art Déco préservée.",
+  description: "Historic Saint-Germain café, a gathering place for intellectuals and artists since 1887. Beautifully preserved Art Deco atmosphere.",
   price: 12,
   reservation_url: "https://cafedeflore.fr",
   activity_type: "cafe",
   address: "172 Boulevard Saint-Germain, 75006 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 7h-1h30",
+  opening_hours: "Mon-Sun: 7:00 AM-1:30 AM",
   duration: 60,
-  tagline: "Là où Sartre écrivait ses manifestes"
+  tagline: "Where Sartre wrote his manifestos"
 )
 
 ActivityItem.create!(
   name: "Septime",
-  description: "Restaurant gastronomique moderne avec une cuisine inventive et des produits de saison. Une étoile au Michelin, ambiance décontractée.",
+  description: "Modern gastronomic restaurant with inventive cuisine and seasonal products. Michelin star, relaxed atmosphere.",
   price: 85,
   reservation_url: "https://septime-charonne.fr",
   activity_type: "restaurant",
   address: "80 Rue de Charonne, 75011 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Ven: 12h-14h, 19h30-22h",
+  opening_hours: "Mon-Fri: 12:00 PM-2:00 PM, 7:30 PM-10:00 PM",
   duration: 150,
-  tagline: "La nouvelle garde de la gastronomie parisienne"
+  tagline: "The new guard of Parisian gastronomy"
 )
 
 ActivityItem.create!(
   name: "Angelina",
-  description: "Salon de thé Belle Époque célèbre pour son chocolat chaud onctueux et son Mont-Blanc légendaire. Décor somptueux.",
+  description: "Belle Époque tea salon famous for its smooth hot chocolate and legendary Mont-Blanc. Sumptuous decor.",
   price: 15,
   reservation_url: "https://angelina-paris.fr",
   activity_type: "cafe",
   address: "226 Rue de Rivoli, 75001 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 7h30-19h",
+  opening_hours: "Mon-Sun: 7:30 AM-7:00 PM",
   duration: 75,
-  tagline: "Le chocolat chaud qui réchauffe Paris depuis 1903"
+  tagline: "The hot chocolate warming Paris since 1903"
 )
 
 ActivityItem.create!(
   name: "Chez Janou",
-  description: "Bistrot provençal authentique avec sa terrasse ombragée et plus de 90 pastis au comptoir. Ambiance du Sud garantie.",
+  description: "Authentic Provençal bistro with shaded terrace and over 90 pastis at the counter. Southern atmosphere guaranteed.",
   price: 28,
   reservation_url: "https://chezjanou.com",
   activity_type: "restaurant",
   address: "2 Rue Roger Verlomme, 75003 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 12h-15h, 19h-23h30",
+  opening_hours: "Mon-Sun: 12:00 PM-3:00 PM, 7:00 PM-11:30 PM",
   duration: 120,
-  tagline: "Un coin de Provence dans le Marais"
+  tagline: "A corner of Provence in Le Marais"
 )
 
 ActivityItem.create!(
   name: "Pink Mamma",
-  description: "Trattoria italienne XXL sur 4 étages avec décor végétal spectaculaire. Pâtes fraîches et pizzas au feu de bois.",
+  description: "XXL Italian trattoria spanning 4 floors with spectacular plant decor. Fresh pasta and wood-fired pizzas.",
   price: 25,
   reservation_url: "https://bigmammagroup.com/fr/trattorias/pink-mamma",
   activity_type: "restaurant",
   address: "20bis Rue de Douai, 75009 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 12h-14h30, 18h30-23h",
+  opening_hours: "Mon-Sun: 12:00 PM-2:30 PM, 6:30 PM-11:00 PM",
   duration: 105,
-  tagline: "L'Italie grandeur nature à Pigalle"
+  tagline: "Italy at full size in Pigalle"
 )
 
 ActivityItem.create!(
   name: "Le Relais de l'Entrecôte",
-  description: "Restaurant culte sans carte : steak-frites sauce secrète, salade de noix en entrée. Simple et délicieux, pas de réservation.",
+  description: "Cult restaurant with no menu: steak-fries with secret sauce, walnut salad as appetizer. Simple and delicious, no reservation.",
   price: 30,
   reservation_url: "",
   activity_type: "restaurant",
   address: "15 Rue Marbeuf, 75008 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 12h-14h30, 19h-23h",
+  opening_hours: "Mon-Sun: 12:00 PM-2:30 PM, 7:00 PM-11:00 PM",
   duration: 90,
-  tagline: "Une seule option, zéro déception"
+  tagline: "One option, zero disappointment"
 )
 
 ActivityItem.create!(
   name: "Café Kitsuné",
-  description: "Coffee shop japonais minimaliste servant des cafés de spécialité et pâtisseries fusion. Design épuré, produits d'exception.",
+  description: "Minimalist Japanese coffee shop serving specialty coffees and fusion pastries. Refined design, exceptional products.",
   price: 6,
   reservation_url: "https://cafekitsune.com",
   activity_type: "cafe",
   address: "51 Galerie de Montpensier, 75001 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 9h-18h",
+  opening_hours: "Mon-Sun: 9:00 AM-6:00 PM",
   duration: 45,
-  tagline: "L'art du café à la japonaise"
+  tagline: "The art of Japanese coffee"
 )
 
 ActivityItem.create!(
   name: "Bouillon Chartier",
-  description: "Bouillon historique de 1896 avec décor classé. Cuisine française traditionnelle à petits prix dans un cadre Belle Époque.",
+  description: "Historic bouillon from 1896 with listed decor. Traditional French cuisine at small prices in a Belle Époque setting.",
   price: 18,
   reservation_url: "",
   activity_type: "restaurant",
   address: "7 Rue du Faubourg Montmartre, 75009 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 11h30-22h",
+  opening_hours: "Mon-Sun: 11:30 AM-10:00 PM",
   duration: 90,
-  tagline: "Manger comme en 1900 sans se ruiner"
+  tagline: "Eat like it's 1900 without breaking the bank"
 )
 
 ActivityItem.create!(
   name: "Frenchie",
-  description: "Bistrot moderne de Gregory Marchand, pionnier de la bistronomie parisienne. Cuisine créative avec produits locaux.",
+  description: "Modern bistro by Gregory Marchand, pioneer of Parisian bistronomie. Creative cuisine with local products.",
   price: 60,
   reservation_url: "https://frenchie-restaurant.com",
   activity_type: "restaurant",
   address: "5 Rue du Nil, 75002 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Sam: 19h-22h",
+  opening_hours: "Tue-Sat: 7:00 PM-10:00 PM",
   duration: 135,
-  tagline: "Le bistrot qui a révolutionné la scène parisienne"
+  tagline: "The bistro that revolutionized the Parisian scene"
 )
 
 ActivityItem.create!(
   name: "Holybelly",
-  description: "Brunch anglo-saxon culte avec pancakes fluffy et café de spécialité. File d'attente dès l'ouverture le weekend.",
+  description: "Cult Anglo-Saxon brunch with fluffy pancakes and specialty coffee. Lines start at opening on weekends.",
   price: 22,
   reservation_url: "",
   activity_type: "cafe",
   address: "19 Rue Lucien Sampaix, 75010 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mer-Ven: 9h-17h, Sam-Dim: 9h-18h",
+  opening_hours: "Wed-Fri: 9:00 AM-5:00 PM, Sat-Sun: 9:00 AM-6:00 PM",
   duration: 90,
-  tagline: "Le brunch qui vaut le réveil du weekend"
+  tagline: "The brunch worth waking up for on weekends"
 )
 
 ActivityItem.create!(
   name: "Le Train Bleu",
-  description: "Restaurant mythique de la Gare de Lyon avec décor Second Empire classé monument historique. Cuisine gastronomique française.",
+  description: "Mythical Gare de Lyon restaurant with Second Empire decor listed as historic monument. French gastronomic cuisine.",
   price: 75,
   reservation_url: "https://le-train-bleu.com",
   activity_type: "restaurant",
   address: "Place Louis-Armand, Gare de Lyon, 75012 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 11h30-15h, 19h-23h",
+  opening_hours: "Mon-Sun: 11:30 AM-3:00 PM, 7:00 PM-11:00 PM",
   duration: 150,
-  tagline: "Voyager dans le temps sans quitter Paris"
+  tagline: "Travel through time without leaving Paris"
 )
 
 ActivityItem.create!(
   name: "Miznon",
-  description: "Street food israélienne créative dans une ambiance électrique. Pitas garnis généreusement, légumes rôtis au four à bois.",
+  description: "Creative Israeli street food in an electric atmosphere. Generously filled pitas, wood-roasted vegetables.",
   price: 14,
   reservation_url: "",
   activity_type: "restaurant",
   address: "22 Rue des Ecouffes, 75004 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 12h-23h",
+  opening_hours: "Mon-Sun: 12:00 PM-11:00 PM",
   duration: 60,
-  tagline: "Tel Aviv débarque dans le Marais"
+  tagline: "Tel Aviv arrives in Le Marais"
 )
 
 ActivityItem.create!(
   name: "La Jacobine",
-  description: "Salon de thé littéraire cosy avec une sélection exceptionnelle de thés du monde. Parfait pour bouquiner l'après-midi.",
+  description: "Cosy literary tea salon with exceptional selection of teas from around the world. Perfect for afternoon reading.",
   price: 8,
   reservation_url: "",
   activity_type: "cafe",
   address: "59-61 Rue Saint-André des Arts, 75006 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 11h-19h",
+  opening_hours: "Mon-Sun: 11:00 AM-7:00 PM",
   duration: 90,
-  tagline: "Le refuge secret des amoureux de thé et livres"
+  tagline: "The secret haven of tea and book lovers"
 )
 
 ActivityItem.create!(
   name: "Chez L'Ami Jean",
-  description: "Bistrot basque généreux servant des plats copieux et une ambiance conviviale. Le riz au lait est légendaire.",
+  description: "Generous Basque bistro serving hearty dishes and friendly atmosphere. Rice pudding is legendary.",
   price: 50,
   reservation_url: "https://lamijean.fr",
   activity_type: "restaurant",
   address: "27 Rue Malar, 75007 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Sam: 12h-14h, 19h-23h",
+  opening_hours: "Tue-Sat: 12:00 PM-2:00 PM, 7:00 PM-11:00 PM",
   duration: 120,
-  tagline: "Partage et générosité à la basquaise"
+  tagline: "Sharing and generosity the Basque way"
 )
 
 ActivityItem.create!(
   name: "Claus",
-  description: "Petit-déjeuner et brunch haut de gamme avec produits artisanaux. Confitures maison et viennoiseries exceptionnelles.",
+  description: "Upscale breakfast and brunch with artisanal products. Homemade jams and exceptional pastries.",
   price: 20,
   reservation_url: "https://clausparis.com",
   activity_type: "cafe",
   address: "14 Rue Jean-Jacques Rousseau, 75001 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 8h30-17h",
+  opening_hours: "Mon-Sun: 8:30 AM-5:00 PM",
   duration: 75,
-  tagline: "Le petit-déjeuner version luxe"
+  tagline: "Luxury breakfast experience"
 )
 
 ActivityItem.create!(
   name: "Le Baratin",
-  description: "Bistrot de quartier culte à Belleville. Cuisine du marché inventive, cave exceptionnelle, pas de carte bancaire.",
+  description: "Cult neighborhood bistro in Belleville. Inventive market cuisine, exceptional wine list, no credit cards.",
   price: 35,
   reservation_url: "",
   activity_type: "restaurant",
   address: "3 Rue Jouye-Rouve, 75020 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Sam: 12h-14h30, 19h30-23h",
+  opening_hours: "Tue-Sat: 12:00 PM-2:30 PM, 7:30 PM-11:00 PM",
   duration: 120,
-  tagline: "Le bistrot secret des vrais Parisiens"
+  tagline: "The secret bistro of true Parisians"
 )
 
 ActivityItem.create!(
   name: "Ellsworth",
-  description: "Restaurant américano-parisien avec brunch le weekend et dîner créatif en semaine. Ambiance décontractée et chaleureuse.",
+  description: "American-Parisian restaurant with weekend brunch and creative weekday dinner. Relaxed and warm atmosphere.",
   price: 28,
   reservation_url: "https://ellsworthparis.com",
   activity_type: "restaurant",
   address: "34 Rue de Richelieu, 75001 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Sam: 12h-15h, 18h-23h, Dim: 11h-16h",
+  opening_hours: "Tue-Sat: 12:00 PM-3:00 PM, 6:00 PM-11:00 PM, Sun: 11:00 AM-4:00 PM",
   duration: 105,
-  tagline: "Brooklyn rencontre Paris"
+  tagline: "Brooklyn meets Paris"
 )
 
 ActivityItem.create!(
   name: "Le Consulat",
-  description: "Café historique de Montmartre avec terrasse pittoresque. Vue imprenable sur la Place du Tertre, ambiance bohème.",
+  description: "Historic Montmartre café with picturesque terrace. Unobstructed view of Place du Tertre, bohemian atmosphere.",
   price: 10,
   reservation_url: "",
   activity_type: "cafe",
   address: "18 Rue Norvins, 75018 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 8h-1h",
+  opening_hours: "Mon-Sun: 8:00 AM-1:00 AM",
   duration: 60,
-  tagline: "Le café carte postale de Montmartre"
+  tagline: "Montmartre's postcard-perfect café"
 )
 
 ActivityItem.create!(
   name: "Bistrot Paul Bert",
-  description: "Archétype du bistrot parisien traditionnel. Viandes maturées, tartare au couteau, décor rétro intact depuis des décennies.",
+  description: "Archetype of traditional Parisian bistro. Aged meats, hand-cut tartare, retro decor unchanged for decades.",
   price: 38,
   reservation_url: "https://bistrotpaulbert.com",
   activity_type: "restaurant",
   address: "18 Rue Paul Bert, 75011 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Sam: 12h-14h, 19h30-23h",
+  opening_hours: "Tue-Sat: 12:00 PM-2:00 PM, 7:30 PM-11:00 PM",
   duration: 120,
-  tagline: "Le bistrot dans toute sa splendeur"
+  tagline: "The bistro in all its splendor"
 )
 
 ActivityItem.create!(
   name: "KB CaféShop",
-  description: "Coffee shop australien pionnier du flat white à Paris. Brunch healthy, excellent café et ambiance décontractée.",
+  description: "Australian coffee shop pioneer of flat white in Paris. Healthy brunch, excellent coffee and relaxed atmosphere.",
   price: 15,
   reservation_url: "https://kbcafeshop.com",
   activity_type: "cafe",
   address: "53 Avenue Trudaine, 75009 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Ven: 8h-17h, Sam-Dim: 9h-18h",
+  opening_hours: "Mon-Fri: 8:00 AM-5:00 PM, Sat-Sun: 9:00 AM-6:00 PM",
   duration: 75,
-  tagline: "L'Australie coffee culture à Pigalle"
+  tagline: "Australian coffee culture in Pigalle"
 )
 
 ActivityItem.create!(
   name: "Le Chateaubriand",
-  description: "Restaurant néo-bistrot avant-gardiste d'Iñaki Aizpitarte. Menu surprise quotidien, créativité sans limite.",
+  description: "Avant-garde neo-bistro by Iñaki Aizpitarte. Daily surprise menu, boundless creativity.",
   price: 70,
   reservation_url: "",
   activity_type: "restaurant",
   address: "129 Avenue Parmentier, 75011 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Sam: 19h-22h",
+  opening_hours: "Tue-Sat: 7:00 PM-10:00 PM",
   duration: 150,
-  tagline: "L'audace culinaire made in Paris"
+  tagline: "Culinary boldness made in Paris"
 )
 
 ActivityItem.create!(
   name: "Carette",
-  description: "Pâtisserie-salon de thé chic face à la Place des Vosges. Macarons, éclairs et chocolat viennois dans un cadre élégant.",
+  description: "Chic pastry shop and tea salon overlooking Place des Vosges. Macarons, eclairs and Viennese chocolate in elegant setting.",
   price: 12,
   reservation_url: "https://carette-paris.fr",
   activity_type: "cafe",
   address: "25 Place des Vosges, 75003 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 8h-19h",
+  opening_hours: "Mon-Sun: 8:00 AM-7:00 PM",
   duration: 60,
-  tagline: "La douceur parisienne sur la plus belle place"
+  tagline: "Parisian sweetness in the most beautiful square"
 )
 
 ActivityItem.create!(
   name: "Nanashi",
-  description: "Bento bar japonais authentique avec gyozas faits maison et bentos équilibrés. Queue à l'heure du déjeuner mais service rapide.",
+  description: "Authentic Japanese bento bar with homemade gyozas and balanced bentos. Lunch queue but quick service.",
   price: 14,
   reservation_url: "",
   activity_type: "restaurant",
   address: "31 Rue de Paradis, 75010 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Sam: 12h-15h, 19h-22h30",
+  opening_hours: "Mon-Sat: 12:00 PM-3:00 PM, 7:00 PM-10:30 PM",
   duration: 45,
-  tagline: "Le Japon authentique sans fioritures"
+  tagline: "Authentic Japan without the fuss"
 )
 
 ActivityItem.create!(
   name: "Le Servan",
-  description: "Néo-bistrot des sœurs Levha mêlant cuisine française et influences asiatiques. Accord mets-vins naturels exceptionnel.",
+  description: "Neo-bistro by sisters Levha blending French cuisine and Asian influences. Exceptional natural wine pairings.",
   price: 45,
   reservation_url: "https://leservan.com",
   activity_type: "restaurant",
   address: "32 Rue Saint-Maur, 75011 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Sam: 12h-14h30, 19h-22h30",
+  opening_hours: "Tue-Sat: 12:00 PM-2:30 PM, 7:00 PM-10:30 PM",
   duration: 135,
-  tagline: "Fusion franco-asiatique par deux sœurs talentueuses"
+  tagline: "Franco-Asian fusion by two talented sisters"
 )
 
 ActivityItem.create!(
   name: "Les Deux Magots",
-  description: "Café littéraire mythique de Saint-Germain fréquenté par Hemingway et Sartre. Terrasse iconique, chocolat chaud renommé.",
+  description: "Mythical Saint-Germain literary café frequented by Hemingway and Sartre. Iconic terrace, renowned hot chocolate.",
   price: 13,
   reservation_url: "https://lesdeuxmagots.fr",
   activity_type: "cafe",
   address: "6 Place Saint-Germain des Prés, 75006 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 7h30-1h",
+  opening_hours: "Mon-Sun: 7:30 AM-1:00 AM",
   duration: 75,
-  tagline: "Là où les existentialistes refaisaient le monde"
+  tagline: "Where existentialists remade the world"
 )
 
 ActivityItem.create!(
   name: "Chambelland",
-  description: "Boulangerie 100% sans gluten pionnière à Paris. Pain au levain, pâtisseries et sandwichs pour cœliaques et gourmands.",
+  description: "100% gluten-free bakery pioneer in Paris. Sourdough bread, pastries and sandwiches for celiacs and food lovers.",
   price: 8,
   reservation_url: "https://chambelland.com",
   activity_type: "cafe",
   address: "14 Rue Ternaux, 75011 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Sam: 8h-19h, Dim: 8h-15h",
+  opening_hours: "Tue-Sat: 8:00 AM-7:00 PM, Sun: 8:00 AM-3:00 PM",
   duration: 30,
-  tagline: "Le sans gluten enfin délicieux"
+  tagline: "Gluten-free finally delicious"
 )
 
 ActivityItem.create!(
   name: "Astier",
-  description: "Bistrot traditionnel du 11e avec plateau de fromages à volonté. Cave remarquable, ambiance authentique et chaleureuse.",
+  description: "Traditional 11th arrondissement bistro with unlimited cheese platter. Remarkable wine cellar, authentic and warm atmosphere.",
   price: 35,
   reservation_url: "",
   activity_type: "restaurant",
   address: "44 Rue Jean-Pierre Timbaud, 75011 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Ven: 12h-14h, 19h30-22h30",
+  opening_hours: "Mon-Fri: 12:00 PM-2:00 PM, 7:30 PM-10:30 PM",
   duration: 120,
-  tagline: "Le fromage à volonté qui vaut le détour"
+  tagline: "All-you-can-eat cheese worth the detour"
 )
 
 # ========================================
@@ -501,352 +501,352 @@ puts "Creating museums and galleries..."
 
 ActivityItem.create!(
   name: "Musée d'Orsay",
-  description: "Ancienne gare transformée en musée abritant la plus grande collection d'art impressionniste au monde. Monet, Renoir, Van Gogh...",
+  description: "Former train station transformed into a museum housing the world's largest collection of Impressionist art. Monet, Renoir, Van Gogh...",
   price: 16,
   reservation_url: "https://www.musee-orsay.fr",
   activity_type: "museum",
   address: "1 Rue de la Légion d'Honneur, 75007 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 9h30-18h (Jeu jusqu'à 21h45)",
+  opening_hours: "Tue-Sun: 9:30 AM-6:00 PM (Thu until 9:45 PM)",
   duration: 180,
-  tagline: "L'impressionnisme dans une gare majestueuse"
+  tagline: "Impressionism in a majestic train station"
 )
 
 ActivityItem.create!(
   name: "Musée Rodin",
-  description: "Hôtel particulier et jardin de sculptures présentant les chefs-d'œuvre de Rodin. Le Penseur, Le Baiser dans un cadre enchanteur.",
+  description: "Historic mansion and sculpture garden showcasing Rodin's masterpieces. The Thinker, The Kiss in an enchanting setting.",
   price: 13,
   reservation_url: "https://www.musee-rodin.fr",
   activity_type: "museum",
   address: "77 Rue de Varenne, 75007 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 10h-18h30",
+  opening_hours: "Tue-Sun: 10:00 AM-6:30 PM",
   duration: 120,
-  tagline: "Sculptures monumentales dans un jardin secret"
+  tagline: "Monumental sculptures in a secret garden"
 )
 
 ActivityItem.create!(
   name: "Centre Pompidou",
-  description: "Architecture révolutionnaire abritant le plus grand musée d'art moderne d'Europe. Picasso, Matisse, Kandinsky et vue panoramique.",
+  description: "Revolutionary architecture housing Europe's largest modern art museum. Picasso, Matisse, Kandinsky and panoramic views.",
   price: 15,
   reservation_url: "https://www.centrepompidou.fr",
   activity_type: "museum",
   address: "Place Georges-Pompidou, 75004 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mer-Lun: 11h-21h",
+  opening_hours: "Wed-Mon: 11:00 AM-9:00 PM",
   duration: 150,
-  tagline: "L'art moderne dans une machine à regarder"
+  tagline: "Modern art in a viewing machine"
 )
 
 ActivityItem.create!(
   name: "Musée de l'Orangerie",
-  description: "Écrin intimiste des Nymphéas de Monet et collection Walter-Guillaume. Expérience immersive dans l'impressionnisme tardif.",
+  description: "Intimate setting for Monet's Water Lilies and Walter-Guillaume collection. Immersive experience in late Impressionism.",
   price: 12,
   reservation_url: "https://www.musee-orangerie.fr",
   activity_type: "museum",
   address: "Jardin des Tuileries, 75001 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mer-Lun: 9h-18h",
+  opening_hours: "Wed-Mon: 9:00 AM-6:00 PM",
   duration: 90,
-  tagline: "Plonger dans les nymphéas de Monet"
+  tagline: "Dive into Monet's Water Lilies"
 )
 
 ActivityItem.create!(
   name: "Musée Picasso",
-  description: "La plus grande collection publique Picasso au monde dans un magnifique hôtel particulier du Marais. Toutes les périodes de l'artiste.",
+  description: "World's largest public Picasso collection in a magnificent Marais mansion. All periods of the artist's work.",
   price: 14,
   reservation_url: "https://www.museepicassoparis.fr",
   activity_type: "museum",
   address: "5 Rue de Thorigny, 75003 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Ven: 10h30-18h, Sam-Dim: 9h30-18h",
+  opening_hours: "Tue-Fri: 10:30 AM-6:00 PM, Sat-Sun: 9:30 AM-6:00 PM",
   duration: 120,
-  tagline: "Picasso comme vous ne l'avez jamais vu"
+  tagline: "Picasso like you've never seen before"
 )
 
 ActivityItem.create!(
   name: "Musée Jacquemart-André",
-  description: "Hôtel particulier du Second Empire avec collection privée exceptionnelle. Fragonard, Botticelli dans un décor somptueux.",
+  description: "Second Empire mansion with exceptional private collection. Fragonard, Botticelli in sumptuous decor.",
   price: 17,
   reservation_url: "https://www.musee-jacquemart-andre.com",
   activity_type: "museum",
   address: "158 Boulevard Haussmann, 75008 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 10h-18h (Lun jusqu'à 20h30)",
+  opening_hours: "Mon-Sun: 10:00 AM-6:00 PM (Mon until 8:30 PM)",
   duration: 105,
-  tagline: "Vivre comme un banquier du XIXe siècle"
+  tagline: "Live like a 19th-century banker"
 )
 
 ActivityItem.create!(
   name: "Atelier des Lumières",
-  description: "Expérience immersive numérique projetant des œuvres d'art sur 3000m². Spectacle son et lumière époustouflant.",
+  description: "Digital immersive experience projecting artworks across 3000 sq meters. Breathtaking light and sound show.",
   price: 17,
   reservation_url: "https://www.atelier-lumieres.com",
   activity_type: "art",
   address: "38 Rue Saint-Maur, 75011 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 10h-18h (Sam jusqu'à 22h)",
+  opening_hours: "Mon-Sun: 10:00 AM-6:00 PM (Sat until 10:00 PM)",
   duration: 75,
-  tagline: "Entrer dans les tableaux géants"
+  tagline: "Step into giant paintings"
 )
 
 ActivityItem.create!(
   name: "Musée Carnavalet",
-  description: "Histoire de Paris de la préhistoire à nos jours dans deux hôtels particuliers rénovés. Gratuit et passionnant.",
+  description: "History of Paris from prehistoric times to present day in two restored mansions. Free and fascinating.",
   price: 0,
   reservation_url: "https://www.carnavalet.paris.fr",
   activity_type: "museum",
   address: "23 Rue de Sévigné, 75003 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 10h-18h",
+  opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 135,
-  tagline: "L'histoire de Paris racontée par Paris"
+  tagline: "Paris's history told by Paris itself"
 )
 
 ActivityItem.create!(
   name: "Palais de Tokyo",
-  description: "Centre d'art contemporain expérimental avec expositions avant-gardistes. Architecture brutaliste, programmation audacieuse.",
+  description: "Experimental contemporary art center with cutting-edge exhibitions. Brutalist architecture, bold programming.",
   price: 12,
   reservation_url: "https://palaisdetokyo.com",
   activity_type: "art",
   address: "13 Avenue du Président Wilson, 75116 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mer-Lun: 12h-22h",
+  opening_hours: "Wed-Mon: 12:00 PM-10:00 PM",
   duration: 120,
-  tagline: "L'art qui bouscule les certitudes"
+  tagline: "Art that challenges certainties"
 )
 
 ActivityItem.create!(
   name: "Musée Marmottan Monet",
-  description: "Collection intime consacrée à l'impressionnisme avec la plus grande collection de Monet, dont Impression Soleil Levant.",
+  description: "Intimate collection devoted to Impressionism with world's largest Monet collection, including Impression Sunrise.",
   price: 14,
   reservation_url: "https://www.marmottan.fr",
   activity_type: "museum",
   address: "2 Rue Louis Boilly, 75016 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 10h-18h (Jeu jusqu'à 21h)",
+  opening_hours: "Tue-Sun: 10:00 AM-6:00 PM (Thu until 9:00 PM)",
   duration: 105,
-  tagline: "Le Monet secret loin des foules"
+  tagline: "Monet's secret collection away from crowds"
 )
 
 ActivityItem.create!(
   name: "Petit Palais",
-  description: "Musée des Beaux-Arts de la Ville de Paris avec collections de l'Antiquité au XXe siècle. Jardin intérieur apaisant, entrée gratuite.",
+  description: "Paris City Museum of Fine Arts with collections from Antiquity to 20th century. Peaceful inner garden, free admission.",
   price: 0,
   reservation_url: "https://www.petitpalais.paris.fr",
   activity_type: "museum",
   address: "Avenue Winston Churchill, 75008 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 10h-18h",
+  opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 120,
-  tagline: "Le palace de l'art gratuit"
+  tagline: "The palace of free art"
 )
 
 ActivityItem.create!(
   name: "Fondation Louis Vuitton",
-  description: "Bâtiment spectaculaire de Frank Gehry abritant art moderne et contemporain. Architecture iconique dans le Bois de Boulogne.",
+  description: "Spectacular Frank Gehry building housing modern and contemporary art. Iconic architecture in the Bois de Boulogne.",
   price: 16,
   reservation_url: "https://www.fondationlouisvuitton.fr",
   activity_type: "art",
   address: "8 Avenue du Mahatma Gandhi, 75116 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Mer-Jeu: 11h-20h, Ven: 11h-21h, Sam-Dim: 10h-20h",
+  opening_hours: "Mon,Wed-Thu: 11:00 AM-8:00 PM, Fri: 11:00 AM-9:00 PM, Sat-Sun: 10:00 AM-8:00 PM",
   duration: 150,
-  tagline: "Le vaisseau spatial de l'art contemporain"
+  tagline: "The spacecraft of contemporary art"
 )
 
 ActivityItem.create!(
   name: "Musée des Arts Décoratifs",
-  description: "Design, mode et publicité de 1200 à nos jours. Collection exceptionnelle d'objets d'art et d'artisanat dans le Louvre.",
+  description: "Design, fashion and advertising from 1200 to present day. Exceptional collection of art objects and crafts at the Louvre.",
   price: 14,
   reservation_url: "https://madparis.fr",
   activity_type: "museum",
   address: "107 Rue de Rivoli, 75001 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 11h-18h",
+  opening_hours: "Tue-Sun: 11:00 AM-6:00 PM",
   duration: 120,
-  tagline: "L'histoire du design et de la mode"
+  tagline: "The history of design and fashion"
 )
 
 ActivityItem.create!(
   name: "Musée du Quai Branly",
-  description: "Arts et civilisations d'Afrique, Asie, Océanie et Amériques. Architecture de Jean Nouvel avec jardin vertical spectaculaire.",
+  description: "Arts and civilizations from Africa, Asia, Oceania and Americas. Jean Nouvel architecture with spectacular vertical garden.",
   price: 12,
   reservation_url: "https://www.quaibranly.fr",
   activity_type: "museum",
   address: "37 Quai Jacques Chirac, 75007 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Mer-Dim: 10h30-19h, Jeu-Ven-Sam: 10h30-22h",
+  opening_hours: "Tue,Wed,Sun: 10:30 AM-7:00 PM, Thu-Sat: 10:30 AM-10:00 PM",
   duration: 135,
-  tagline: "Le tour du monde des cultures"
+  tagline: "A world tour of cultures"
 )
 
 ActivityItem.create!(
   name: "Musée Nissim de Camondo",
-  description: "Hôtel particulier figé dans le temps avec mobilier XVIIIe siècle intact. Atmosphère intimiste d'une demeure habitée.",
+  description: "Historic mansion frozen in time with intact 18th-century furniture. Intimate atmosphere of an inhabited home.",
   price: 12,
   reservation_url: "https://madparis.fr/nissim-de-camondo",
   activity_type: "museum",
   address: "63 Rue de Monceau, 75008 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mer-Dim: 10h-17h30",
+  opening_hours: "Wed-Sun: 10:00 AM-5:30 PM",
   duration: 90,
-  tagline: "Remonter le temps dans un appartement du XVIIIe"
+  tagline: "Travel back in time in an 18th-century apartment"
 )
 
 ActivityItem.create!(
   name: "Musée de la Chasse et de la Nature",
-  description: "Cabinet de curiosités contemporain mêlant art et taxidermie. Collections étonnantes dans un hôtel particulier baroque.",
+  description: "Contemporary cabinet of curiosities blending art and taxidermy. Fascinating collections in a Baroque mansion.",
   price: 10,
   reservation_url: "https://www.chassenature.org",
   activity_type: "museum",
   address: "62 Rue des Archives, 75003 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 11h-18h",
+  opening_hours: "Tue-Sun: 11:00 AM-6:00 PM",
   duration: 90,
-  tagline: "Le cabinet de curiosités du XXIe siècle"
+  tagline: "The 21st-century cabinet of curiosities"
 )
 
 ActivityItem.create!(
   name: "Musée Cognacq-Jay",
-  description: "Collection intime XVIIIe dans un hôtel particulier du Marais. Fragonard, Boucher, mobilier raffiné. Gratuit et méconnu.",
+  description: "Intimate 18th-century collection in a Marais mansion. Fragonard, Boucher, refined furniture. Free and little-known.",
   price: 0,
   reservation_url: "https://www.museecognacqjay.paris.fr",
   activity_type: "museum",
   address: "8 Rue Elzévir, 75003 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 10h-18h",
+  opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 75,
-  tagline: "Le XVIIIe siècle dans l'intimité"
+  tagline: "The 18th century in intimate detail"
 )
 
 ActivityItem.create!(
   name: "Galerie Perrotin",
-  description: "Galerie d'art contemporain majeure représentant artistes internationaux. Expositions ambitieuses, entrée libre.",
+  description: "Major contemporary art gallery representing international artists. Ambitious exhibitions, free admission.",
   price: 0,
   reservation_url: "https://www.perrotin.com",
   activity_type: "art",
   address: "76 Rue de Turenne, 75003 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Sam: 11h-19h",
+  opening_hours: "Tue-Sat: 11:00 AM-7:00 PM",
   duration: 60,
-  tagline: "L'avant-garde artistique mondiale"
+  tagline: "The world's artistic avant-garde"
 )
 
 ActivityItem.create!(
   name: "Musée Bourdelle",
-  description: "Atelier-musée du sculpteur Antoine Bourdelle. Jardins cachés avec sculptures monumentales, atmosphère d'atelier préservée.",
+  description: "Studio-museum of sculptor Antoine Bourdelle. Hidden gardens with monumental sculptures, preserved studio atmosphere.",
   price: 0,
   reservation_url: "https://www.bourdelle.paris.fr",
   activity_type: "museum",
   address: "18 Rue Antoine Bourdelle, 75015 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 10h-18h",
+  opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 90,
-  tagline: "L'atelier secret d'un maître sculpteur"
+  tagline: "A master sculptor's secret studio"
 )
 
 ActivityItem.create!(
   name: "Cité de l'Architecture",
-  description: "Plus grand centre d'architecture au monde avec moulages monumentaux et galerie moderne. Vue sur Tour Eiffel depuis le café.",
+  description: "World's largest architecture center with monumental casts and modern gallery. Eiffel Tower view from the café.",
   price: 9,
   reservation_url: "https://www.citedelarchitecture.fr",
   activity_type: "museum",
   address: "1 Place du Trocadéro, 75116 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mer-Lun: 11h-19h",
+  opening_hours: "Wed-Mon: 11:00 AM-7:00 PM",
   duration: 120,
-  tagline: "L'architecture française grandeur nature"
+  tagline: "French architecture at full scale"
 )
 
 ActivityItem.create!(
   name: "Musée Gustave Moreau",
-  description: "Atelier-appartement du peintre symboliste préservé tel quel. Spirales d'escaliers et profusion d'œuvres mystérieuses.",
+  description: "Studio-apartment of the Symbolist painter preserved as it was. Spiraling staircases and profusion of mysterious works.",
   price: 7,
   reservation_url: "https://musee-moreau.fr",
   activity_type: "museum",
   address: "14 Rue de La Rochefoucauld, 75009 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mer-Lun: 10h-18h",
+  opening_hours: "Wed-Mon: 10:00 AM-6:00 PM",
   duration: 75,
-  tagline: "Plonger dans l'univers symboliste"
+  tagline: "Dive into the Symbolist universe"
 )
 
 ActivityItem.create!(
   name: "Musée de la Vie Romantique",
-  description: "Villa intimiste consacrée au romantisme avec jardin secret. Souvenirs de George Sand, salon de thé bucolique.",
+  description: "Intimate villa devoted to Romanticism with secret garden. George Sand memorabilia, bucolic tea salon.",
   price: 0,
   reservation_url: "https://www.museevieromantique.paris.fr",
   activity_type: "museum",
   address: "16 Rue Chaptal, 75009 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 10h-18h",
+  opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 75,
-  tagline: "Une oasis romantique loin de l'agitation"
+  tagline: "A Romantic oasis away from the hustle"
 )
 
 ActivityItem.create!(
   name: "59 Rivoli",
-  description: "Squat d'artistes devenu légal, 30 ateliers sur 6 étages ouverts au public. Création en direct, boutique d'art abordable.",
+  description: "Legalized artist squat with 30 studios across 6 floors open to the public. Live creation, affordable art shop.",
   price: 0,
   reservation_url: "https://www.59rivoli.org",
   activity_type: "art",
   address: "59 Rue de Rivoli, 75001 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mer-Dim: 13h-20h",
+  opening_hours: "Wed-Sun: 1:00 PM-8:00 PM",
   duration: 60,
-  tagline: "L'art underground au cœur de Paris"
+  tagline: "Underground art in the heart of Paris"
 )
 
 ActivityItem.create!(
   name: "Institut du Monde Arabe",
-  description: "Architecture contemporaine avec moucharabiehs mécaniques. Collections d'art arabe, terrasse panoramique et restaurant libanais.",
+  description: "Contemporary architecture with mechanical carved screens. Arabic art collections, panoramic terrace and Lebanese restaurant.",
   price: 10,
   reservation_url: "https://www.imarabe.org",
   activity_type: "museum",
   address: "1 Rue des Fossés Saint-Bernard, 75005 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Ven: 10h-18h, Sam-Dim: 10h-19h",
+  opening_hours: "Tue-Fri: 10:00 AM-6:00 PM, Sat-Sun: 10:00 AM-7:00 PM",
   duration: 120,
-  tagline: "L'Orient rencontre l'Occident"
+  tagline: "East meets West"
 )
 
 ActivityItem.create!(
   name: "Maison de Victor Hugo",
-  description: "Appartement de Victor Hugo sur la Place des Vosges. Manuscrits, dessins et souvenirs de l'écrivain. Gratuit.",
+  description: "Victor Hugo's apartment on Place des Vosges. Manuscripts, drawings and mementos of the writer. Free admission.",
   price: 0,
   reservation_url: "https://www.maisonsvictorhugo.paris.fr",
   activity_type: "museum",
   address: "6 Place des Vosges, 75004 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 10h-18h",
+  opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 75,
-  tagline: "Dans l'intimité du géant des lettres"
+  tagline: "In the intimate world of a literary giant"
 )
 
 # ========================================
@@ -857,282 +857,282 @@ puts "Creating historical monuments..."
 
 ActivityItem.create!(
   name: "Sainte-Chapelle",
-  description: "Joyau gothique du XIIIe siècle avec 15 vitraux monumentaux. Lumière magique et architecture vertigo-inducing.",
+  description: "13th-century Gothic jewel with 15 monumental stained-glass windows. Magical light and vertiginous architecture.",
   price: 11,
   reservation_url: "https://www.sainte-chapelle.fr",
   activity_type: "monument",
   address: "8 Boulevard du Palais, 75001 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 9h-17h (jusqu'à 19h en été)",
+  opening_hours: "Mon-Sun: 9:00 AM-5:00 PM (until 7:00 PM in summer)",
   duration: 45,
-  tagline: "La cathédrale de verre et de lumière"
+  tagline: "The cathedral of glass and light"
 )
 
 ActivityItem.create!(
   name: "Panthéon",
-  description: "Temple républicain abritant les tombes de Voltaire, Rousseau, Hugo, Curie. Pendule de Foucault et crypte monumentale.",
+  description: "Republican temple housing the tombs of Voltaire, Rousseau, Hugo, Curie. Foucault's pendulum and monumental crypt.",
   price: 11,
   reservation_url: "https://www.paris-pantheon.fr",
   activity_type: "monument",
   address: "Place du Panthéon, 75005 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 10h-18h30",
+  opening_hours: "Mon-Sun: 10:00 AM-6:30 PM",
   duration: 90,
-  tagline: "Là où reposent les grands de la République"
+  tagline: "Where the Republic's great figures rest"
 )
 
 ActivityItem.create!(
   name: "Arc de Triomphe",
-  description: "Monument napoléonien au sommet de l'avenue des Champs-Élysées. Vue panoramique à 360° sur Paris depuis le toit.",
+  description: "Napoleonic monument at the top of Champs-Élysées. 360° panoramic view of Paris from the roof.",
   price: 13,
   reservation_url: "https://www.paris-arc-de-triomphe.fr",
   activity_type: "monument",
   address: "Place Charles de Gaulle, 75008 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 10h-22h30",
+  opening_hours: "Mon-Sun: 10:00 AM-10:30 PM",
   duration: 75,
-  tagline: "L'étoile qui rayonne sur Paris"
+  tagline: "The star shining over Paris"
 )
 
 ActivityItem.create!(
   name: "Conciergerie",
-  description: "Palais médiéval transformé en prison révolutionnaire. Cellule de Marie-Antoinette et salles gothiques impressionnantes.",
+  description: "Medieval palace transformed into a revolutionary prison. Marie-Antoinette's cell and impressive Gothic rooms.",
   price: 11,
   reservation_url: "https://www.conciergerie.fr",
   activity_type: "monument",
   address: "2 Boulevard du Palais, 75001 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 9h30-18h",
+  opening_hours: "Mon-Sun: 9:30 AM-6:00 PM",
   duration: 75,
-  tagline: "Des rois à la Révolution"
+  tagline: "From kings to the Revolution"
 )
 
 ActivityItem.create!(
   name: "Tour Montparnasse",
-  description: "Gratte-ciel iconique des années 70 avec observatoire panoramique au 56e étage. Vue imprenable sur la Tour Eiffel.",
+  description: "Iconic 1970s skyscraper with panoramic observatory on the 56th floor. Stunning view of the Eiffel Tower.",
   price: 18,
   reservation_url: "https://www.tourmontparnasse56.com",
   activity_type: "viewpoint",
   address: "33 Avenue du Maine, 75015 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 9h30-23h30",
+  opening_hours: "Mon-Sun: 9:30 AM-11:30 PM",
   duration: 60,
-  tagline: "Paris vu d'en haut sans faire la queue"
+  tagline: "Paris from above without waiting in line"
 )
 
 ActivityItem.create!(
   name: "Basilique du Sacré-Cœur",
-  description: "Basilique romano-byzantine couronnant Montmartre. Mosaïques dorées, crypte et vue spectaculaire gratuite depuis le parvis.",
+  description: "Romano-Byzantine basilica crowning Montmartre. Golden mosaics, crypt and spectacular free view from the esplanade.",
   price: 0,
   reservation_url: "https://www.sacre-coeur-montmartre.com",
   activity_type: "monument",
   address: "35 Rue du Chevalier de la Barre, 75018 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 6h-22h30 (dôme 9h-19h)",
+  opening_hours: "Mon-Sun: 6:00 AM-10:30 PM (dome 9:00 AM-7:00 PM)",
   duration: 75,
-  tagline: "Le phare blanc de Montmartre"
+  tagline: "Montmartre's white lighthouse"
 )
 
 ActivityItem.create!(
   name: "Opéra Garnier",
-  description: "Chef-d'œuvre baroque Napoléon III avec grand escalier, plafond de Chagall et fantôme légendaire. Visites guidées passionnantes.",
+  description: "Baroque masterpiece of Napoleon III with grand staircase, Chagall ceiling and legendary phantom. Fascinating guided tours.",
   price: 14,
   reservation_url: "https://www.operadeparis.fr",
   activity_type: "monument",
   address: "Place de l'Opéra, 75009 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 10h-16h30 (sauf représentations)",
+  opening_hours: "Mon-Sun: 10:00 AM-4:30 PM (except during performances)",
   duration: 90,
-  tagline: "Le palais du Fantôme de l'Opéra"
+  tagline: "The Palace of the Opera Phantom"
 )
 
 ActivityItem.create!(
   name: "Les Invalides",
-  description: "Complexe militaire abritant le tombeau de Napoléon sous le dôme doré. Musée de l'Armée et jardins à la française.",
+  description: "Military complex housing Napoleon's tomb under the golden dome. Army Museum and French-style gardens.",
   price: 14,
   reservation_url: "https://www.musee-armee.fr",
   activity_type: "monument",
   address: "129 Rue de Grenelle, 75007 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 10h-18h",
+  opening_hours: "Mon-Sun: 10:00 AM-6:00 PM",
   duration: 120,
-  tagline: "Napoléon repose sous l'or"
+  tagline: "Napoleon rests under gold"
 )
 
 ActivityItem.create!(
   name: "Catacombes de Paris",
-  description: "Ossuaire souterrain contenant les restes de 6 millions de Parisiens. Dédale macabre à 20m sous terre, réservation obligatoire.",
+  description: "Underground ossuary containing the remains of 6 million Parisians. Macabre maze 20 meters below ground, reservation required.",
   price: 15,
   reservation_url: "https://www.catacombes.paris.fr",
   activity_type: "monument",
   address: "1 Avenue du Colonel Henri Rol-Tanguy, 75014 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 9h45-20h30",
+  opening_hours: "Tue-Sun: 9:45 AM-8:30 PM",
   duration: 75,
-  tagline: "L'empire de la mort sous Paris"
+  tagline: "The empire of death under Paris"
 )
 
 ActivityItem.create!(
   name: "Notre-Dame de Paris",
-  description: "Cathédrale gothique en cours de restauration après l'incendie de 2019. Parvis accessible, réouverture prévue fin 2024.",
+  description: "Gothic cathedral undergoing restoration after the 2019 fire. Esplanade accessible, reopening expected end of 2024.",
   price: 0,
   reservation_url: "https://www.notredamedeparis.fr",
   activity_type: "monument",
   address: "6 Parvis Notre-Dame, 75004 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Parvis accessible 24h/24",
+  opening_hours: "Esplanade accessible 24/7",
   duration: 30,
-  tagline: "Le phénix qui renaît de ses cendres"
+  tagline: "The phoenix rising from the ashes"
 )
 
 ActivityItem.create!(
   name: "Château de Vincennes",
-  description: "Forteresse médiévale aux portes de Paris avec donjon du XIVe siècle. Moins touristique que Versailles, tout aussi impressionnant.",
+  description: "Medieval fortress at Paris's gates with 14th-century keep. Less touristy than Versailles, equally impressive.",
   price: 10,
   reservation_url: "https://www.chateau-vincennes.fr",
   activity_type: "monument",
   address: "Avenue de Paris, 94300 Vincennes",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 10h-17h (jusqu'à 18h en été)",
+  opening_hours: "Mon-Sun: 10:00 AM-5:00 PM (until 6:00 PM in summer)",
   duration: 105,
-  tagline: "Le Versailles médiéval méconnu"
+  tagline: "The little-known medieval Versailles"
 )
 
 ActivityItem.create!(
   name: "Tour Eiffel",
-  description: "Dame de Fer emblématique de Paris. 330m de hauteur, 3 étages accessibles, illuminations scintillantes chaque heure la nuit.",
+  description: "Iconic Iron Lady of Paris. 330 meters tall, 3 accessible floors, twinkling illuminations every hour at night.",
   price: 28,
   reservation_url: "https://www.toureiffel.paris",
   activity_type: "monument",
   address: "Champ de Mars, 5 Avenue Anatole France, 75007 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 9h30-23h45",
+  opening_hours: "Mon-Sun: 9:30 AM-11:45 PM",
   duration: 120,
-  tagline: "L'icône qui scintille pour vous"
+  tagline: "The icon that sparkles for you"
 )
 
 ActivityItem.create!(
   name: "Arènes de Lutèce",
-  description: "Amphithéâtre gallo-romain du Ier siècle caché dans le 5e arrondissement. Gratuit, paisible, idéal pour pique-niquer.",
+  description: "1st-century Roman amphitheater hidden in the 5th arrondissement. Free, peaceful, ideal for picnicking.",
   price: 0,
   reservation_url: "",
   activity_type: "monument",
   address: "49 Rue Monge, 75005 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 8h-20h (selon saison)",
+  opening_hours: "Mon-Sun: 8:00 AM-8:00 PM (seasonal)",
   duration: 45,
-  tagline: "Les gradins romains oubliés de Paris"
+  tagline: "Paris's forgotten Roman bleachers"
 )
 
 ActivityItem.create!(
   name: "Palais Royal",
-  description: "Jardin secret avec colonnes de Buren, galeries marchandes d'époque et terrasse du Grand Véfour. Havre de paix au cœur de Paris.",
+  description: "Secret garden with Buren columns, period shopping arcades and Grand Véfour terrace. Haven of peace in the heart of Paris.",
   price: 0,
   reservation_url: "",
   activity_type: "monument",
   address: "8 Rue de Montpensier, 75001 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 7h-22h30",
+  opening_hours: "Mon-Sun: 7:00 AM-10:30 PM",
   duration: 45,
-  tagline: "Le jardin rayé au cœur du pouvoir"
+  tagline: "The striped garden at the heart of power"
 )
 
 ActivityItem.create!(
   name: "Église Saint-Sulpice",
-  description: "Église baroque monumentale avec fresques de Delacroix et gnomon du Da Vinci Code. Architecture impressionnante, entrée libre.",
+  description: "Monumental Baroque church with Delacroix frescoes and Da Vinci Code gnomon. Impressive architecture, free admission.",
   price: 0,
   reservation_url: "",
   activity_type: "monument",
   address: "2 Rue Palatine, 75006 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 7h30-19h30",
+  opening_hours: "Mon-Sun: 7:30 AM-7:30 PM",
   duration: 45,
-  tagline: "L'église du Da Vinci Code"
+  tagline: "The Da Vinci Code church"
 )
 
 ActivityItem.create!(
   name: "Église Saint-Eustache",
-  description: "Mélange unique de gothique et renaissance aux Halles. Orgue monumental, concerts réguliers, architecture spectaculaire.",
+  description: "Unique blend of Gothic and Renaissance at Les Halles. Monumental organ, regular concerts, spectacular architecture.",
   price: 0,
   reservation_url: "https://www.saint-eustache.org",
   activity_type: "monument",
   address: "2 Impasse Saint-Eustache, 75001 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Ven: 9h30-19h, Sam-Dim: 9h-19h",
+  opening_hours: "Mon-Fri: 9:30 AM-7:00 PM, Sat-Sun: 9:00 AM-7:00 PM",
   duration: 45,
-  tagline: "La cathédrale cachée des Halles"
+  tagline: "The hidden cathedral of Les Halles"
 )
 
 ActivityItem.create!(
   name: "Pont Alexandre III",
-  description: "Le plus élégant pont de Paris avec lampadaires dorés Art Nouveau. Parfait pour photos avec vue sur les Invalides.",
+  description: "Paris's most elegant bridge with Art Nouveau golden streetlamps. Perfect for photos with Invalides view.",
   price: 0,
   reservation_url: "",
   activity_type: "monument",
   address: "Pont Alexandre III, 75008 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "24h/24",
+  opening_hours: "24/7",
   duration: 20,
-  tagline: "Le pont carte postale de Paris"
+  tagline: "The postcard bridge of Paris"
 )
 
 ActivityItem.create!(
   name: "Crypte Archéologique",
-  description: "Site archéologique sous le parvis de Notre-Dame révélant 2000 ans d'histoire parisienne. Vestiges romains et médiévaux.",
+  description: "Archaeological site beneath Notre-Dame's esplanade revealing 2000 years of Parisian history. Roman and medieval remains.",
   price: 9,
   reservation_url: "https://www.crypte.paris.fr",
   activity_type: "monument",
   address: "7 Parvis Notre-Dame, 75004 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 10h-18h",
+  opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 60,
-  tagline: "Paris couche par couche sous vos pieds"
+  tagline: "Paris layer by layer beneath your feet"
 )
 
 ActivityItem.create!(
   name: "Pavillon de l'Arsenal",
-  description: "Centre d'architecture et d'urbanisme présentant l'évolution de Paris. Maquette géante interactive, expositions gratuites.",
+  description: "Architecture and urban planning center presenting Paris's evolution. Interactive giant model, free exhibitions.",
   price: 0,
   reservation_url: "https://www.pavillon-arsenal.com",
   activity_type: "monument",
   address: "21 Boulevard Morland, 75004 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Dim: 11h-19h",
+  opening_hours: "Tue-Sun: 11:00 AM-7:00 PM",
   duration: 75,
-  tagline: "Comprendre comment Paris s'est construit"
+  tagline: "Understand how Paris was built"
 )
 
 ActivityItem.create!(
   name: "La Coulée Verte",
-  description: "Promenade plantée de 4,5km sur ancienne voie ferrée. Du Bastille au Bois de Vincennes, street art et jardins suspendus.",
+  description: "4.5km planted promenade on former railway track. From Bastille to Bois de Vincennes, street art and suspended gardens.",
   price: 0,
   reservation_url: "",
   activity_type: "outdoor",
   address: "1 Coulée Verte René-Dumont, 75012 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 8h-20h30 (selon saison)",
+  opening_hours: "Mon-Sun: 8:00 AM-8:30 PM (seasonal)",
   duration: 90,
-  tagline: "La High Line avant la High Line"
+  tagline: "The High Line before the High Line"
 )
 
 # ========================================
@@ -1143,212 +1143,212 @@ puts "Creating cultural events..."
 
 ActivityItem.create!(
   name: "Concert à la Philharmonie",
-  description: "Salle de concert au design futuriste avec acoustique exceptionnelle. Orchestre de Paris, concerts classiques et contemporains.",
+  description: "Concert hall with futuristic design and exceptional acoustics. Paris Orchestra, classical and contemporary concerts.",
   price: 35,
   reservation_url: "https://philharmoniedeparis.fr",
   activity_type: "concert",
   address: "221 Avenue Jean Jaurès, 75019 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Horaires variables selon programme",
+  opening_hours: "Hours vary by program",
   duration: 150,
-  tagline: "Le vaisseau spatial de la musique classique"
+  tagline: "The spacecraft of classical music"
 )
 
 ActivityItem.create!(
   name: "Soirée au Crazy Horse",
-  description: "Cabaret mythique avec spectacle de nu artistique et jeux de lumière avant-gardistes. Champagne et glamour parisien.",
+  description: "Mythical cabaret with artistic nude show and avant-garde light effects. Champagne and Parisian glamour.",
   price: 90,
   reservation_url: "https://lecrazyhorseparis.com",
   activity_type: "show",
   address: "12 Avenue George V, 75008 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Spectacles à 19h et 21h30",
+  opening_hours: "Shows at 7:00 PM and 9:30 PM",
   duration: 90,
-  tagline: "L'art du nu réinventé"
+  tagline: "The art of nudity reinvented"
 )
 
 ActivityItem.create!(
   name: "Cinéma Le Grand Rex",
-  description: "Plus grande salle de cinéma d'Europe avec décor Art Déco monumental. Avant-premières et visite des coulisses possible.",
+  description: "Europe's largest cinema with monumental Art Deco decor. Premieres and backstage visits possible.",
   price: 12,
   reservation_url: "https://www.legrandrex.com",
   activity_type: "cinema",
   address: "1 Boulevard Poissonnière, 75002 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Séances de 10h à minuit",
+  opening_hours: "Screenings 10:00 AM to midnight",
   duration: 150,
-  tagline: "Le temple du 7ème art parisien"
+  tagline: "The temple of Paris cinema"
 )
 
 ActivityItem.create!(
   name: "Moulin Rouge",
-  description: "Cabaret légendaire avec spectacle Féerie et french cancan. Strass, plumes et champagne dans l'ambiance Belle Époque.",
+  description: "Legendary cabaret with Féerie show and French can-can. Rhinestones, feathers and champagne in Belle Époque atmosphere.",
   price: 120,
   reservation_url: "https://www.moulinrouge.fr",
   activity_type: "show",
   address: "82 Boulevard de Clichy, 75018 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Dîner-spectacle 19h, Spectacle seul 21h et 23h",
+  opening_hours: "Dinner-show 7:00 PM, Show only 9:00 PM and 11:00 PM",
   duration: 120,
-  tagline: "Le french cancan qui fait rêver le monde"
+  tagline: "The French can-can that makes the world dream"
 )
 
 ActivityItem.create!(
   name: "Jazz au Duc des Lombards",
-  description: "Club de jazz intimiste de Saint-Germain. Programmation pointue, artistes internationaux, ambiance feutrée et cave voûtée.",
+  description: "Intimate Saint-Germain jazz club. Sophisticated programming, international artists, hushed atmosphere and vaulted cellar.",
   price: 25,
   reservation_url: "https://www.ducdeslombards.com",
   activity_type: "concert",
   address: "42 Rue des Lombards, 75001 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Concerts à 20h et 22h",
+  opening_hours: "Concerts at 8:00 PM and 10:00 PM",
   duration: 120,
-  tagline: "Le temple du jazz parisien"
+  tagline: "The temple of Parisian jazz"
 )
 
 ActivityItem.create!(
   name: "Comédie-Française",
-  description: "Théâtre national avec troupe permanente jouant le répertoire classique. Molière, Racine dans la salle Richelieu historique.",
+  description: "National theater with permanent company performing classical repertoire. Molière, Racine in the historic Richelieu room.",
   price: 30,
   reservation_url: "https://www.comedie-francaise.fr",
   activity_type: "theater",
   address: "Place Colette, 75001 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Représentations en soirée et matinée dim",
+  opening_hours: "Evening performances and Sunday matinees",
   duration: 180,
-  tagline: "La maison de Molière depuis 1680"
+  tagline: "Molière's house since 1680"
 )
 
 ActivityItem.create!(
   name: "New Morning",
-  description: "Salle de concert jazz et world music mythique. Acoustique parfaite, programmation éclectique, bar convivial.",
+  description: "Mythical jazz and world music concert hall. Perfect acoustics, eclectic programming, friendly bar.",
   price: 28,
   reservation_url: "https://www.newmorning.com",
   activity_type: "concert",
   address: "7-9 Rue des Petites Écuries, 75010 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Concerts à 20h30",
+  opening_hours: "Concerts at 8:30 PM",
   duration: 135,
-  tagline: "Là où le jazz vit chaque nuit"
+  tagline: "Where jazz lives every night"
 )
 
 ActivityItem.create!(
   name: "Cinéma La Pagode",
-  description: "Salle de cinéma Art et Essai dans une pagode japonaise du XIXe. Jardin zen, programmation exigeante, architecture unique.",
+  description: "Art house cinema in a 19th-century Japanese pagoda. Zen garden, demanding programming, unique architecture.",
   price: 11,
   reservation_url: "https://www.cinemaspagode.fr",
   activity_type: "cinema",
   address: "57bis Rue de Babylone, 75007 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Séances de 14h à 22h",
+  opening_hours: "Screenings 2:00 PM to 10:00 PM",
   duration: 135,
-  tagline: "Voir un film dans une pagode"
+  tagline: "Watch a film in a pagoda"
 )
 
 ActivityItem.create!(
   name: "Théâtre de l'Odéon",
-  description: "Théâtre national avec programmation contemporaine audacieuse. Architecture néoclassique, auteurs vivants et metteurs en scène innovants.",
+  description: "National theater with bold contemporary programming. Neoclassical architecture, contemporary authors and innovative directors.",
   price: 28,
   reservation_url: "https://www.theatre-odeon.eu",
   activity_type: "theater",
   address: "Place de l'Odéon, 75006 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Représentations soir et week-end",
+  opening_hours: "Evening and weekend performances",
   duration: 150,
-  tagline: "Le théâtre qui bouscule les codes"
+  tagline: "The theater that breaks the rules"
 )
 
 ActivityItem.create!(
   name: "L'Olympia",
-  description: "Salle de concert mythique ayant accueilli tous les grands. Édith Piaf, Brel, aujourd'hui concerts pop-rock et variété.",
+  description: "Mythical concert hall that hosted all the greats. Édith Piaf, Brel, now pop-rock and variety concerts.",
   price: 45,
   reservation_url: "https://www.olympiahall.com",
   activity_type: "concert",
   address: "28 Boulevard des Capucines, 75009 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Horaires selon programmation",
+  opening_hours: "Hours vary by program",
   duration: 150,
-  tagline: "La salle rouge où sont nées les légendes"
+  tagline: "The red hall where legends were born"
 )
 
 ActivityItem.create!(
   name: "Point Éphémère",
-  description: "Lieu culturel alternatif au bord du Canal Saint-Martin. Concerts, expositions, clubbing et terrasse l'été.",
+  description: "Alternative cultural venue on Canal Saint-Martin. Concerts, exhibitions, clubbing and terrace in summer.",
   price: 15,
   reservation_url: "https://www.pointephemere.org",
   activity_type: "concert",
   address: "200 Quai de Valmy, 75010 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mer-Dim: 12h-2h",
+  opening_hours: "Wed-Sun: 12:00 PM-2:00 AM",
   duration: 180,
-  tagline: "La culture underground au bord de l'eau"
+  tagline: "Underground culture by the water"
 )
 
 ActivityItem.create!(
   name: "Opéra Bastille",
-  description: "Opéra moderne avec acoustique exceptionnelle. Productions ambitieuses d'opéra et ballet, visibilité parfaite de tous les sièges.",
+  description: "Modern opera with exceptional acoustics. Ambitious opera and ballet productions, perfect visibility from all seats.",
   price: 50,
   reservation_url: "https://www.operadeparis.fr",
   activity_type: "show",
   address: "Place de la Bastille, 75012 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Représentations en soirée",
+  opening_hours: "Evening performances",
   duration: 210,
-  tagline: "L'opéra populaire du peuple"
+  tagline: "Opera for the people"
 )
 
 ActivityItem.create!(
   name: "Café de la Danse",
-  description: "Salle de concert intimiste dans le 11e. Rock indé, électro, chanson française. Ambiance proximité avec les artistes.",
+  description: "Intimate concert hall in the 11th. Indie rock, electro, French chanson. Close proximity with artists.",
   price: 22,
   reservation_url: "https://cafedeladanse.com",
   activity_type: "concert",
   address: "5 Passage Louis-Philippe, 75011 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Concerts à 20h",
+  opening_hours: "Concerts at 8:00 PM",
   duration: 120,
-  tagline: "À deux mètres de la scène"
+  tagline: "Two meters from the stage"
 )
 
 ActivityItem.create!(
   name: "Shakespeare and Company Readings",
-  description: "Lectures et rencontres d'auteurs dans la librairie anglophone iconique. Gratuit, ambiance bohème littéraire.",
+  description: "Author readings and meetings in the iconic English-language bookstore. Free, literary bohemian atmosphere.",
   price: 0,
   reservation_url: "https://shakespeareandcompany.com",
   activity_type: "cultural",
   address: "37 Rue de la Bûcherie, 75005 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 10h-22h, events variables",
+  opening_hours: "Mon-Sun: 10:00 AM-10:00 PM, variable events",
   duration: 90,
-  tagline: "Là où les mots prennent vie"
+  tagline: "Where words come to life"
 )
 
 ActivityItem.create!(
   name: "Parc de la Villette - Cinéma en plein air",
-  description: "Projection de films en plein air l'été sur écran géant. Ambiance pique-nique, classiques et nouveautés, gratuit ou petit prix.",
+  description: "Open-air film screenings in summer on giant screen. Picnic atmosphere, classics and new releases, free or low price.",
   price: 5,
   reservation_url: "https://lavillette.com",
   activity_type: "cinema",
   address: "211 Avenue Jean Jaurès, 75019 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Juil-Août: à la tombée de la nuit",
+  opening_hours: "Jul-Aug: dusk",
   duration: 150,
-  tagline: "Le cinéma sous les étoiles parisiennes"
+  tagline: "Cinema under the Paris stars"
 )
 
 # ========================================
@@ -1359,142 +1359,142 @@ puts "Creating sports and leisure activities..."
 
 ActivityItem.create!(
   name: "Croisière sur la Seine",
-  description: "Bateau-mouche commenté passant devant tous les monuments. Tour Eiffel, Notre-Dame, Louvre illuminés en soirée.",
+  description: "Narrated boat tour passing all monuments. Eiffel Tower, Notre-Dame, Louvre illuminated in the evening.",
   price: 16,
   reservation_url: "https://www.bateaux-parisiens.com",
   activity_type: "cruise",
   address: "Port de la Bourdonnais, 75007 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Départs toutes les 30min de 10h à 22h",
+  opening_hours: "Departures every 30 min from 10:00 AM to 10:00 PM",
   duration: 70,
-  tagline: "Paris vu depuis ses eaux"
+  tagline: "Paris seen from its waters"
 )
 
 ActivityItem.create!(
   name: "Ballon de Paris",
-  description: "Montgolfière captive montant à 150m d'altitude. Vue panoramique à 360° sur Paris, sensations douces, accessible PMR.",
+  description: "Tethered hot air balloon ascending to 150 meters. 360° panoramic view of Paris, gentle sensations, accessible for disabled.",
   price: 16,
   reservation_url: "https://ballondeparis.com",
   activity_type: "outdoor",
   address: "Parc André Citroën, 75015 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mer-Dim: 9h-19h (selon météo)",
+  opening_hours: "Wed-Sun: 9:00 AM-7:00 PM (weather permitting)",
   duration: 30,
-  tagline: "S'envoler au-dessus de Paris"
+  tagline: "Soar above Paris"
 )
 
 ActivityItem.create!(
   name: "Vélo le long du Canal Saint-Martin",
-  description: "Balade vélo de Bastille à La Villette le long du canal. Écluses pittoresques, street art, bars et cafés branchés.",
+  description: "Bike ride from Bastille to La Villette along the canal. Picturesque locks, street art, trendy bars and cafés.",
   price: 15,
   reservation_url: "https://velib-metropole.fr",
   activity_type: "outdoor",
-  address: "Départ Place de la Bastille, 75011 Paris",
+  address: "Departure Point de la Bastille, 75011 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "24h/24 (location Vélib)",
+  opening_hours: "24/7 (Vélib rental)",
   duration: 120,
-  tagline: "Paris au rythme des péniches"
+  tagline: "Paris at the pace of barges"
 )
 
 ActivityItem.create!(
   name: "Piscine Joséphine Baker",
-  description: "Piscine flottante sur la Seine avec toit ouvrant l'été. Bassins, solarium, vue sur Bercy. Expérience unique.",
+  description: "Floating pool on the Seine with retractable roof in summer. Pools, solarium, view of Bercy. Unique experience.",
   price: 7,
   reservation_url: "https://www.paris.fr/equipements/piscine-josephine-baker-1752",
   activity_type: "sport",
   address: "Quai François Mauriac, 75013 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Mar-Ven: 13h-20h, Sam-Dim: 10h-20h",
+  opening_hours: "Tue-Fri: 1:00 PM-8:00 PM, Sat-Sun: 10:00 AM-8:00 PM",
   duration: 120,
-  tagline: "Nager sur la Seine"
+  tagline: "Swim on the Seine"
 )
 
 ActivityItem.create!(
   name: "Jardin du Luxembourg",
-  description: "Parc à la française avec chaises vertes iconiques. Bassin pour voiliers miniatures, tennis, jogging, échecs en plein air.",
+  description: "French-style park with iconic green chairs. Model sailing boat pond, tennis, jogging, outdoor chess.",
   price: 0,
   reservation_url: "",
   activity_type: "outdoor",
   address: "Rue de Vaugirard, 75006 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 7h30-21h30 (selon saison)",
+  opening_hours: "Mon-Sun: 7:30 AM-9:30 PM (seasonal)",
   duration: 90,
-  tagline: "Le jardin où flâner devient un art"
+  tagline: "The garden where strolling becomes an art"
 )
 
 ActivityItem.create!(
   name: "Parc des Buttes-Chaumont",
-  description: "Parc vallonné avec lac, cascade, temple grec au sommet. Vue sur Montmartre, grottes, ponts suspendus. Idéal pique-nique.",
+  description: "Rolling park with lake, waterfall, Greek temple at the summit. View of Montmartre, grottos, suspension bridges. Perfect for picnicking.",
   price: 0,
   reservation_url: "",
   activity_type: "outdoor",
   address: "1 Rue Botzaris, 75019 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Dim: 7h-22h (selon saison)",
+  opening_hours: "Mon-Sun: 7:00 AM-10:00 PM (seasonal)",
   duration: 120,
-  tagline: "Le parc romantique aux faux airs de montagne"
+  tagline: "The romantic park with mountain-like charm"
 )
 
 ActivityItem.create!(
   name: "Roller à Rollers & Coquillages",
-  description: "Randonnée roller tous niveaux chaque vendredi soir. 20-30km à travers Paris de nuit, ambiance festive et sécurisée.",
+  description: "Roller tour all levels every Friday evening. 20-30km through Paris at night, festive and safe atmosphere.",
   price: 0,
   reservation_url: "https://www.pari-roller.com",
   activity_type: "sport",
-  address: "Départ Place Raoul Dautry (Montparnasse), 75015 Paris",
+  address: "Departure Place Raoul Dautry (Montparnasse), 75015 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "Ven: départ 22h",
+  opening_hours: "Fri: departure 10:00 PM",
   duration: 180,
-  tagline: "Paris en roller by night"
+  tagline: "Paris on roller blades by night"
 )
 
 ActivityItem.create!(
   name: "MurMur Escalade Pantin",
-  description: "Salle d'escalade de bloc moderne. 1500m² de murs, problèmes renouvelés, café cosy. Débutants et confirmés bienvenus.",
+  description: "Modern bouldering climbing hall. 1500 sq meters of walls, regularly updated problems, cosy café. Beginners and experienced welcome.",
   price: 16,
   reservation_url: "https://murmur.fr",
   activity_type: "sport",
   address: "55 Rue Cartier Bresson, 93500 Pantin",
   city: "Paris",
   country: "France",
-  opening_hours: "Lun-Ven: 10h-23h, Sam-Dim: 10h-20h",
+  opening_hours: "Mon-Fri: 10:00 AM-11:00 PM, Sat-Sun: 10:00 AM-8:00 PM",
   duration: 150,
-  tagline: "Grimper dans l'ancien France Télécom"
+  tagline: "Climb in the former France Telecom building"
 )
 
 ActivityItem.create!(
   name: "Bois de Vincennes",
-  description: "Plus grand espace vert parisien avec 4 lacs, zoo, château, théâtre de verdure. Vélo, barque, jogging, pique-nique.",
+  description: "Paris's largest green space with 4 lakes, zoo, castle, open-air theater. Biking, boating, jogging, picnicking.",
   price: 0,
   reservation_url: "",
   activity_type: "outdoor",
   address: "Route de la Pyramide, 75012 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "24h/24",
+  opening_hours: "24/7",
   duration: 180,
-  tagline: "La forêt urbaine de l'est parisien"
+  tagline: "The urban forest of eastern Paris"
 )
 
 ActivityItem.create!(
   name: "Berges de Seine",
-  description: "Promenade piétonne le long de la rive gauche. Activités gratuites l'été, food trucks, guinguettes, pédalos. Ambiance festive.",
+  description: "Pedestrian promenade along the left bank. Free summer activities, food trucks, open-air taverns, pedal boats. Festive atmosphere.",
   price: 0,
   reservation_url: "",
   activity_type: "outdoor",
-  address: "Quai Anatole France à Quai de la Gare, 75007 Paris",
+  address: "Quai Anatole France to Quai de la Gare, 75007 Paris",
   city: "Paris",
   country: "France",
-  opening_hours: "24h/24",
+  opening_hours: "24/7",
   duration: 120,
-  tagline: "Paris plage toute l'année"
+  tagline: "Paris beach all year round"
 )
 
 
