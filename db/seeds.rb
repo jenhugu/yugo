@@ -1,5 +1,18 @@
 # Clean database
 puts "🧹 Cleaning database..."
+
+# Purge attachments from Cloudinary before destroying records
+puts "☁️  Purging attachments from Cloudinary..."
+User.find_each do |user|
+  user.avatar.purge if user.avatar.attached?
+end
+
+ActivityItem.find_each do |item|
+  item.image.purge if item.image.attached?
+end
+
+puts "✅ Attachments purged from Cloudinary"
+
 RecommendationVote.destroy_all
 RecommendationItem.destroy_all
 ItineraryItem.destroy_all

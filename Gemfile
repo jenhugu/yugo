@@ -67,6 +67,8 @@ gem 'font-awesome-sass', '~> 6.5.1'
 gem "ruby_llm", "~> 1.6.4"
 gem 'dotenv-rails', groups: [:development, :test]
 
+gem "cloudinary"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
