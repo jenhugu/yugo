@@ -23,50 +23,16 @@ class Trip < ApplicationRecord
     true
   end
 
-  # ============================================================================
-  # GESTION DU REJET DE RECOMMENDATIONS - CODE COMMENTÉ
-  # ============================================================================
-  # PROBLÈME IDENTIFIÉ :
-  # Dans app/controllers/recommendation_items_controller.rb:51-64, quand
-  # verify_and_generate_itinerary! retourne false, on affiche le message
-  # "Waiting for other participants..." dans TOUS les cas.
-  #
-  # Or, il y a DEUX cas possibles quand all_done == false :
-  # 1. D'autres utilisateurs n'ont pas encore voté → Message correct ✓
-  # 2. Tous ont voté MAIS recommendation rejetée → Message INCORRECT ✗
-  #
-  # Dans le cas 2, les participants vont attendre indéfiniment car tout le
-  # monde a déjà voté ! Il faut générer une nouvelle recommendation.
-  #
-  # AVANT DE DÉCOMMENTER : Vérifier si cette fonctionnalité n'a pas déjà été
-  # implémentée par quelqu'un d'autre dans l'équipe.
-  #
-  # Fichiers concernés par cette problématique :
-  # - app/models/trip.rb (ce fichier)
-  # - app/models/recommendation.rb (méthode verify_and_generate_itinerary!)
-  # - app/controllers/recommendation_items_controller.rb (lignes 51-64)
-  #
-  # Solution proposée :
-  # - Quand une recommendation est rejetée, créer automatiquement une nouvelle
-  # - Garder l'historique des votes (pour ne pas re-proposer les mêmes activités)
-  # - Réinitialiser recommendation_reviewed pour permettre un nouveau vote
-  # ============================================================================
-  #
-  # # Réinitialise le statut recommendation_reviewed pour permettre un nouveau vote
-  # # Garde l'historique des votes précédents pour ne pas re-proposer les activités rejetées
-  # def reset_recommendation_status_for_new_round!
-  #   user_trip_statuses.update_all(recommendation_reviewed: false)
-  # end
-  #
-  # # Génère une nouvelle recommendation après un rejet
-  # # Prend en compte les votes précédents pour éviter les activités déjà rejetées
-  # def generate_new_recommendation_after_rejection!
-  #   reset_recommendation_status_for_new_round!
-  #
-  #   # Le RecommendationGenerator devrait utiliser les votes précédents
-  #   # pour ne pas re-proposer les activités avec trop de dislikes
-  #   RecommendationGenerator.new(self).call
-  # end
+  # Réinitialise le statut recommendation_reviewed
+  def reset_recommendation_status_for_new_round!
+    user_trip_statuses.update_all(recommendation_reviewed: false)
+  end
+
+  #  Génère une nouvelle recommendation après un rejet
+  def generate_new_recommendation_after_rejection!
+    reset_recommendation_status_for_new_round!
+    RecommendationGenerator.new(self).call
+  end
 
   # Récupère le créateur du trip
   def creator
