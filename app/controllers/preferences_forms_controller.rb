@@ -71,7 +71,7 @@ def update
 
       if trip
         trip.generate_recommendations_if_ready
-        redirect_to trip_path(trip), status: :see_other
+        redirect_to trip_path(trip), notice: "Congratulations, your preferences for this trip are now saved!", status: :see_other
       else
         redirect_to trips_path, alert: "Trip not found"
       end
