@@ -66,10 +66,15 @@ def update
       @preferences_form.user_trip_status.update(form_filled: true)
 
       # Déclencher la génération des recommendations si tous les formulaires sont remplis
-      trip = @preferences_form.user_trip_status.trip
-      trip.generate_recommendations_if_ready
+      @preferences_form.reload
+      trip = @preferences_form.user_trip_status&.trip
 
-      redirect_to @preferences_form, status: :see_other
+      if trip
+        trip.generate_recommendations_if_ready
+        redirect_to trip_path(trip), notice: "Congratulations, your preferences for this trip are now saved!", status: :see_other
+      else
+        redirect_to trips_path, alert: "Trip not found"
+      end
     else
       render :step4, status: :unprocessable_entity
     end
