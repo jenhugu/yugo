@@ -17,9 +17,13 @@
       <p class="secondary-title"><%= @trip.destination %> - <%= @trip.start_date.strftime("%d %B") if @trip.start_date %> to <%= @trip.end_date.strftime("%d %B %Y") if @trip.end_date %></p>
       <p class="itinerary-card__section-title">Participants</p>
         <div class="trip-card__section-avatars">
-          <% @trip.users.each_with_index do |user, index| %>
+          <% @trip.users.each do |user| %>
             <div class="trip-card__avatar">
-              <%= image_tag "https://i.pravatar.cc/150?img=#{index + 5}", alt: user.email %>
+              <% if user.avatar.attached? %>
+                <%= image_tag user.avatar, alt: user.email %>
+              <% else %>
+                <%= image_tag "default_avatar.png", alt: user.email %>
+              <% end %>
             </div>
           <% end %>
         </div>
