@@ -51,7 +51,7 @@ class ItineraryGenerator
       Create a detailed day-by-day itinerary organizing these activities across the trip dates.
       Consider:
       - Activity duration and opening hours
-      - Logical order (breakfast places in morning, restaurants at lunch/dinner time, etc.)
+      - Logical order (restaurants at lunch/dinner time, etc.)
       - Geographic proximity when possible
       - Balanced distribution across days
 
@@ -87,30 +87,73 @@ class ItineraryGenerator
       - Position starts at 1 and increments for each activity on each day
       - Do NOT use null for activity_id - only use IDs from the approved activities list above
       - Ensure valid JSON syntax (no trailing commas)
+      - EACH ACTIVITY CAN ONLY BE USED ONCE - do not repeat the same activity_id multiple times in the itinerary
     PROMPT
   end
 
+  MAX_RETRIES = 3
+
   def ask_llm(prompt)
-    chat = RubyLLM.chat(model: "gpt-4o")
-    response = chat.ask(prompt)
+    retries = 0
 
-    # Nettoyer la réponse en supprimant les balises markdown
-    content = response.content.strip
+    begin
+      retries += 1
+      Rails.logger.info "Itinerary LLM attempt #{retries}/#{MAX_RETRIES} for trip #{@trip.id}"
 
-    # Supprimer les balises ```json et ``` si présentes
+      chat = RubyLLM.chat(model: "gpt-4o")
+      response = chat.ask(prompt)
+
+      content = clean_llm_response(response.content)
+      JSON.parse(content)
+    rescue JSON::ParserError => e
+      Rails.logger.error "Failed to parse LLM itinerary response (attempt #{retries}): #{e.message}"
+      Rails.logger.error "Cleaned content was: #{content}" if content
+
+      if retries < MAX_RETRIES
+        Rails.logger.info "Retrying LLM call..."
+        retry
+      else
+        Rails.logger.error "Max retries reached. Raw response was: #{response&.content || 'nil'}"
+        nil
+      end
+    rescue => e
+      Rails.logger.error "Failed to call LLM for itinerary: #{e.message}"
+      Rails.logger.error e.backtrace.first(5).join("\n")
+
+      if retries < MAX_RETRIES
+        Rails.logger.info "Retrying after error..."
+        retry
+      else
+        nil
+      end
+    end
+  end
+
+  def clean_llm_response(raw_content)
+    return "" if raw_content.nil?
+
+    content = raw_content.strip
+
+    # Remove markdown code blocks
     content = content.gsub(/^```json\s*\n?/, '').gsub(/\n?```\s*$/, '')
+    content = content.gsub(/^```\s*\n?/, '').gsub(/\n?```\s*$/, '')
 
-    # Parser la réponse JSON
-    JSON.parse(content)
-  rescue JSON::ParserError => e
-    Rails.logger.error "Failed to parse LLM itinerary response: #{e.message}"
-    Rails.logger.error "Response was: #{response&.content || 'nil'}"
-    Rails.logger.error "Cleaned content was: #{content}" if content
-    nil
-  rescue => e
-    Rails.logger.error "Failed to call LLM for itinerary: #{e.message}"
-    Rails.logger.error e.backtrace.first(5).join("\n")
-    nil
+    # Extract JSON array if surrounded by text
+    if content =~ /(\[[\s\S]*\])/
+      content = $1
+    end
+
+    # Fix common JSON issues
+    content = fix_json_syntax(content)
+
+    content
+  end
+
+  def fix_json_syntax(content)
+    # Remove trailing commas before ] or }
+    content = content.gsub(/,(\s*[\]\}])/, '\1')
+
+    content
   end
 
   def create_itinerary(schedule)
@@ -132,6 +175,7 @@ class ItineraryGenerator
     end
 
     Rails.logger.info "Created itinerary #{itinerary.id} with #{schedule.count} items for trip #{@trip.id}"
+
     itinerary
   end
 end

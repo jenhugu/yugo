@@ -44,7 +44,7 @@
          <%= image_tag "itinerary-animation.png", alt: "Itinerary animation", class: "trip-card__animation" %>
       </div>
 
-      <%= link_to "Discover Itinerary", discover_itinerary_trip_path(trip), class: "trip-card__button" %>
+      <%= render "trips/itinerary_button", trip: trip %>
 
     <% elsif trip.votes_dont_match? %>
       <%# CAS B : Votes en désaccord - Afficher les 4 sections + bouton Review new suggestions (disabled) %>

@@ -1,0 +1,22 @@
+<%#
+  Partial: Itinerary Button
+
+  Displays either:
+  - "Discover Itinerary" link if itinerary is ready
+  - "Generating itinerary..." with polling if still generating
+
+  The polling uses the itinerary-polling Stimulus controller which checks
+  the itinerary_status endpoint every 3 seconds. When the itinerary is ready,
+  the button is automatically replaced without page refresh.
+%>
+<% itinerary = trip.itineraries.last %>
+<% if itinerary.present? && itinerary.itinerary_items.any? %>
+  <%= link_to "Discover Itinerary", discover_itinerary_trip_path(trip), class: "trip-card__button" %>
+<% else %>
+  <%# Stimulus controller polls every 3s until itinerary is ready %>
+  <span class="trip-card__button trip-card__button--disabled"
+        data-controller="itinerary-polling"
+        data-itinerary-polling-url-value="<%= itinerary_status_trip_path(trip) %>">
+    Generating itinerary...
+  </span>
+<% end %>

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get :discover_itinerary
       get :invite
       post :add_participants
+      get :itinerary_status  # Polling endpoint for itinerary generation status
     end
     resources :itineraries, only: %i[show]
 

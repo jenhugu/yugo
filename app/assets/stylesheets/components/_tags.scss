@@ -1,0 +1,139 @@
+// ============================================
+// TAGS COMPONENT
+// Styles partagés pour les tags d'activités
+// ============================================
+
+// Style de base du tag
+.tag {
+  font-family: $body-font;
+  font-weight: 500;
+}
+
+// Variante transparente (pour fond clair - ex: review_card)
+.tag--transparent {
+  font-size: 14px;
+  padding: 3px 9px;
+  border-radius: 5px;
+  background-color: rgba(209, 213, 219, 0.95);
+  color: #374151;
+
+  &.tag-local-favorite {
+    background-color: rgba(79, 209, 197, 0.15);
+    color: #0d9488;
+  }
+
+  &.tag-hidden-gem {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: $terracotta-light;
+  }
+
+  &.tag-cultural {
+    background-color: rgba(244, 63, 94, 0.15);
+    color: $pink-dark;
+  }
+
+  &.tag-restaurant {
+    background-color: rgba(217, 119, 6, 0.15);
+    color: $terracotta-dark;
+  }
+
+  &.tag-cafe {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: $terracotta-light;
+  }
+
+  &.tag-art {
+    background-color: rgba(251, 113, 133, 0.15);
+    color: $pink-light;
+  }
+
+  &.tag-museum {
+    background-color: rgba(79, 209, 197, 0.15);
+    color: #0d9488;
+  }
+
+  &.tag-farm-to-table {
+    background-color: rgba(79, 209, 197, 0.15);
+    color: #0d9488;
+  }
+
+  &.tag-chefs-choice {
+    background-color: rgba(244, 63, 94, 0.15);
+    color: $pink-dark;
+  }
+
+  &.tag-artistic-vibe {
+    background-color: rgba(251, 113, 133, 0.15);
+    color: $pink-light;
+  }
+
+  &.tag-great-coffee {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: $terracotta-light;
+  }
+}
+
+// Variante solide (pour fond image - ex: get_inspired, itinerary_card)
+.tag--solid {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  background-color: rgba(209, 213, 219, 0.95);
+  color: #374151;
+
+  &.tag-local-favorite {
+    background-color: rgba(79, 209, 197, 0.95);
+    color: white;
+  }
+
+  &.tag-hidden-gem {
+    background-color: rgba(245, 158, 11, 0.95);
+    color: white;
+  }
+
+  &.tag-cultural {
+    background-color: rgba(244, 63, 94, 0.95);
+    color: white;
+  }
+
+  &.tag-restaurant {
+    background-color: rgba(217, 119, 6, 0.95);
+    color: white;
+  }
+
+  &.tag-cafe {
+    background-color: rgba(245, 158, 11, 0.95);
+    color: white;
+  }
+
+  &.tag-art {
+    background-color: rgba(251, 113, 133, 0.95);
+    color: white;
+  }
+
+  &.tag-museum {
+    background-color: rgba(79, 209, 197, 0.95);
+    color: white;
+  }
+
+  &.tag-farm-to-table {
+    background-color: rgba(79, 209, 197, 0.95);
+    color: white;
+  }
+
+  &.tag-chefs-choice {
+    background-color: rgba(244, 63, 94, 0.95);
+    color: white;
+  }
+
+  &.tag-artistic-vibe {
+    background-color: rgba(251, 113, 133, 0.95);
+    color: white;
+  }
+
+  &.tag-great-coffee {
+    background-color: rgba(245, 158, 11, 0.95);
+    color: white;
+  }
+}

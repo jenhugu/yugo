@@ -46,51 +46,6 @@
       display: flex;
       gap: 0.5rem;
       z-index: 10;
-
-      .tag {
-        font-family: $body-font;
-        font-size: 14px;
-        padding: 3px 9px;
-        border-radius: 5px;
-        font-weight: 500;
-        background-color: rgba(209, 213, 219, 0.95);
-        color: #374151;
-
-        &.tag-local-favorite {
-          background-color: rgba(79, 209, 197, 0.15);
-          color: #0d9488;
-        }
-
-        &.tag-hidden-gem {
-          background-color: rgba(245, 158, 11, 0.15);
-          color: $terracotta-light;
-        }
-
-        &.tag-cultural {
-          background-color: rgba(244, 63, 94, 0.15);
-          color: $pink-dark;
-        }
-
-        &.tag-restaurant {
-          background-color: rgba(217, 119, 6, 0.15);
-          color: $terracotta-dark;
-        }
-
-        &.tag-cafe {
-          background-color: rgba(245, 158, 11, 0.15);
-          color: $terracotta-light;
-        }
-
-        &.tag-art {
-          background-color: rgba(251, 113, 133, 0.15);
-          color: $pink-light;
-        }
-
-        &.tag-museum {
-          background-color: rgba(79, 209, 197, 0.15);
-          color: #0d9488;
-        }
-      }
     }
 
     // Title
