@@ -51,7 +51,7 @@ class ItineraryGenerator
       Create a detailed day-by-day itinerary organizing these activities across the trip dates.
       Consider:
       - Activity duration and opening hours
-      - Logical order (breakfast places in morning, restaurants at lunch/dinner time, etc.)
+      - Logical order (restaurants at lunch/dinner time, etc.)
       - Geographic proximity when possible
       - Balanced distribution across days
 
@@ -87,6 +87,7 @@ class ItineraryGenerator
       - Position starts at 1 and increments for each activity on each day
       - Do NOT use null for activity_id - only use IDs from the approved activities list above
       - Ensure valid JSON syntax (no trailing commas)
+      - EACH ACTIVITY CAN ONLY BE USED ONCE - do not repeat the same activity_id multiple times in the itinerary
     PROMPT
   end
 
