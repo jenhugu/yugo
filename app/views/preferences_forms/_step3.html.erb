@@ -1,9 +1,10 @@
 <div class="step-container" data-controller="budget">
-  <h2 class="step-title">What’s your daily budget?</h2>
+  <h2 class="step-title">What's your daily budget?</h2>
   <p class="step-subtitle">(Travel & accommodation not included)</p>
 
+  <% trip = preferences_form.user_trip_status.trip %>
   <%= form_with model: preferences_form,
-                url: preferences_form_path(preferences_form),
+                url: trip_preferences_form_path(trip, preferences_form),
                 method: :patch,
                 data: { turbo: false},
                 class: "step-form" do |f| %>
@@ -27,7 +28,7 @@
 
     <div class="button-row">
       <%= link_to "← Back",
-          step2_preferences_form_path(preferences_form),
+          step2_trip_preferences_form_path(trip, preferences_form),
           data: { turbo_frame: "form_wrapper" },
           class: "back-button" %>
 

@@ -5,8 +5,9 @@
       - Si le preferences_form n'existe pas encore en DB (persisted? = false) → POST vers create
       - Si le preferences_form existe déjà (persisted? = true) → PATCH vers update avec step=1
       Cela permet de gérer la première création et les modifications ultérieures %>
+  <% trip = preferences_form.user_trip_status&.trip || @trip %>
   <%= form_with scope: :preferences_form,
-              url: preferences_form.persisted? ? preferences_form_path(preferences_form, step: 1) : preferences_forms_path,
+              url: preferences_form.persisted? ? trip_preferences_form_path(trip, preferences_form, step: 1) : trip_preferences_forms_path(trip),
               method: preferences_form.persisted? ? :patch : :post,
               data: { turbo_frame: "form_wrapper" },
               class: "step-form" do |f| %>
