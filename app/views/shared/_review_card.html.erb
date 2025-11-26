@@ -23,7 +23,7 @@
       <!-- Tags -->
       <div class="review-card-tags">
         <% if activity.activity_type.present? %>
-          <span class="tag tag-<%= activity.activity_type.parameterize %>">
+          <span class="tag tag--transparent tag-<%= activity.activity_type.parameterize %>">
             <%= activity.activity_type.titleize %>
           </span>
         <% end %>

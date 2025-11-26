@@ -16,6 +16,12 @@
       <%# Affiche l'heure de l'activité au format "9h00" %>
       <div class="trip-card__dates"><%= item.time.strftime("%-Hh%M") %></div>
       <div class="itinerary-card">
+        <%# Tag de type d'activité %>
+        <% if item.activity_item.activity_type.present? %>
+          <span class="tag tag--transparent tag-<%= item.activity_item.activity_type.parameterize %>">
+            <%= item.activity_item.activity_type.titleize %>
+          </span>
+        <% end %>
 
         <%# Affiche l'image de l'activité ou un message si pas d'image %>
         <div class="itinerary-card__image">
