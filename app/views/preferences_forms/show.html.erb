@@ -14,5 +14,5 @@
     <% end %>
   </ul>
 
-  <%= link_to "Start over", new_preferences_form_path, data: { turbo: false } %>
+  <%= link_to "Start over", new_trip_preferences_form_path(@preferences_form.user_trip_status.trip), data: { turbo: false } %>
 </turbo-frame>

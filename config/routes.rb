@@ -10,15 +10,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: 'pages#home'
 
-  resources :preferences_forms do
-    member do
-      get :step1
-      get :step2
-      get :step3
-      get :step4
-    end
-  end
-
   resources :trips, only: %i[index show new create edit update] do
     member do
       get :review_suggestions
@@ -27,6 +18,16 @@ Rails.application.routes.draw do
       post :add_participants
     end
     resources :itineraries, only: %i[show]
+
+    # Nester preferences_forms sous trips pour avoir /trips/:trip_id/preferences_forms/...
+    resources :preferences_forms, only: %i[new create update show] do
+      member do
+        get :step1
+        get :step2
+        get :step3
+        get :step4
+      end
+    end
   end
 
   # Style guide (accessible uniquement en dev)

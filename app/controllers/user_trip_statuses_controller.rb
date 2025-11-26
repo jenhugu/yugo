@@ -12,11 +12,8 @@ class UserTripStatusesController < ApplicationController
   end
 
   def fill_preferences
-    # Créer le PreferencesForm s'il n'existe pas déjà
-    @preferences_form = @user_trip_status.preferences_form || @user_trip_status.create_preferences_form!
-
-    # Rendre la vue Step 1
-    render "preferences_forms/step1"
+    # Rediriger vers la route nestée sous trip
+    redirect_to new_trip_preferences_form_path(@user_trip_status.trip)
   end
 
   private

@@ -1,17 +1,18 @@
 class PreferencesFormsController < ApplicationController
+  before_action :set_trip_and_user_trip_status
   before_action :set_preferences_form, only: [:step1, :step2, :step3, :step4, :update, :show]
 
   def new
-    @preferences_form = PreferencesForm.new
+    # Vérifier si l'utilisateur a déjà un preferences_form pour ce trip
+    @preferences_form = @user_trip_status.preferences_form || @user_trip_status.build_preferences_form
   end
 
   def create
-  puts "\n\n===== STEP 1 PARAMS ====="
-  pp params
-  puts "=========================\n\n"
+    puts "\n\n===== STEP 1 PARAMS ====="
+    pp params
+    puts "=========================\n\n"
 
-    @preferences_form = PreferencesForm.new
-    @preferences_form.user_trip_status = current_user_trip_status
+    @preferences_form = @user_trip_status.build_preferences_form
 
     # STEP 1 → Save interests JSON
     @preferences_form.interests = extract_interests(params[:preferences_form])
@@ -55,7 +56,7 @@ def update
 
   when "3"
     if @preferences_form.update(preferences_form_params_step3)
-      redirect_to step4_preferences_form_path(@preferences_form)
+      redirect_to step4_trip_preferences_form_path(@trip, @preferences_form)
     else
       render :step3, status: :unprocessable_entity
     end
@@ -88,12 +89,23 @@ end
 
   private
 
-  def set_preferences_form
-    @preferences_form = PreferencesForm.find(params[:id])
+  def set_trip_and_user_trip_status
+    @trip = Trip.find(params[:trip_id])
+    @user_trip_status = @trip.user_trip_statuses.find_by(user: current_user)
+
+    # Si l'utilisateur n'est pas participant de ce trip
+    unless @user_trip_status
+      redirect_to trips_path, alert: "You are not a participant of this trip"
+    end
   end
 
-  def current_user_trip_status
-    current_user.user_trip_statuses.last
+  def set_preferences_form
+    @preferences_form = PreferencesForm.find(params[:id])
+
+    # Vérifier que le preferences_form appartient bien au trip et à l'utilisateur
+    unless @preferences_form.user_trip_status == @user_trip_status
+      redirect_to trips_path, alert: "Unauthorized"
+    end
   end
 
   # Convert sliders to JSON for interests column
