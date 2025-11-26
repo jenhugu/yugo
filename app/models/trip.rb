@@ -70,4 +70,67 @@ class Trip < ApplicationRecord
     latest_recommendation = recommendations.where.not(accepted: nil).last
     latest_recommendation&.accepted == false
   end
+
+  # ============================================================================
+  # MÉTHODES DE COMPTAGE DES STATUTS
+  # ============================================================================
+
+  # Compte le nombre d'invitations en attente
+  def pending_invitations_count
+    user_trip_statuses.where(invitation_accepted: false).count
+  end
+
+  # Compte le nombre d'utilisateurs qui doivent encore remplir leurs préférences
+  def pending_preferences_count
+    user_trip_statuses.where(invitation_accepted: true, form_filled: false).count
+  end
+
+  # Compte le nombre d'utilisateurs qui doivent encore reviewer les suggestions
+  # Retourne 0 s'il n'y a pas encore de recommendations à reviewer
+  def reviewing_suggestions_count
+    return 0 unless recommendations.where(accepted: nil).any?
+
+    user_trip_statuses.where(recommendation_reviewed: false, form_filled: true).count
+  end
+
+  # Compte le nombre d'utilisateurs qui ont tout complété
+  # (invitation acceptée + préférences remplies + recommendation reviewée)
+  # = "There yugo" (ils peuvent y aller)
+  def ready_to_go_count
+    user_trip_statuses.where(
+      invitation_accepted: true,
+      form_filled: true,
+      recommendation_reviewed: true
+    ).count
+  end
+
+  # ============================================================================
+  # MÉTHODES POUR RÉCUPÉRER LES UTILISATEURS PAR STATUT
+  # ============================================================================
+
+  # Récupère les utilisateurs avec invitations en attente
+  def pending_invitation_users
+    user_trip_statuses.where(invitation_accepted: false).includes(:user).map(&:user)
+  end
+
+  # Récupère les utilisateurs qui doivent encore remplir leurs préférences
+  def pending_preferences_users
+    user_trip_statuses.where(invitation_accepted: true, form_filled: false).includes(:user).map(&:user)
+  end
+
+  # Récupère les utilisateurs qui doivent encore reviewer les suggestions
+  def reviewing_suggestions_users
+    return [] unless recommendations.where(accepted: nil).any?
+
+    user_trip_statuses.where(recommendation_reviewed: false, form_filled: true).includes(:user).map(&:user)
+  end
+
+  # Récupère les utilisateurs qui ont tout complété ("There yugo")
+  def ready_to_go_users
+    user_trip_statuses.where(
+      invitation_accepted: true,
+      form_filled: true,
+      recommendation_reviewed: true
+    ).includes(:user).map(&:user)
+  end
 end
