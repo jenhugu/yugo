@@ -3,28 +3,30 @@
 // ============================================
 
 .get-inspired-page {
-  display: flex;
-  flex-direction: column;
+  background: $background;
   min-height: 100vh;
-  padding: 3rem 2rem;
-}
 
-.get-inspired-header {
-  text-align: center;
-  margin-bottom: 3rem;
-
-  h1 {
-    color: $main-text;
-    font-size: 40px;
+  &__container {
+    max-width: 1271px;
+    margin: 0 auto;
+    padding: 35px 40px;
   }
 }
 
-.get-inspired-container {
-  flex: 1;
-  max-width: 1400px;
-  margin: 0 auto 3rem auto;
-  align-self: center;
-  width: 100%;
+.get-inspired-header {
+  margin-bottom: 30px;
+
+  h1 {
+    font-family: $headers-font;
+    font-size: 40px;
+    font-weight: 600;
+    color: $main-text;
+    margin: 0;
+  }
+}
+
+.get-inspired-content {
+  margin-bottom: 3rem;
 }
 
 .get-inspired-grid {
@@ -49,11 +51,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 3rem;
-  padding: 2rem;
-  position: sticky;
-  bottom: 0;
-  background-color: $background;
-  z-index: 100;
+  padding: 2rem 0;
 }
 
 .btn-large {

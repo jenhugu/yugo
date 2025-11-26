@@ -1,20 +1,22 @@
 <div class="get-inspired-page">
-  <!-- Header -->
-  <div class="get-inspired-header">
-    <h1>Get a taste of Paris</h1>
-  </div>
-
-  <!-- Activities Grid -->
-  <div class="get-inspired-container">
-    <div class="get-inspired-grid" data-controller="get-inspired">
-      <% @activities.each do |activity| %>
-        <%= render 'shared/get_inspired_activity_card', activity: activity %>
-      <% end %>
+  <div class="get-inspired-page__container">
+    <!-- Header -->
+    <div class="get-inspired-header">
+      <h1>Get a taste of Paris</h1>
     </div>
-  </div>
 
-  <!-- CTA Button -->
-  <div class="get-inspired-cta">
-    <%= link_to 'Create a trip', new_trip_path, class: 'btn-primary btn-large' %>
+    <!-- Activities Grid -->
+    <div class="get-inspired-content">
+      <div class="get-inspired-grid" data-controller="get-inspired">
+        <% @activities.each do |activity| %>
+          <%= render 'shared/get_inspired_activity_card', activity: activity %>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="get-inspired-cta">
+      <%= link_to 'Create a trip', new_trip_path, class: 'btn-primary btn-large' %>
+    </div>
   </div>
 </div>

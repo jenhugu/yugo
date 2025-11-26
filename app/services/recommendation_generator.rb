@@ -78,6 +78,8 @@ class RecommendationGenerator
         - Format: [1, 5, 12, 23, 34, 45, 56, 67, 78, 89]
         - No explanations, no additional text, just the JSON array
         - Choose activities that balance everyone's preferences
+        - Each activity ID must be UNIQUE (no duplicates allowed)
+        - Select 10 DIFFERENT activities
       PROMPT
   end
 
@@ -103,6 +105,14 @@ class RecommendationGenerator
   def create_recommendations(activity_ids)
     return nil if activity_ids.empty?
 
+    # Dédupliquer les activity_ids pour éviter les doublons
+    unique_activity_ids = activity_ids.uniq
+
+    # Logger si des doublons ont été détectés
+    if unique_activity_ids.count < activity_ids.count
+      Rails.logger.warn "Removed #{activity_ids.count - unique_activity_ids.count} duplicate activity IDs from LLM response"
+    end
+
     # Créer l'objet Recommendation
     recommendation = Recommendation.create!(
       trip: @trip,
@@ -110,15 +120,15 @@ class RecommendationGenerator
       system_prompt: "Generated recommendations based on group preferences"
     )
 
-    # Créer un RecommendationItem pour chaque activité
-    activity_ids.each do |activity_id|
+    # Créer un RecommendationItem pour chaque activité unique
+    unique_activity_ids.each do |activity_id|
       RecommendationItem.create!(
         recommendation: recommendation,
         activity_item_id: activity_id
       )
     end
 
-    Rails.logger.info "Created #{activity_ids.count} recommendations for trip #{@trip.id}"
+    Rails.logger.info "Created #{unique_activity_ids.count} recommendations for trip #{@trip.id}"
     recommendation
   end
 end

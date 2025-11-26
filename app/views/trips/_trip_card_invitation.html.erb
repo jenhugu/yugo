@@ -13,6 +13,10 @@
           <%= user_trip_status.trip.destination %> - <%= user_trip_status.trip.start_date.strftime("%b %d") if user_trip_status.trip.start_date %> to <%= user_trip_status.trip.end_date.strftime("%b %d, %Y") if user_trip_status.trip.end_date %>
         </p>
       </div>
+      <div class="trip-card__avatar">
+        <%# TODO: REFACTO - Show creator's avatar: user_trip_status.trip.user_trip_statuses.find_by(role: 'creator').user.avatar_url %>
+        <%= image_tag "https://i.pravatar.cc/150?img=1", alt: "Avatar" %>
+      </div>
     </div>
 
     <div class="trip-card__invitation-message">
