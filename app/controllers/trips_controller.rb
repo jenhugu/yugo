@@ -105,6 +105,23 @@ class TripsController < ApplicationController
     end
   end
 
+  # Endpoint for polling itinerary generation status.
+  # Called by the itinerary-polling Stimulus controller to check if the itinerary is ready.
+  #
+  # Returns:
+  # - 200 with the updated button HTML if itinerary is ready
+  # - 204 No Content if still generating (polling continues)
+  def itinerary_status
+    @trip = Trip.find(params[:id])
+    itinerary = @trip.itineraries.last
+
+    if itinerary.present? && itinerary.itinerary_items.any?
+      render partial: "trips/itinerary_button", locals: { trip: @trip }
+    else
+      head :no_content
+    end
+  end
+
   private
 
   def trip_params
