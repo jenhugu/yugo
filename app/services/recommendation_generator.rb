@@ -88,8 +88,12 @@ class RecommendationGenerator
     chat = RubyLLM.chat(model: "gpt-4o")
     response = chat.ask(prompt)
 
+    # Nettoyer la réponse (enlever les balises markdown si présentes)
+    content = response.content.strip
+    content = content.gsub(/\A```json\s*/, "").gsub(/\s*```\z/, "")
+
     # Parser la réponse JSON
-    activity_ids = JSON.parse(response.content)
+    activity_ids = JSON.parse(content)
 
     # Vérifier que ce sont bien des IDs valides
     activity_ids.select { |id| ActivityItem.exists?(id) }
