@@ -5,7 +5,7 @@ export default class extends Controller {
   static values = { initial: Number }
 
   connect() {
-    this.valueTarget.textContent = `${this.initialValue}€`
+    this.valueTarget.textContent = `${this.rangeTarget.value}€`
   }
 
   update() {
