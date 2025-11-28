@@ -35,9 +35,12 @@ class RecommendationItemsController < ApplicationController
       recommendation_item: @recommendation_item
     ).update(like: liked)
 
-    # Vérifier si cet utilisateur a reviewé tous les items
+    # Vérifier si cet utilisateur a reviewé tous les items de CETTE recommendation
     total_items = @recommendation.recommendation_items.count
-    voted_items = user_trip_status.recommendation_votes.count
+    voted_items = user_trip_status.recommendation_votes
+                                  .joins(:recommendation_item)
+                                  .where(recommendation_items: { recommendation_id: @recommendation.id })
+                                  .count
     unreviewed_by_user = total_items - voted_items
     Rails.logger.info "Total items: #{total_items}, Voted items: #{voted_items}, Unreviewed items: #{unreviewed_by_user}"
 
