@@ -19,11 +19,7 @@
         </p>
       </div>
       <div class="trip-card__avatar" title="<%= trip.creator&.first_name.presence || trip.creator&.email %>">
-        <% if trip.creator&.avatar&.attached? %>
-          <%= image_tag trip.creator.avatar, alt: trip.creator.first_name.presence || trip.creator.email %>
-        <% else %>
-          <%= image_tag "https://i.pravatar.cc/150?u=#{trip.creator&.id}", alt: trip.creator.first_name.presence || trip.creator.email %>
-        <% end %>
+        <%= render "shared/avatar", user: trip.creator %>
       </div>
     </div>
 
@@ -36,11 +32,7 @@
         <div class="trip-card__section-avatars">
           <% trip.users.each do |user| %>
             <div class="trip-card__avatar" title="<%= user.first_name.presence || user.email %>">
-              <% if user.avatar.attached? %>
-                <%= image_tag user.avatar, alt: user.first_name.presence || user.email %>
-              <% else %>
-                <%= image_tag "https://i.pravatar.cc/150?u=#{user.id}", alt: user.first_name.presence || user.email %>
-              <% end %>
+              <%= render "shared/avatar", user: user %>
             </div>
           <% end %>
         </div>
@@ -70,11 +62,7 @@
           <div class="trip-card__section-avatars">
             <% trip.pending_invitation_users.each do |user| %>
               <div class="trip-card__avatar" title="<%= user.first_name.presence || user.email %>">
-                <% if user.avatar.attached? %>
-                  <%= image_tag user.avatar, alt: user.first_name.presence || user.email %>
-                <% else %>
-                  <%= image_tag "https://i.pravatar.cc/150?u=#{user.id}", alt: user.first_name.presence || user.email %>
-                <% end %>
+                <%= render "shared/avatar", user: user %>
               </div>
             <% end %>
           </div>
@@ -95,11 +83,7 @@
           <div class="trip-card__section-avatars">
             <% trip.pending_preferences_users.each do |user| %>
               <div class="trip-card__avatar" title="<%= user.first_name.presence || user.email %>">
-                <% if user.avatar.attached? %>
-                  <%= image_tag user.avatar, alt: user.first_name.presence || user.email %>
-                <% else %>
-                  <%= image_tag "https://i.pravatar.cc/150?u=#{user.id}", alt: user.first_name.presence || user.email %>
-                <% end %>
+                <%= render "shared/avatar", user: user %>
               </div>
             <% end %>
           </div>
@@ -120,11 +104,7 @@
           <div class="trip-card__section-avatars">
             <% trip.reviewing_suggestions_users.each do |user| %>
               <div class="trip-card__avatar" title="<%= user.first_name.presence || user.email %>">
-                <% if user.avatar.attached? %>
-                  <%= image_tag user.avatar, alt: user.first_name.presence || user.email %>
-                <% else %>
-                  <%= image_tag "https://i.pravatar.cc/150?u=#{user.id}", alt: user.first_name.presence || user.email %>
-                <% end %>
+                <%= render "shared/avatar", user: user %>
               </div>
             <% end %>
           </div>
@@ -145,11 +125,7 @@
           <div class="trip-card__section-avatars">
             <% trip.ready_to_go_users.each do |user| %>
               <div class="trip-card__avatar" title="<%= user.first_name.presence || user.email %>">
-                <% if user.avatar.attached? %>
-                  <%= image_tag user.avatar, alt: user.first_name.presence || user.email %>
-                <% else %>
-                  <%= image_tag "https://i.pravatar.cc/150?u=#{user.id}", alt: user.first_name.presence || user.email %>
-                <% end %>
+                <%= render "shared/avatar", user: user %>
               </div>
             <% end %>
           </div>
@@ -176,11 +152,7 @@
           <div class="trip-card__section-avatars">
             <% trip.pending_invitation_users.each do |user| %>
               <div class="trip-card__avatar" title="<%= user.first_name.presence || user.email %>">
-                <% if user.avatar.attached? %>
-                  <%= image_tag user.avatar, alt: user.first_name.presence || user.email %>
-                <% else %>
-                  <%= image_tag "https://i.pravatar.cc/150?u=#{user.id}", alt: user.first_name.presence || user.email %>
-                <% end %>
+                <%= render "shared/avatar", user: user %>
               </div>
             <% end %>
           </div>
@@ -201,11 +173,7 @@
           <div class="trip-card__section-avatars">
             <% trip.pending_preferences_users.each do |user| %>
               <div class="trip-card__avatar" title="<%= user.first_name.presence || user.email %>">
-                <% if user.avatar.attached? %>
-                  <%= image_tag user.avatar, alt: user.first_name.presence || user.email %>
-                <% else %>
-                  <%= image_tag "https://i.pravatar.cc/150?u=#{user.id}", alt: user.first_name.presence || user.email %>
-                <% end %>
+                <%= render "shared/avatar", user: user %>
               </div>
             <% end %>
           </div>
@@ -226,11 +194,7 @@
           <div class="trip-card__section-avatars">
             <% trip.reviewing_suggestions_users.each do |user| %>
               <div class="trip-card__avatar" title="<%= user.first_name.presence || user.email %>">
-                <% if user.avatar.attached? %>
-                  <%= image_tag user.avatar, alt: user.first_name.presence || user.email %>
-                <% else %>
-                  <%= image_tag "https://i.pravatar.cc/150?u=#{user.id}", alt: user.first_name.presence || user.email %>
-                <% end %>
+                <%= render "shared/avatar", user: user %>
               </div>
             <% end %>
           </div>
@@ -251,11 +215,7 @@
           <div class="trip-card__section-avatars">
             <% trip.ready_to_go_users.each do |user| %>
               <div class="trip-card__avatar" title="<%= user.first_name.presence || user.email %>">
-                <% if user.avatar.attached? %>
-                  <%= image_tag user.avatar, alt: user.first_name.presence || user.email %>
-                <% else %>
-                  <%= image_tag "https://i.pravatar.cc/150?u=#{user.id}", alt: user.first_name.presence || user.email %>
-                <% end %>
+                <%= render "shared/avatar", user: user %>
               </div>
             <% end %>
           </div>

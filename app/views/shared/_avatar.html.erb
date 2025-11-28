@@ -1,0 +1,7 @@
+<% if user.avatar.attached? %>
+  <%= image_tag user.avatar, alt: user.first_name.presence || user.email %>
+<% else %>
+  <div class="avatar-fallback">
+    <%= (user.first_name.presence&.first || user.email&.first || "?").upcase %>
+  </div>
+<% end %>
