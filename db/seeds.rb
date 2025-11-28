@@ -1,6 +1,10 @@
 # Clean database
 puts "🧹 Cleaning database..."
 
+# Disable job enqueueing during seed
+original_adapter = ActiveJob::Base.queue_adapter
+ActiveJob::Base.queue_adapter = :inline
+
 # Purge attachments from Cloudinary before destroying records
 puts "☁️  Purging attachments from Cloudinary..."
 User.find_each do |user|
@@ -1829,3 +1833,6 @@ puts "Rachel Green (participante):"
 puts "  Email: rachel@yugo.com"
 puts "  Password: password123"
 puts "="*50
+
+# Restore original job adapter
+ActiveJob::Base.queue_adapter = original_adapter
