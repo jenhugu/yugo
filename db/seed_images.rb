@@ -2,6 +2,10 @@ require 'open-uri'
 
 puts "\n🖼️ Starting image attachment process...\n"
 
+# Disable job enqueueing during image attachment
+original_adapter = ActiveJob::Base.queue_adapter
+ActiveJob::Base.queue_adapter = :inline
+
 # Hash mapping activity names to Unsplash image URLs
 # These are high-quality, free-to-use images from Unsplash
 image_urls = {
@@ -151,3 +155,6 @@ puts "\n📊 Image attachment complete!"
 puts "✅ Success: #{success_count}"
 puts "❌ Errors: #{error_count}"
 puts "\n🎉 All done!\n"
+
+# Restore original job adapter
+ActiveJob::Base.queue_adapter = original_adapter

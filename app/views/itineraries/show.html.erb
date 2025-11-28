@@ -1,4 +1,4 @@
-<div class="itineraries-show">
+<div class="itineraries-show" id="top">
   <div class="itineraries-show__container">
       <%# Renvois vers la page my trips %>
       <%= link_to trips_path, class: "secondary-title back-link" do %>
@@ -33,4 +33,9 @@
       <%# fin du render  %>
     </div>
   </div>
+
+  <%# Scroll to top button %>
+  <%= link_to "#top", class: "scroll-to-top", title: "Back to top" do %>
+    ↑
+  <% end %>
 </div>

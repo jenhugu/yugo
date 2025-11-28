@@ -1,17 +1,54 @@
 .itineraries-show {
   background: $background;
   min-height: 100vh;
+  padding-bottom: 50px;
 
   &__container {
     max-width: 1289px;
     max-height: 100px;
     margin: 0 auto;
   }
+
+  .trip-card__dates {
+    color: $main-text;
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  // Activity cards styling to match review cards
+  .trip-card__title {
+    color: $main-text;
+  }
+
+  .secondary-title {
+    color: $secondary-text;
+  }
+
+  .activity-card__info {
+    gap: 0.75rem;
+
+    .info-item {
+      gap: 0.75rem;
+
+      i {
+        color: $terracotta-light;
+        font-size: 18px;
+        width: 20px;
+        text-align: center;
+      }
+
+      p {
+        color: $secondary-text;
+        margin: 0;
+      }
+    }
+  }
 }
 
 .back-link {
   display: inline-flex;
   align-items: center;
+  color: $secondary-text;
   gap: 8px;
   padding: 8px 12px;
   text-decoration: none;
@@ -19,5 +56,30 @@
 
   &:hover {
     opacity: 0.7;
+  }
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background: $terracotta-dark;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 100;
+
+  &:hover {
+    background: $terracotta-light;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   }
 }

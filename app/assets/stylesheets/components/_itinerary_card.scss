@@ -47,7 +47,7 @@
   &__section {
     background: rgba(245, 158, 11, 0.1);
     border-radius: 8px;
-    padding: 16px 8px;
+    padding: 21px 8px 16px 25px;
     position: relative;
     max-height: 237px;
     display: flex;
@@ -59,7 +59,7 @@
     font-size: 16px;
     font-weight: 600;
     color: $terracotta-dark;
-    margin-bottom: 0;
+    margin-bottom: 2px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -71,13 +71,27 @@
     position: relative;
     border-radius: 8px;
     margin-top: 24px;
-    padding: 16px 8px;
-    max-height: 66px;
+    padding: 16px 25px;
+    height: 66px;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     h3 {
+      margin: 0;
+      font-weight: 600;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .subtitle {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
       margin: 0;
     }
   }
