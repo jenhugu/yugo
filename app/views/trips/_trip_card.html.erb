@@ -18,9 +18,12 @@
           <%= trip.destination %> - <%= trip.start_date.strftime("%b %d") if trip.start_date %> to <%= trip.end_date.strftime("%b %d, %Y") if trip.end_date %>
         </p>
       </div>
-      <div class="trip-card__avatar">
-        <%# TODO: REFACTO - Show creator's avatar: trip.user_trip_statuses.find_by(role: 'creator').user.avatar_url %>
-        <%= image_tag "https://i.pravatar.cc/150?img=1", alt: "Avatar" %>
+      <div class="trip-card__avatar" title="<%= trip.creator&.first_name.presence || trip.creator&.email %>">
+        <% if trip.creator&.avatar&.attached? %>
+          <%= image_tag trip.creator.avatar, alt: trip.creator.first_name.presence || trip.creator.email %>
+        <% else %>
+          <%= image_tag "https://i.pravatar.cc/150?u=#{trip.creator&.id}", alt: trip.creator.first_name.presence || trip.creator.email %>
+        <% end %>
       </div>
     </div>
 
