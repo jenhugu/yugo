@@ -14,11 +14,7 @@
         </p>
       </div>
       <div class="trip-card__avatar" title="<%= user_trip_status.trip.creator&.first_name.presence || user_trip_status.trip.creator&.email %>">
-        <% if user_trip_status.trip.creator&.avatar&.attached? %>
-          <%= image_tag user_trip_status.trip.creator.avatar, alt: user_trip_status.trip.creator.first_name.presence || user_trip_status.trip.creator.email %>
-        <% else %>
-          <%= image_tag "https://i.pravatar.cc/150?u=#{user_trip_status.trip.creator&.id}", alt: user_trip_status.trip.creator.first_name.presence || user_trip_status.trip.creator.email %>
-        <% end %>
+        <%= render "shared/avatar", user: user_trip_status.trip.creator %>
       </div>
     </div>
 
