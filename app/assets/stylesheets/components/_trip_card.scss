@@ -62,7 +62,7 @@
     font-family: $body-font;
     font-size: 16px;
     color: $secondary-text;
-    margin-top: 14px;
+    margin-top: 6px;
     margin-bottom: 0;
   }
 
@@ -91,7 +91,7 @@
     border-radius: 8px;
     padding: 10px 17px;
     position: relative;
-    height: 75px;
+    height: 70px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -146,7 +146,7 @@
   &__section--full-width {
     grid-column: 1 / -1;
     height: auto;
-    min-height: 83px;
+    min-height: 70px;
   }
 
   &__animation-placeholder {
