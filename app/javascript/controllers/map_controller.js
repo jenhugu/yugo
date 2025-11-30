@@ -4,7 +4,8 @@ export default class extends Controller {
   static targets = ["container", "modal", "sidebar", "daysList", "hotelInput", "hotelStatus"]
   static values = {
     apiKey: String,
-    days: Array
+    days: Array,
+    tripId: Number
   }
 
   connect() {
@@ -321,9 +322,10 @@ export default class extends Controller {
         this.hotelStatusTarget.innerHTML = '<i class="fa-solid fa-check"></i> Hotel added to map'
         this.hotelStatusTarget.className = 'map-sidebar__hotel-status map-sidebar__hotel-status--success'
 
-        // Save to localStorage for persistence
-        localStorage.setItem('yugo_hotel_address', address)
-        localStorage.setItem('yugo_hotel_coords', JSON.stringify({ lat, lng, placeName }))
+        // Save to localStorage for persistence (specific to this trip)
+        const tripId = this.tripIdValue
+        localStorage.setItem(`yugo_hotel_address_${tripId}`, address)
+        localStorage.setItem(`yugo_hotel_coords_${tripId}`, JSON.stringify({ lat, lng, placeName }))
 
       } else {
         this.hotelStatusTarget.innerHTML = '<i class="fa-solid fa-exclamation-circle"></i> Address not found'
@@ -337,8 +339,9 @@ export default class extends Controller {
   }
 
   loadSavedHotel() {
-    const savedAddress = localStorage.getItem('yugo_hotel_address')
-    const savedCoords = localStorage.getItem('yugo_hotel_coords')
+    const tripId = this.tripIdValue
+    const savedAddress = localStorage.getItem(`yugo_hotel_address_${tripId}`)
+    const savedCoords = localStorage.getItem(`yugo_hotel_coords_${tripId}`)
 
     if (savedAddress && savedCoords) {
       this.hotelInputTarget.value = savedAddress
