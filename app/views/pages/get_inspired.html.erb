@@ -3,6 +3,7 @@
     <!-- Header -->
     <div class="get-inspired-header">
       <h1>Get a taste of Paris</h1>
+      <%= link_to 'Create a trip', new_trip_path, class: 'get-inspired-header__create-btn' %>
     </div>
 
     <!-- Activities Grid -->
@@ -13,10 +14,10 @@
         <% end %>
       </div>
     </div>
-
-    <!-- CTA Button -->
-    <div class="get-inspired-cta">
-      <%= link_to 'Create a trip', new_trip_path, class: 'btn-primary btn-large' %>
-    </div>
   </div>
+
+  <%# Scroll to top button %>
+  <button type="button" class="scroll-to-top" data-controller="scroll-to-top" data-action="click->scroll-to-top#scrollToTop" title="Back to top">
+    ↑
+  </button>
 </div>
