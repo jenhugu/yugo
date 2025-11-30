@@ -14,6 +14,9 @@
 }
 
 .get-inspired-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 30px;
 
   h1 {
@@ -22,6 +25,30 @@
     font-weight: 600;
     color: $main-text;
     margin: 0;
+  }
+
+  &__create-btn {
+    background: $terracotta-dark;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 32px;
+    font-family: $body-font;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+      background: $terracotta-light;
+      text-decoration: none;
+    }
+
+    &:active {
+      background: $terracotta-light;
+    }
   }
 }
 
@@ -46,16 +73,42 @@
   }
 }
 
-.get-inspired-cta {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3rem;
-  padding: 2rem 0;
-}
-
 .btn-large {
   padding: 16px 48px;
   font-size: 16px;
   min-width: 200px;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background: $terracotta-dark;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 24px;
+  font-family: $body-font;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  outline: none;
+  z-index: 100;
+
+  &:hover {
+    background: $terracotta-light;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus {
+    outline: none;
+  }
 }

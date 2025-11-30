@@ -20,7 +20,7 @@
   end
 %>
 
-<div class="itineraries-show" id="top" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-days-value="<%= days_data.to_json %>" data-map-trip-id-value="<%= @trip.id %>">
+<div class="itineraries-show" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-days-value="<%= days_data.to_json %>" data-map-trip-id-value="<%= @trip.id %>">
   <div class="itineraries-show__container">
       <%# Renvois vers la page my trips %>
       <%= link_to trips_path, class: "secondary-title back-link" do %>
@@ -62,7 +62,7 @@
   </div>
 
   <%# Scroll to top button %>
-  <%= link_to "#top", class: "scroll-to-top", title: "Back to top" do %>
+  <button type="button" class="scroll-to-top" data-controller="scroll-to-top" data-action="click->scroll-to-top#scrollToTop" title="Back to top">
     ↑
-  <% end %>
+  </button>
 </div>

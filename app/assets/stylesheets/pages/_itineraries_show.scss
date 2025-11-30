@@ -74,19 +74,28 @@
   height: 50px;
   background: $terracotta-dark;
   color: white;
+  border: none;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   font-size: 24px;
+  font-family: $body-font;
+  line-height: 1;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
+  cursor: pointer;
+  outline: none;
   z-index: 100;
 
   &:hover {
     background: $terracotta-light;
     transform: translateY(-3px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus {
+    outline: none;
   }
 }
