@@ -59,6 +59,13 @@
   }
 }
 
+.trip-card__section-avatars-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
 .scroll-to-top {
   position: fixed;
   bottom: 40px;

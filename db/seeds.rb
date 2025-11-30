@@ -101,7 +101,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sat: 12:00 PM-2:30 PM, 7:00 PM-11:00 PM",
   duration: 120,
-  tagline: "The Parisian insider's favorite bistro"
+  tagline: "The Parisian insider's favorite bistro",
+  latitude: 48.8516,
+  longitude: 2.3388
 )
 
 ActivityItem.create!(
@@ -115,7 +117,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Wed-Sun: 11:30 AM-11:00 PM",
   duration: 90,
-  tagline: "Brittany in the heart of Le Marais"
+  tagline: "Brittany in the heart of Le Marais",
+  latitude: 48.8631,
+  longitude: 2.3612
 )
 
 ActivityItem.create!(
@@ -129,7 +133,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Sun-Thu: 11:00 AM-11:00 PM, Fri: 11:00 AM-6:00 PM",
   duration: 45,
-  tagline: "Le Marais's legendary falafel"
+  tagline: "Le Marais's legendary falafel",
+  latitude: 48.8571,
+  longitude: 2.3579
 )
 
 ActivityItem.create!(
@@ -143,7 +149,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 7:00 AM-1:30 AM",
   duration: 60,
-  tagline: "Where Sartre wrote his manifestos"
+  tagline: "Where Sartre wrote his manifestos",
+  latitude: 48.8540,
+  longitude: 2.3325
 )
 
 ActivityItem.create!(
@@ -157,7 +165,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Fri: 12:00 PM-2:00 PM, 7:30 PM-10:00 PM",
   duration: 150,
-  tagline: "The new guard of Parisian gastronomy"
+  tagline: "The new guard of Parisian gastronomy",
+  latitude: 48.8534,
+  longitude: 2.3803
 )
 
 ActivityItem.create!(
@@ -171,7 +181,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 7:30 AM-7:00 PM",
   duration: 75,
-  tagline: "The hot chocolate warming Paris since 1903"
+  tagline: "The hot chocolate warming Paris since 1903",
+  latitude: 48.8650,
+  longitude: 2.3286
 )
 
 ActivityItem.create!(
@@ -185,7 +197,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 12:00 PM-3:00 PM, 7:00 PM-11:30 PM",
   duration: 120,
-  tagline: "A corner of Provence in Le Marais"
+  tagline: "A corner of Provence in Le Marais",
+  latitude: 48.8553,
+  longitude: 2.3667
 )
 
 ActivityItem.create!(
@@ -199,7 +213,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 12:00 PM-2:30 PM, 6:30 PM-11:00 PM",
   duration: 105,
-  tagline: "Italy at full size in Pigalle"
+  tagline: "Italy at full size in Pigalle",
+  latitude: 48.8819,
+  longitude: 2.3330
 )
 
 ActivityItem.create!(
@@ -213,7 +229,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 12:00 PM-2:30 PM, 7:00 PM-11:00 PM",
   duration: 90,
-  tagline: "One option, zero disappointment"
+  tagline: "One option, zero disappointment",
+  latitude: 48.8702,
+  longitude: 2.3045
 )
 
 ActivityItem.create!(
@@ -227,7 +245,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 9:00 AM-6:00 PM",
   duration: 45,
-  tagline: "The art of Japanese coffee"
+  tagline: "The art of Japanese coffee",
+  latitude: 48.8636,
+  longitude: 2.3370
 )
 
 ActivityItem.create!(
@@ -241,7 +261,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 11:30 AM-10:00 PM",
   duration: 90,
-  tagline: "Eat like it's 1900 without breaking the bank"
+  tagline: "Eat like it's 1900 without breaking the bank",
+  latitude: 48.8718,
+  longitude: 2.3437
 )
 
 ActivityItem.create!(
@@ -255,7 +277,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sat: 7:00 PM-10:00 PM",
   duration: 135,
-  tagline: "The bistro that revolutionized the Parisian scene"
+  tagline: "The bistro that revolutionized the Parisian scene",
+  latitude: 48.8664,
+  longitude: 2.3473
 )
 
 ActivityItem.create!(
@@ -269,7 +293,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Wed-Fri: 9:00 AM-5:00 PM, Sat-Sun: 9:00 AM-6:00 PM",
   duration: 90,
-  tagline: "The brunch worth waking up for on weekends"
+  tagline: "The brunch worth waking up for on weekends",
+  latitude: 48.8719,
+  longitude: 2.3608
 )
 
 ActivityItem.create!(
@@ -283,7 +309,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 11:30 AM-3:00 PM, 7:00 PM-11:00 PM",
   duration: 150,
-  tagline: "Travel through time without leaving Paris"
+  tagline: "Travel through time without leaving Paris",
+  latitude: 48.8448,
+  longitude: 2.3735
 )
 
 ActivityItem.create!(
@@ -297,7 +325,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 12:00 PM-11:00 PM",
   duration: 60,
-  tagline: "Tel Aviv arrives in Le Marais"
+  tagline: "Tel Aviv arrives in Le Marais",
+  latitude: 48.8563,
+  longitude: 2.3565
 )
 
 ActivityItem.create!(
@@ -311,7 +341,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 11:00 AM-7:00 PM",
   duration: 90,
-  tagline: "The secret haven of tea and book lovers"
+  tagline: "The secret haven of tea and book lovers",
+  latitude: 48.8531,
+  longitude: 2.3418
 )
 
 ActivityItem.create!(
@@ -325,7 +357,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sat: 12:00 PM-2:00 PM, 7:00 PM-11:00 PM",
   duration: 120,
-  tagline: "Sharing and generosity the Basque way"
+  tagline: "Sharing and generosity the Basque way",
+  latitude: 48.8598,
+  longitude: 2.3027
 )
 
 ActivityItem.create!(
@@ -339,7 +373,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 8:30 AM-5:00 PM",
   duration: 75,
-  tagline: "Luxury breakfast experience"
+  tagline: "Luxury breakfast experience",
+  latitude: 48.8627,
+  longitude: 2.3428
 )
 
 ActivityItem.create!(
@@ -353,7 +389,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sat: 12:00 PM-2:30 PM, 7:30 PM-11:00 PM",
   duration: 120,
-  tagline: "The secret bistro of true Parisians"
+  tagline: "The secret bistro of true Parisians",
+  latitude: 48.8711,
+  longitude: 2.3880
 )
 
 ActivityItem.create!(
@@ -367,7 +405,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sat: 12:00 PM-3:00 PM, 6:00 PM-11:00 PM, Sun: 11:00 AM-4:00 PM",
   duration: 105,
-  tagline: "Brooklyn meets Paris"
+  tagline: "Brooklyn meets Paris",
+  latitude: 48.8671,
+  longitude: 2.3369
 )
 
 ActivityItem.create!(
@@ -381,7 +421,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 8:00 AM-1:00 AM",
   duration: 60,
-  tagline: "Montmartre's postcard-perfect café"
+  tagline: "Montmartre's postcard-perfect café",
+  latitude: 48.8867,
+  longitude: 2.3408
 )
 
 ActivityItem.create!(
@@ -395,7 +437,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sat: 12:00 PM-2:00 PM, 7:30 PM-11:00 PM",
   duration: 120,
-  tagline: "The bistro in all its splendor"
+  tagline: "The bistro in all its splendor",
+  latitude: 48.8508,
+  longitude: 2.3883
 )
 
 ActivityItem.create!(
@@ -409,7 +453,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Fri: 8:00 AM-5:00 PM, Sat-Sun: 9:00 AM-6:00 PM",
   duration: 75,
-  tagline: "Australian coffee culture in Pigalle"
+  tagline: "Australian coffee culture in Pigalle",
+  latitude: 48.8815,
+  longitude: 2.3454
 )
 
 ActivityItem.create!(
@@ -423,7 +469,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sat: 7:00 PM-10:00 PM",
   duration: 150,
-  tagline: "Culinary boldness made in Paris"
+  tagline: "Culinary boldness made in Paris",
+  latitude: 48.8668,
+  longitude: 2.3771
 )
 
 ActivityItem.create!(
@@ -437,7 +485,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 8:00 AM-7:00 PM",
   duration: 60,
-  tagline: "Parisian sweetness in the most beautiful square"
+  tagline: "Parisian sweetness in the most beautiful square",
+  latitude: 48.8555,
+  longitude: 2.3657
 )
 
 ActivityItem.create!(
@@ -451,7 +501,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sat: 12:00 PM-3:00 PM, 7:00 PM-10:30 PM",
   duration: 45,
-  tagline: "Authentic Japan without the fuss"
+  tagline: "Authentic Japan without the fuss",
+  latitude: 48.8749,
+  longitude: 2.3508
 )
 
 ActivityItem.create!(
@@ -465,7 +517,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sat: 12:00 PM-2:30 PM, 7:00 PM-10:30 PM",
   duration: 135,
-  tagline: "Franco-Asian fusion by two talented sisters"
+  tagline: "Franco-Asian fusion by two talented sisters",
+  latitude: 48.8636,
+  longitude: 2.3807
 )
 
 ActivityItem.create!(
@@ -479,7 +533,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 7:30 AM-1:00 AM",
   duration: 75,
-  tagline: "Where existentialists remade the world"
+  tagline: "Where existentialists remade the world",
+  latitude: 48.8541,
+  longitude: 2.3332
 )
 
 ActivityItem.create!(
@@ -493,7 +549,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sat: 8:00 AM-7:00 PM, Sun: 8:00 AM-3:00 PM",
   duration: 30,
-  tagline: "Gluten-free finally delicious"
+  tagline: "Gluten-free finally delicious",
+  latitude: 48.8618,
+  longitude: 2.3740
 )
 
 ActivityItem.create!(
@@ -507,7 +565,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Fri: 12:00 PM-2:00 PM, 7:30 PM-10:30 PM",
   duration: 120,
-  tagline: "All-you-can-eat cheese worth the detour"
+  tagline: "All-you-can-eat cheese worth the detour",
+  latitude: 48.8658,
+  longitude: 2.3756
 )
 
 # ========================================
@@ -527,7 +587,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 9:30 AM-6:00 PM (Thu until 9:45 PM)",
   duration: 180,
-  tagline: "Impressionism in a majestic train station"
+  tagline: "Impressionism in a majestic train station",
+  latitude: 48.8600,
+  longitude: 2.3266
 )
 
 ActivityItem.create!(
@@ -541,7 +603,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 10:00 AM-6:30 PM",
   duration: 120,
-  tagline: "Monumental sculptures in a secret garden"
+  tagline: "Monumental sculptures in a secret garden",
+  latitude: 48.8554,
+  longitude: 2.3158
 )
 
 ActivityItem.create!(
@@ -555,7 +619,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Wed-Mon: 11:00 AM-9:00 PM",
   duration: 150,
-  tagline: "Modern art in a viewing machine"
+  tagline: "Modern art in a viewing machine",
+  latitude: 48.8607,
+  longitude: 2.3522
 )
 
 ActivityItem.create!(
@@ -569,7 +635,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Wed-Mon: 9:00 AM-6:00 PM",
   duration: 90,
-  tagline: "Dive into Monet's Water Lilies"
+  tagline: "Dive into Monet's Water Lilies",
+  latitude: 48.8638,
+  longitude: 2.3225
 )
 
 ActivityItem.create!(
@@ -583,7 +651,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Fri: 10:30 AM-6:00 PM, Sat-Sun: 9:30 AM-6:00 PM",
   duration: 120,
-  tagline: "Picasso like you've never seen before"
+  tagline: "Picasso like you've never seen before",
+  latitude: 48.8597,
+  longitude: 2.3622
 )
 
 ActivityItem.create!(
@@ -597,7 +667,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 10:00 AM-6:00 PM (Mon until 8:30 PM)",
   duration: 105,
-  tagline: "Live like a 19th-century banker"
+  tagline: "Live like a 19th-century banker",
+  latitude: 48.8752,
+  longitude: 2.3109
 )
 
 ActivityItem.create!(
@@ -611,7 +683,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 10:00 AM-6:00 PM (Sat until 10:00 PM)",
   duration: 75,
-  tagline: "Step into giant paintings"
+  tagline: "Step into giant paintings",
+  latitude: 48.8614,
+  longitude: 2.3804
 )
 
 ActivityItem.create!(
@@ -625,7 +699,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 135,
-  tagline: "Paris's history told by Paris itself"
+  tagline: "Paris's history told by Paris itself",
+  latitude: 48.8575,
+  longitude: 2.3627
 )
 
 ActivityItem.create!(
@@ -639,7 +715,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Wed-Mon: 12:00 PM-10:00 PM",
   duration: 120,
-  tagline: "Art that challenges certainties"
+  tagline: "Art that challenges certainties",
+  latitude: 48.8642,
+  longitude: 2.2974
 )
 
 ActivityItem.create!(
@@ -653,7 +731,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 10:00 AM-6:00 PM (Thu until 9:00 PM)",
   duration: 105,
-  tagline: "Monet's secret collection away from crowds"
+  tagline: "Monet's secret collection away from crowds",
+  latitude: 48.8600,
+  longitude: 2.2667
 )
 
 ActivityItem.create!(
@@ -667,7 +747,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 120,
-  tagline: "The palace of free art"
+  tagline: "The palace of free art",
+  latitude: 48.8660,
+  longitude: 2.3140
 )
 
 ActivityItem.create!(
@@ -681,7 +763,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon,Wed-Thu: 11:00 AM-8:00 PM, Fri: 11:00 AM-9:00 PM, Sat-Sun: 10:00 AM-8:00 PM",
   duration: 150,
-  tagline: "The spacecraft of contemporary art"
+  tagline: "The spacecraft of contemporary art",
+  latitude: 48.8768,
+  longitude: 2.2650
 )
 
 ActivityItem.create!(
@@ -695,7 +779,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 11:00 AM-6:00 PM",
   duration: 120,
-  tagline: "The history of design and fashion"
+  tagline: "The history of design and fashion",
+  latitude: 48.8627,
+  longitude: 2.3328
 )
 
 ActivityItem.create!(
@@ -709,7 +795,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue,Wed,Sun: 10:30 AM-7:00 PM, Thu-Sat: 10:30 AM-10:00 PM",
   duration: 135,
-  tagline: "A world tour of cultures"
+  tagline: "A world tour of cultures",
+  latitude: 48.8612,
+  longitude: 2.2978
 )
 
 ActivityItem.create!(
@@ -723,7 +811,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Wed-Sun: 10:00 AM-5:30 PM",
   duration: 90,
-  tagline: "Travel back in time in an 18th-century apartment"
+  tagline: "Travel back in time in an 18th-century apartment",
+  latitude: 48.8795,
+  longitude: 2.3115
 )
 
 ActivityItem.create!(
@@ -737,7 +827,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 11:00 AM-6:00 PM",
   duration: 90,
-  tagline: "The 21st-century cabinet of curiosities"
+  tagline: "The 21st-century cabinet of curiosities",
+  latitude: 48.8610,
+  longitude: 2.3570
 )
 
 ActivityItem.create!(
@@ -751,7 +843,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 75,
-  tagline: "The 18th century in intimate detail"
+  tagline: "The 18th century in intimate detail",
+  latitude: 48.8590,
+  longitude: 2.3618
 )
 
 ActivityItem.create!(
@@ -765,7 +859,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sat: 11:00 AM-7:00 PM",
   duration: 60,
-  tagline: "The world's artistic avant-garde"
+  tagline: "The world's artistic avant-garde",
+  latitude: 48.8605,
+  longitude: 2.3630
 )
 
 ActivityItem.create!(
@@ -779,7 +875,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 90,
-  tagline: "A master sculptor's secret studio"
+  tagline: "A master sculptor's secret studio",
+  latitude: 48.8428,
+  longitude: 2.3189
 )
 
 ActivityItem.create!(
@@ -793,7 +891,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Wed-Mon: 11:00 AM-7:00 PM",
   duration: 120,
-  tagline: "French architecture at full scale"
+  tagline: "French architecture at full scale",
+  latitude: 48.8630,
+  longitude: 2.2875
 )
 
 ActivityItem.create!(
@@ -807,7 +907,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Wed-Mon: 10:00 AM-6:00 PM",
   duration: 75,
-  tagline: "Dive into the Symbolist universe"
+  tagline: "Dive into the Symbolist universe",
+  latitude: 48.8791,
+  longitude: 2.3353
 )
 
 ActivityItem.create!(
@@ -821,7 +923,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 75,
-  tagline: "A Romantic oasis away from the hustle"
+  tagline: "A Romantic oasis away from the hustle",
+  latitude: 48.8807,
+  longitude: 2.3338
 )
 
 ActivityItem.create!(
@@ -835,7 +939,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Wed-Sun: 1:00 PM-8:00 PM",
   duration: 60,
-  tagline: "Underground art in the heart of Paris"
+  tagline: "Underground art in the heart of Paris",
+  latitude: 48.8589,
+  longitude: 2.3468
 )
 
 ActivityItem.create!(
@@ -849,7 +955,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Fri: 10:00 AM-6:00 PM, Sat-Sun: 10:00 AM-7:00 PM",
   duration: 120,
-  tagline: "East meets West"
+  tagline: "East meets West",
+  latitude: 48.8514,
+  longitude: 2.3543
 )
 
 ActivityItem.create!(
@@ -863,7 +971,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 75,
-  tagline: "In the intimate world of a literary giant"
+  tagline: "In the intimate world of a literary giant",
+  latitude: 48.8553,
+  longitude: 2.3660
 )
 
 # ========================================
@@ -883,7 +993,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 9:00 AM-5:00 PM (until 7:00 PM in summer)",
   duration: 45,
-  tagline: "The cathedral of glass and light"
+  tagline: "The cathedral of glass and light",
+  latitude: 48.8554,
+  longitude: 2.3450
 )
 
 ActivityItem.create!(
@@ -897,7 +1009,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 10:00 AM-6:30 PM",
   duration: 90,
-  tagline: "Where the Republic's great figures rest"
+  tagline: "Where the Republic's great figures rest",
+  latitude: 48.8462,
+  longitude: 2.3464
 )
 
 ActivityItem.create!(
@@ -911,7 +1025,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 10:00 AM-10:30 PM",
   duration: 75,
-  tagline: "The star shining over Paris"
+  tagline: "The star shining over Paris",
+  latitude: 48.8738,
+  longitude: 2.2950
 )
 
 ActivityItem.create!(
@@ -925,7 +1041,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 9:30 AM-6:00 PM",
   duration: 75,
-  tagline: "From kings to the Revolution"
+  tagline: "From kings to the Revolution",
+  latitude: 48.8560,
+  longitude: 2.3456
 )
 
 ActivityItem.create!(
@@ -939,7 +1057,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 9:30 AM-11:30 PM",
   duration: 60,
-  tagline: "Paris from above without waiting in line"
+  tagline: "Paris from above without waiting in line",
+  latitude: 48.8421,
+  longitude: 2.3219
 )
 
 ActivityItem.create!(
@@ -953,7 +1073,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 6:00 AM-10:30 PM (dome 9:00 AM-7:00 PM)",
   duration: 75,
-  tagline: "Montmartre's white lighthouse"
+  tagline: "Montmartre's white lighthouse",
+  latitude: 48.8867,
+  longitude: 2.3431
 )
 
 ActivityItem.create!(
@@ -967,7 +1089,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 10:00 AM-4:30 PM (except during performances)",
   duration: 90,
-  tagline: "The Palace of the Opera Phantom"
+  tagline: "The Palace of the Opera Phantom",
+  latitude: 48.8720,
+  longitude: 2.3316
 )
 
 ActivityItem.create!(
@@ -981,7 +1105,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 10:00 AM-6:00 PM",
   duration: 120,
-  tagline: "Napoleon rests under gold"
+  tagline: "Napoleon rests under gold",
+  latitude: 48.8550,
+  longitude: 2.3125
 )
 
 ActivityItem.create!(
@@ -995,7 +1121,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 9:45 AM-8:30 PM",
   duration: 75,
-  tagline: "The empire of death under Paris"
+  tagline: "The empire of death under Paris",
+  latitude: 48.8338,
+  longitude: 2.3325
 )
 
 ActivityItem.create!(
@@ -1009,7 +1137,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Esplanade accessible 24/7",
   duration: 30,
-  tagline: "The phoenix rising from the ashes"
+  tagline: "The phoenix rising from the ashes",
+  latitude: 48.8530,
+  longitude: 2.3499
 )
 
 ActivityItem.create!(
@@ -1023,7 +1153,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 10:00 AM-5:00 PM (until 6:00 PM in summer)",
   duration: 105,
-  tagline: "The little-known medieval Versailles"
+  tagline: "The little-known medieval Versailles",
+  latitude: 48.8424,
+  longitude: 2.4353
 )
 
 ActivityItem.create!(
@@ -1037,7 +1169,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 9:30 AM-11:45 PM",
   duration: 120,
-  tagline: "The icon that sparkles for you"
+  tagline: "The icon that sparkles for you",
+  latitude: 48.8584,
+  longitude: 2.2945
 )
 
 ActivityItem.create!(
@@ -1051,7 +1185,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 8:00 AM-8:00 PM (seasonal)",
   duration: 45,
-  tagline: "Paris's forgotten Roman bleachers"
+  tagline: "Paris's forgotten Roman bleachers",
+  latitude: 48.8453,
+  longitude: 2.3528
 )
 
 ActivityItem.create!(
@@ -1065,7 +1201,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 7:00 AM-10:30 PM",
   duration: 45,
-  tagline: "The striped garden at the heart of power"
+  tagline: "The striped garden at the heart of power",
+  latitude: 48.8638,
+  longitude: 2.3372
 )
 
 ActivityItem.create!(
@@ -1079,7 +1217,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 7:30 AM-7:30 PM",
   duration: 45,
-  tagline: "The Da Vinci Code church"
+  tagline: "The Da Vinci Code church",
+  latitude: 48.8511,
+  longitude: 2.3347
 )
 
 ActivityItem.create!(
@@ -1093,7 +1233,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Fri: 9:30 AM-7:00 PM, Sat-Sun: 9:00 AM-7:00 PM",
   duration: 45,
-  tagline: "The hidden cathedral of Les Halles"
+  tagline: "The hidden cathedral of Les Halles",
+  latitude: 48.8631,
+  longitude: 2.3456
 )
 
 ActivityItem.create!(
@@ -1107,7 +1249,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "24/7",
   duration: 20,
-  tagline: "The postcard bridge of Paris"
+  tagline: "The postcard bridge of Paris",
+  latitude: 48.8637,
+  longitude: 2.3136
 )
 
 ActivityItem.create!(
@@ -1121,7 +1265,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 10:00 AM-6:00 PM",
   duration: 60,
-  tagline: "Paris layer by layer beneath your feet"
+  tagline: "Paris layer by layer beneath your feet",
+  latitude: 48.8534,
+  longitude: 2.3488
 )
 
 ActivityItem.create!(
@@ -1135,7 +1281,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Sun: 11:00 AM-7:00 PM",
   duration: 75,
-  tagline: "Understand how Paris was built"
+  tagline: "Understand how Paris was built",
+  latitude: 48.8510,
+  longitude: 2.3618
 )
 
 ActivityItem.create!(
@@ -1149,7 +1297,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 8:00 AM-8:30 PM (seasonal)",
   duration: 90,
-  tagline: "The High Line before the High Line"
+  tagline: "The High Line before the High Line",
+  latitude: 48.8490,
+  longitude: 2.3720
 )
 
 # ========================================
@@ -1169,7 +1319,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Hours vary by program",
   duration: 150,
-  tagline: "The spacecraft of classical music"
+  tagline: "The spacecraft of classical music",
+  latitude: 48.8891,
+  longitude: 2.3936
 )
 
 ActivityItem.create!(
@@ -1183,7 +1335,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Shows at 7:00 PM and 9:30 PM",
   duration: 90,
-  tagline: "The art of nudity reinvented"
+  tagline: "The art of nudity reinvented",
+  latitude: 48.8674,
+  longitude: 2.3016
 )
 
 ActivityItem.create!(
@@ -1197,7 +1351,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Screenings 10:00 AM to midnight",
   duration: 150,
-  tagline: "The temple of Paris cinema"
+  tagline: "The temple of Paris cinema",
+  latitude: 48.8708,
+  longitude: 2.3474
 )
 
 ActivityItem.create!(
@@ -1211,7 +1367,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Dinner-show 7:00 PM, Show only 9:00 PM and 11:00 PM",
   duration: 120,
-  tagline: "The French can-can that makes the world dream"
+  tagline: "The French can-can that makes the world dream",
+  latitude: 48.8841,
+  longitude: 2.3322
 )
 
 ActivityItem.create!(
@@ -1225,7 +1383,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Concerts at 8:00 PM and 10:00 PM",
   duration: 120,
-  tagline: "The temple of Parisian jazz"
+  tagline: "The temple of Parisian jazz",
+  latitude: 48.8593,
+  longitude: 2.3492
 )
 
 ActivityItem.create!(
@@ -1239,7 +1399,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Evening performances and Sunday matinees",
   duration: 180,
-  tagline: "Molière's house since 1680"
+  tagline: "Molière's house since 1680",
+  latitude: 48.8635,
+  longitude: 2.3359
 )
 
 ActivityItem.create!(
@@ -1253,7 +1415,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Concerts at 8:30 PM",
   duration: 135,
-  tagline: "Where jazz lives every night"
+  tagline: "Where jazz lives every night",
+  latitude: 48.8729,
+  longitude: 2.3504
 )
 
 ActivityItem.create!(
@@ -1267,7 +1431,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Screenings 2:00 PM to 10:00 PM",
   duration: 135,
-  tagline: "Watch a film in a pagoda"
+  tagline: "Watch a film in a pagoda",
+  latitude: 48.8515,
+  longitude: 2.3166
 )
 
 ActivityItem.create!(
@@ -1281,7 +1447,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Evening and weekend performances",
   duration: 150,
-  tagline: "The theater that breaks the rules"
+  tagline: "The theater that breaks the rules",
+  latitude: 48.8493,
+  longitude: 2.3388
 )
 
 ActivityItem.create!(
@@ -1295,7 +1463,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Hours vary by program",
   duration: 150,
-  tagline: "The red hall where legends were born"
+  tagline: "The red hall where legends were born",
+  latitude: 48.8702,
+  longitude: 2.3282
 )
 
 ActivityItem.create!(
@@ -1309,7 +1479,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Wed-Sun: 12:00 PM-2:00 AM",
   duration: 180,
-  tagline: "Underground culture by the water"
+  tagline: "Underground culture by the water",
+  latitude: 48.8815,
+  longitude: 2.3665
 )
 
 ActivityItem.create!(
@@ -1323,7 +1495,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Evening performances",
   duration: 210,
-  tagline: "Opera for the people"
+  tagline: "Opera for the people",
+  latitude: 48.8520,
+  longitude: 2.3698
 )
 
 ActivityItem.create!(
@@ -1337,7 +1511,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Concerts at 8:00 PM",
   duration: 120,
-  tagline: "Two meters from the stage"
+  tagline: "Two meters from the stage",
+  latitude: 48.8531,
+  longitude: 2.3730
 )
 
 ActivityItem.create!(
@@ -1351,7 +1527,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 10:00 AM-10:00 PM, variable events",
   duration: 90,
-  tagline: "Where words come to life"
+  tagline: "Where words come to life",
+  latitude: 48.8526,
+  longitude: 2.3471
 )
 
 ActivityItem.create!(
@@ -1365,7 +1543,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Jul-Aug: dusk",
   duration: 150,
-  tagline: "Cinema under the Paris stars"
+  tagline: "Cinema under the Paris stars",
+  latitude: 48.8937,
+  longitude: 2.3909
 )
 
 # ========================================
@@ -1385,7 +1565,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Departures every 30 min from 10:00 AM to 10:00 PM",
   duration: 70,
-  tagline: "Paris seen from its waters"
+  tagline: "Paris seen from its waters",
+  latitude: 48.8600,
+  longitude: 2.2932
 )
 
 ActivityItem.create!(
@@ -1399,7 +1581,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Wed-Sun: 9:00 AM-7:00 PM (weather permitting)",
   duration: 30,
-  tagline: "Soar above Paris"
+  tagline: "Soar above Paris",
+  latitude: 48.8414,
+  longitude: 2.2746
 )
 
 ActivityItem.create!(
@@ -1413,7 +1597,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "24/7 (Vélib rental)",
   duration: 120,
-  tagline: "Paris at the pace of barges"
+  tagline: "Paris at the pace of barges",
+  latitude: 48.8530,
+  longitude: 2.3690
 )
 
 ActivityItem.create!(
@@ -1427,7 +1613,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Tue-Fri: 1:00 PM-8:00 PM, Sat-Sun: 10:00 AM-8:00 PM",
   duration: 120,
-  tagline: "Swim on the Seine"
+  tagline: "Swim on the Seine",
+  latitude: 48.8341,
+  longitude: 2.3768
 )
 
 ActivityItem.create!(
@@ -1441,7 +1629,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 7:30 AM-9:30 PM (seasonal)",
   duration: 90,
-  tagline: "The garden where strolling becomes an art"
+  tagline: "The garden where strolling becomes an art",
+  latitude: 48.8462,
+  longitude: 2.3372
 )
 
 ActivityItem.create!(
@@ -1455,7 +1645,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Sun: 7:00 AM-10:00 PM (seasonal)",
   duration: 120,
-  tagline: "The romantic park with mountain-like charm"
+  tagline: "The romantic park with mountain-like charm",
+  latitude: 48.8809,
+  longitude: 2.3820
 )
 
 ActivityItem.create!(
@@ -1469,7 +1661,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Fri: departure 10:00 PM",
   duration: 180,
-  tagline: "Paris on roller blades by night"
+  tagline: "Paris on roller blades by night",
+  latitude: 48.8414,
+  longitude: 2.3209
 )
 
 ActivityItem.create!(
@@ -1483,7 +1677,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "Mon-Fri: 10:00 AM-11:00 PM, Sat-Sun: 10:00 AM-8:00 PM",
   duration: 150,
-  tagline: "Climb in the former France Telecom building"
+  tagline: "Climb in the former France Telecom building",
+  latitude: 48.8962,
+  longitude: 2.4014
 )
 
 ActivityItem.create!(
@@ -1497,7 +1693,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "24/7",
   duration: 180,
-  tagline: "The urban forest of eastern Paris"
+  tagline: "The urban forest of eastern Paris",
+  latitude: 48.8303,
+  longitude: 2.4337
 )
 
 ActivityItem.create!(
@@ -1511,7 +1709,9 @@ ActivityItem.create!(
   country: "France",
   opening_hours: "24/7",
   duration: 120,
-  tagline: "Paris beach all year round"
+  tagline: "Paris beach all year round",
+  latitude: 48.8576,
+  longitude: 2.3200
 )
 
 
