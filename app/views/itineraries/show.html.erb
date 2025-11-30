@@ -1,4 +1,15 @@
-<div class="itineraries-show" id="top">
+<%# Prepare markers data for the map %>
+<% markers_data = @itinerary.itinerary_items.includes(:activity_item).order(:date, :time).map do |item|
+  {
+    lat: item.activity_item.latitude,
+    lng: item.activity_item.longitude,
+    name: item.activity_item.name,
+    type: item.activity_item.activity_type&.titleize,
+    address: item.activity_item.address
+  }
+end %>
+
+<div class="itineraries-show" id="top" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-markers-value="<%= markers_data.to_json %>">
   <div class="itineraries-show__container">
       <%# Renvois vers la page my trips %>
       <%= link_to trips_path, class: "secondary-title back-link" do %>
@@ -16,14 +27,23 @@
       <%# Affiche la destination et la date du trip (format: "26 September 2026") %>
       <p class="secondary-title"><%= @trip.destination %> - <%= @trip.start_date.strftime("%d %B") if @trip.start_date %> to <%= @trip.end_date.strftime("%d %B %Y") if @trip.end_date %></p>
       <p class="itinerary-card__section-title">Participants</p>
-        <div class="trip-card__section-avatars">
-          <% @trip.users.each do |user| %>
-            <div class="trip-card__avatar">
-              <%= render "shared/avatar", user: user %>
-            </div>
-          <% end %>
+        <div class="trip-card__section-avatars-wrapper">
+          <div class="trip-card__section-avatars">
+            <% @trip.users.each do |user| %>
+              <div class="trip-card__avatar">
+                <%= render "shared/avatar", user: user %>
+              </div>
+            <% end %>
+          </div>
+          <button type="button" class="btn-map" data-action="click->map#open">
+            <i class="fa-solid fa-map-location-dot"></i>
+            View on map
+          </button>
         </div>
       </div>
+
+    <%# Map Modal %>
+    <%= render "map_itinerary" %>
       <%# render itinerary_card %>
       <%= render "itinerary_card", itinerary: @itinerary %>
       <%# fin du render  %>

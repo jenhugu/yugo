@@ -1,0 +1,14 @@
+<%# Map Modal for Itinerary %>
+<div class="map-modal" data-map-target="modal" data-action="click->map#closeOnOverlay">
+  <div class="map-modal__content">
+    <div class="map-modal__header">
+      <h2 class="map-modal__title">Itinerary Map</h2>
+      <button type="button" class="map-modal__close" data-action="click->map#close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="map-modal__body">
+      <div id="map-container" class="map-container" data-map-target="container"></div>
+    </div>
+  </div>
+</div>
