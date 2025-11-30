@@ -9,18 +9,28 @@
                 data: { turbo: false},
                 class: "step-form" do |f| %>
 
-    <%= f.range_field :budget,
-                      min: 1,
-                      max: 500,
-                      value: (preferences_form.budget.presence || 250),
-                      class: "styled-slider",
-                      data: { budget_target: "range", budget_initial_value_value: 250, action: "input->budget#update" } %>
-
+    <div data-controller="icon-slider">
+      <div class="icon-slider">
+        <div class="icon-slider-track" data-icon-slider-target="track" data-action="click->icon-slider#onTrackClick">
+          <div class="icon-slider-thumb" data-icon-slider-target="thumb" data-action="mousedown->icon-slider#startDrag touchstart->icon-slider#startDrag">
+            <i class="fa-solid fa-euro-sign"></i>
+          </div>
+        </div>
+        <input type="hidden"
+               name="preferences_form[budget]"
+               min="10"
+               max="500"
+               step="10"
+               value="<%= preferences_form.budget.presence || 250 %>"
+               data-icon-slider-target="input"
+               data-budget-target="range">
+      </div>
+    </div>
 
     <div class="budget-value" data-budget-target="value"></div>
 
     <div class="scale-row">
-      <span>1€</span>
+      <span>10€</span>
       <span>500€</span>
     </div>
 

@@ -33,10 +33,13 @@ export default class extends Controller {
 
     const min = parseInt(this.inputTarget.min) || 0
     const max = parseInt(this.inputTarget.max) || 100
-    const value = Math.round((percentage / 100) * (max - min) + min)
+    const step = parseInt(this.inputTarget.step) || 1
+    let value = Math.round((percentage / 100) * (max - min) + min)
+    value = Math.round(value / step) * step
 
     this.inputTarget.value = Math.max(min, Math.min(max, value))
     this.updateThumbPosition()
+    this.inputTarget.dispatchEvent(new Event('input', { bubbles: true }))
   }
 
   startDrag(event) {
@@ -68,9 +71,12 @@ export default class extends Controller {
 
     const min = parseInt(this.inputTarget.min) || 0
     const max = parseInt(this.inputTarget.max) || 100
-    const value = Math.round((percentage / 100) * (max - min) + min)
+    const step = parseInt(this.inputTarget.step) || 1
+    let value = Math.round((percentage / 100) * (max - min) + min)
+    value = Math.round(value / step) * step
 
     this.inputTarget.value = Math.max(min, Math.min(max, value))
     this.updateThumbPosition()
+    this.inputTarget.dispatchEvent(new Event('input', { bubbles: true }))
   }
 }
