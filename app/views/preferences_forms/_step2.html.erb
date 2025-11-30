@@ -10,12 +10,21 @@
 
     <p class="step-subtitle">Select your preferred travel pace</p>
 
-    <input type="range"
-           class="styled-slider"
-           name="preferences_form[travel_pace]"
-           min="0"
-           max="100"
-           value="<%= preferences_form.travel_pace || 50 %>">
+    <div data-controller="icon-slider">
+      <div class="icon-slider">
+        <div class="icon-slider-track" data-icon-slider-target="track" data-action="click->icon-slider#onTrackClick">
+          <div class="icon-slider-thumb" data-icon-slider-target="thumb" data-action="mousedown->icon-slider#startDrag touchstart->icon-slider#startDrag">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+        </div>
+        <input type="hidden"
+               name="preferences_form[travel_pace]"
+               min="0"
+               max="100"
+               value="<%= preferences_form.travel_pace || 50 %>"
+               data-icon-slider-target="input">
+      </div>
+    </div>
 
     <div class="scale-row">
       <span class="left-label">Chill</span>
@@ -24,13 +33,22 @@
 
     <p class="step-subtitle">How many steps a day ?</p>
 
-    <input type="range"
-           class="styled-slider"
-           name="preferences_form[steps_per_day]"
-           min="0"
-           max="20000"
-           step="500"
-           value="<%= preferences_form.steps_per_day || 10000 %>">
+    <div data-controller="icon-slider">
+      <div class="icon-slider">
+        <div class="icon-slider-track" data-icon-slider-target="track" data-action="click->icon-slider#onTrackClick">
+          <div class="icon-slider-thumb" data-icon-slider-target="thumb" data-action="mousedown->icon-slider#startDrag touchstart->icon-slider#startDrag">
+            <i class="fa-solid fa-shoe-prints"></i>
+          </div>
+        </div>
+        <input type="hidden"
+               name="preferences_form[steps_per_day]"
+               min="0"
+               max="20000"
+               step="500"
+               value="<%= preferences_form.steps_per_day || 10000 %>"
+               data-icon-slider-target="input">
+      </div>
+    </div>
 
     <div class="scale-row">
       <span class="left-label">0</span>

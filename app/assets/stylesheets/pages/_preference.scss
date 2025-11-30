@@ -16,10 +16,10 @@
 
 .step-subtitle {
   font-family: $body-font;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   color: black;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .slider-row,
@@ -33,8 +33,55 @@
   font-weight: 600;
   display: block;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   color: black;
+}
+
+// Custom icon slider
+.icon-slider {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.icon-slider-track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  background: $terracotta-dark;
+  cursor: pointer;
+}
+
+.icon-slider-thumb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background: white;
+  border: 3px solid $terracotta-dark;
+  border-radius: 50%;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    cursor: grabbing;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  i {
+    font-size: 16px;
+    color: $terracotta-dark;
+    pointer-events: none;
+  }
 }
 
 .styled-slider {
@@ -73,6 +120,15 @@
   justify-content: space-between;
   font-size: 14px;
   margin-top: 6px;
+  margin-bottom: 30px;
+}
+
+.budget-value {
+  font-family: $body-font;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  margin-top: 12px;
 }
 
 

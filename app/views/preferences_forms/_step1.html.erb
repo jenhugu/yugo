@@ -13,25 +13,32 @@
               class: "step-form" do |f| %>
 
     <% sliders = {
-      culture: "Culture",
-      food: "Food",
-      nightlife: "Nightlife",
-      nature: "Nature",
-      shopping: "Shopping",
-      sport: "Sport"
+      culture: { label: "Culture", icon: "fa-landmark" },
+      food: { label: "Food", icon: "fa-utensils" },
+      nightlife: { label: "Nightlife", icon: "fa-champagne-glasses" },
+      nature: { label: "Nature", icon: "fa-tree" },
+      shopping: { label: "Shopping", icon: "fa-bag-shopping" },
+      sport: { label: "Sport", icon: "fa-person-running" }
     } %>
 
-    <% sliders.each do |field, label| %>
-      <div class="slider-row">
-        <label><%= label %></label>
+    <% sliders.each do |field, data| %>
+      <div class="slider-row" data-controller="icon-slider">
+        <label><%= data[:label] %></label>
 
-        <input type="range"
-                class="styled-slider"
-                name="preferences_form[<%= field %>]"
-                min="0"
-                max="100"
-                value="<%= preferences_form.send(field) || 50 %>">
-
+        <div class="icon-slider">
+          <div class="icon-slider-track" data-icon-slider-target="track" data-action="click->icon-slider#onTrackClick">
+            <div class="icon-slider-thumb" data-icon-slider-target="thumb" data-action="mousedown->icon-slider#startDrag touchstart->icon-slider#startDrag">
+              <i class="fa-solid <%= data[:icon] %>"></i>
+            </div>
+          </div>
+          <input type="hidden"
+                  name="preferences_form[<%= field %>]"
+                  min="0"
+                  max="100"
+                  value="<%= preferences_form.send(field) || 50 %>"
+                  data-icon-slider-target="input"
+                  data-action="input->icon-slider#onInput">
+        </div>
       </div>
     <% end %>
 
