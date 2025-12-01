@@ -55,11 +55,11 @@ class ItineraryGenerator
       - Geographic proximity when possible
       - Balanced distribution across days
 
-      MANDATORY MEAL CONSTRAINTS:
-      - EVERY day must have a food/restaurant activity between 12:00-14:00 (lunch)
-      - EVERY day must have a food/restaurant activity between 19:00-21:00 (dinner)
-      - Food activities include: restaurants, cafés, food markets, or any activity with food-related types
-      - These meal slots are NON-NEGOTIABLE and must be respected for each day of the trip
+      MEAL TIME CONSTRAINTS:
+      - Do NOT schedule non-food activities between 12:00-14:00 (lunch break)
+      - Do NOT schedule non-food activities between 19:00-21:00 (dinner break)
+      - Food activities (restaurants, cafés, food markets) CAN be scheduled during these meal slots
+      - If no food activity is available, leave these time slots free so users can eat at their own pace
 
       IMPORTANT - RETURN FORMAT:
       Return ONLY a valid JSON array with this exact structure:
