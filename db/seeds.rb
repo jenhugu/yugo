@@ -81,7 +81,7 @@ joey.avatar.attach(io: File.open(Rails.root.join('app/assets/images/Joey-avatar.
 
 vincent = User.create!(
   first_name: "Vincent",
-  last_name: "Horo",
+  last_name: "Hor",
   email: "vincent@yugo.com",
   password: "password123"
 )
@@ -89,7 +89,7 @@ vincent.avatar.attach(io: File.open(Rails.root.join('app/assets/images/vincent_a
 
 jennifer = User.create!(
   first_name: "Jennifer",
-  last_name: "Hugues",
+  last_name: "Hug",
   email: "jennifer@yugo.com",
   password: "password123"
 )
@@ -97,7 +97,7 @@ jennifer.avatar.attach(io: File.open(Rails.root.join('app/assets/images/Jennifer
 
 nawel = User.create!(
   first_name: "Nawel",
-  last_name: "Trinité",
+  last_name: "Pas",
   email: "nawel@yugo.com",
   password: "password123"
 )
