@@ -11,7 +11,7 @@
 
       <div class="trips-form__field">
         <%= f.label :destination, "Destination" %>
-        <%= f.text_field :destination, placeholder: "Paris" %>
+        <%= f.text_field :destination, value: @trip.destination || "Paris", placeholder: "Paris" %>
       </div>
 
       <div class="trips-form__field">
