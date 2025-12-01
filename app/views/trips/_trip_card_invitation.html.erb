@@ -28,6 +28,7 @@
     </div>
 
     <div class="trip-card__invitation-actions">
+      <%= button_to "Decline", decline_invitation_user_trip_status_path(user_trip_status), method: :delete, class: "trip-card__button trip-card__button--decline", form: { data: { turbo_confirm: "Are you sure you want to decline this invitation?" } } %>
       <%= button_to "Accept", accept_invitation_user_trip_status_path(user_trip_status), method: :patch, class: "trip-card__button trip-card__button--accept" %>
     </div>
   </div>

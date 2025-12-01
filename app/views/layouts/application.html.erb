@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Yugo</title>
+    <title><%= content_for(:title) || "Yugo - Plan your perfect group trip" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <%# Favicons %>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <%= favicon_link_tag "favicon-16x16.png", rel: "icon", type: "image/png", sizes: "16x16" %>
+    <%= favicon_link_tag "favicon-32x32.png", rel: "icon", type: "image/png", sizes: "32x32" %>
+    <%= favicon_link_tag "apple-touch-icon.png", rel: "apple-touch-icon", sizes: "180x180" %>
+
+    <%# Open Graph meta tags for social sharing %>
+    <meta property="og:title" content="<%= content_for(:og_title) || "Yugo - Plan your perfect group trip" %>">
+    <meta property="og:description" content="<%= content_for(:og_description) || "Collaborate with friends to plan amazing group trips. Share preferences, vote on activities, and create the perfect itinerary together." %>">
+    <meta property="og:type" content="<%= content_for(:og_type) || "website" %>">
+    <meta property="og:url" content="<%= content_for(:og_url) || request.original_url %>">
+    <meta property="og:image" content="<%= content_for(:og_image) || image_url('og-image.jpg') %>">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>

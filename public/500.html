@@ -1,66 +1,245 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oops! Technical turbulence - Yugo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    body {
+      font-family: "Inter", "Helvetica", sans-serif;
+      background: linear-gradient(135deg, #F6F6F6 0%, #FAFAFA 100%);
+      color: #374151;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    .container {
+      max-width: 600px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in;
+    }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    .logo {
+      font-family: "Crimson Pro", "Helvetica", sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: #d97706;
+      margin-bottom: 40px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .error-code {
+      font-family: "Crimson Pro", "Helvetica", sans-serif;
+      font-size: 120px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f43f5e 0%, #d97706 50%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: "Crimson Pro", "Helvetica", sans-serif;
+      font-size: 36px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 16px;
+    }
+
+    .description {
+      font-size: 18px;
+      color: #6B7280;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .illustration {
+      margin: 40px 0;
+      font-size: 80px;
+      animation: shake 3s ease-in-out infinite;
+    }
+
+    @keyframes shake {
+      0%, 100% {
+        transform: translateX(0) rotate(0deg);
+      }
+      25% {
+        transform: translateX(-5px) rotate(-3deg);
+      }
+      75% {
+        transform: translateX(5px) rotate(3deg);
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-family: "Inter", "Helvetica", sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: white;
+      box-shadow: 0px 4px 12px rgba(217, 119, 6, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 6px 16px rgba(217, 119, 6, 0.4);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #d97706;
+      border: 2px solid #f59e0b;
+    }
+
+    .btn-secondary:hover {
+      background: #FEF3C7;
+      transform: translateY(-2px);
+    }
+
+    .tips {
+      margin-top: 60px;
+      padding: 24px;
+      background: rgba(251, 113, 133, 0.1);
+      border: 1px solid rgba(244, 63, 94, 0.2);
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    .tips h3 {
+      font-family: "Crimson Pro", "Helvetica", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 12px;
+    }
+
+    .tips ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tips li {
+      font-size: 14px;
+      color: #6B7280;
+      line-height: 1.8;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .tips li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #f43f5e;
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .logo {
+        font-size: 36px;
+      }
+
+      .error-code {
+        font-size: 80px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .description {
+        font-size: 16px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
   </style>
 </head>
+<body>
+  <div class="container">
+    <div class="logo">YUGO</div>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+    <div class="error-code">500</div>
+
+    <h1>Oops! We hit some turbulence</h1>
+
+    <p class="description">
+      Don't worry, it's not you—it's us! Something went wrong on our end. Our team has been notified and we're working to fix it as quickly as possible.
+    </p>
+
+    <div class="illustration">⚙️🔧</div>
+
+    <div class="actions">
+      <a href="/" class="btn btn-primary">Back to Home</a>
+      <a href="javascript:location.reload()" class="btn btn-secondary">Try Again</a>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+
+    <div class="tips">
+      <h3>While we fix things, you can:</h3>
+      <ul>
+        <li>Wait a moment and try refreshing the page</li>
+        <li>Return to the homepage</li>
+        <li>Check back in a few minutes</li>
+        <li>If the problem persists, contact our support team</li>
+      </ul>
+    </div>
   </div>
 </body>
 </html>

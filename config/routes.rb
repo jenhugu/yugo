@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   resources :user_trip_statuses, only: [] do
     member do
       patch :accept_invitation
+      delete :decline_invitation
       get :fill_preferences
     end
   end
