@@ -48,6 +48,11 @@ class RecommendationGenerator
   end
 
   def build_prompt
+      # Calculer le nombre de jours et d'activités
+      trip_days = (@trip.end_date - @trip.start_date).to_i + 1
+      total_activities = trip_days * 4
+      max_food_activities = trip_days * 2
+
       # Récupérer toutes les activités disponibles
       activities = ActivityItem.all.map do |activity|
         "ID: #{activity.id} | #{activity.name} | Type: #{activity.activity_type} | Price: #{activity.price}€ | #{activity.tagline}"
@@ -62,6 +67,7 @@ class RecommendationGenerator
         TRIP INFORMATION:
         - Destination: #{@trip.destination}
         - Dates: #{@trip.start_date} to #{@trip.end_date}
+        - Duration: #{trip_days} days
         - Trip type: #{@trip.trip_type}
 
         GROUP PREFERENCES:
@@ -71,15 +77,15 @@ class RecommendationGenerator
         #{activities}
 
         TASK:
-        Analyze the group preferences and recommend exactly 10 activities from the list above that best match their interests, budget, and travel pace.
+        Analyze the group preferences and recommend exactly #{total_activities} activities from the list above that best match their interests, budget, and travel pace.
 
         IMPORTANT:
         - Return ONLY a JSON array of activity IDs (integers)
-        - Format: [1, 5, 12, 23, 34, 45, 56, 67, 78, 89]
         - No explanations, no additional text, just the JSON array
         - Choose activities that balance everyone's preferences
         - Each activity ID must be UNIQUE (no duplicates allowed)
-        - Select 10 DIFFERENT activities
+        - Select #{total_activities} DIFFERENT activities
+        - Include no more than #{max_food_activities} food activities (restaurant, cafe, bar)
       PROMPT
   end
 

@@ -79,6 +79,14 @@ joey = User.create!(
 )
 joey.avatar.attach(io: File.open(Rails.root.join('app/assets/images/Joey-avatar.png')), filename: 'Joey-avatar.png', content_type: 'image/png')
 
+vincent = User.create!(
+  first_name: "Vincent",
+  last_name: "Horo",
+  email: "vincent@yugo.com",
+  password: "password123"
+)
+vincent.avatar.attach(io: File.open(Rails.root.join('app/assets/images/vincent_avatar.jpg')), filename: 'vincent_avatar.jpg', content_type: 'image/jpeg')
+
 puts "✅ Created #{User.count} users with avatars"
 
 # Create activity items for recommendations
