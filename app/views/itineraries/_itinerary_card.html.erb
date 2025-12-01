@@ -14,7 +14,7 @@
     <%# Itération sur les activités du jour %>
     <% activities.each do |item| %>
       <%# Affiche l'heure de l'activité au format "9h00" %>
-      <div class="trip-card__dates"><%= item.time.strftime("%-Hh%M") %></div>
+      <div class="trip-card__dates"><i class="fa-regular fa-clock"></i> <%= item.time.strftime("%-Hh%M") %></div>
       <div class="itinerary-card">
         <%# Tag de type d'activité %>
         <% if item.activity_item.activity_type.present? %>
@@ -51,7 +51,7 @@
 
             <!-- Durée -->
             <div class="info-item">
-              <i class="fa-regular fa-clock"></i>
+              <i class="fa-solid fa-stopwatch"></i>
               <%# Affiche la durée en minutes %>
               <p class="secondary-title"><%= item.activity_item.duration %> minutes</p>
             </div>
