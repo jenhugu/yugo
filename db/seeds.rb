@@ -1667,7 +1667,7 @@ ActivityItem.create!(
 )
 
 ActivityItem.create!(
-  name: "MurMur Escalade Pantin",
+  name: "Mur Escalade Pantin",
   description: "Modern bouldering climbing hall. 1500 sq meters of walls, regularly updated problems, cosy café. Beginners and experienced welcome.",
   price: 16,
   reservation_url: "https://murmur.fr",

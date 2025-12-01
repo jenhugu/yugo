@@ -71,6 +71,22 @@ class Trip < ApplicationRecord
     latest_recommendation&.accepted == false
   end
 
+  # Vérifie si une nouvelle recommendation a été générée après un rejet
+  def has_new_recommendation_after_rejection?
+    return false unless all_forms_filled?
+
+    # Vérifie s'il y a une recommendation rejetée
+    rejected_recommendation = recommendations.where(accepted: false).last
+    return false unless rejected_recommendation
+
+    # Vérifie s'il y a une recommendation plus récente en attente de review
+    pending_recommendation = recommendations.where(accepted: nil).last
+    return false unless pending_recommendation
+
+    # La recommendation en attente doit être plus récente que la rejetée
+    pending_recommendation.created_at > rejected_recommendation.created_at
+  end
+
   # ============================================================================
   # MÉTHODES DE COMPTAGE DES STATUTS
   # ============================================================================
