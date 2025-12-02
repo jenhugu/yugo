@@ -1,6 +1,6 @@
 <div id="trip_card_<%= trip.user_trip_statuses.find_by(user: current_user)&.id %>" class="trip-card">
   <div class="trip-card__image">
-    <%= image_tag random_trip_image, alt: trip.name %>
+    <%= image_tag trip_image(trip), alt: trip.name %>
     <% if trip.start_date %>
       <% days_until_trip = (trip.start_date - Date.today).to_i %>
       <div class="trip-card__tag" style="left: 27px">

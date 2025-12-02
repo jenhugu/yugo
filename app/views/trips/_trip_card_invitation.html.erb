@@ -1,6 +1,6 @@
 <div id="trip_card_<%= user_trip_status.id %>" class="trip-card trip-card--invitation" data-controller="trip-invitation" data-trip-invitation-user-trip-status-id-value="<%= user_trip_status.id %>">
   <div class="trip-card__image">
-    <%= image_tag random_trip_image, alt: user_trip_status.trip.name %>
+    <%= image_tag trip_image(user_trip_status.trip), alt: user_trip_status.trip.name %>
     <div class="trip-card__tag trip-card__tag--pending">Pending invitation</div>
   </div>
 
