@@ -1,7 +1,6 @@
 <div id="trip_card_<%= trip.user_trip_statuses.find_by(user: current_user)&.id %>" class="trip-card">
   <div class="trip-card__image">
-    <%# TODO: REFACTO - Replace with dynamic image when image_url column is added to trips table %>
-    <%= image_tag "paris-trip.jpg", alt: trip.name %>
+    <%= image_tag trip_image(trip), alt: trip.name %>
     <% if trip.start_date %>
       <% days_until_trip = (trip.start_date - Date.today).to_i %>
       <div class="trip-card__tag" style="left: 27px">
