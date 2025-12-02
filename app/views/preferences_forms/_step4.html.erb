@@ -1,5 +1,5 @@
 <div class="step-container">
-  <h2 class="step-title">Which activity types are you looking for?</h2>
+  <h1 class="trips-form__title">Which activity types are you looking for?</h1>
 
   <% trip = preferences_form.user_trip_status.trip %>
   <%= form_with model: preferences_form,
@@ -41,9 +41,9 @@
       <%= link_to "← Back",
           step3_trip_preferences_form_path(trip, preferences_form),
           data: { turbo_frame: "form_wrapper" },
-          class: "back-button" %>
+          class: "trips-form__button trips-form__button--secondary" %>
 
-      <%= f.submit "Next →", class: "next-button" %>
+      <%= f.submit "Next →", class: "trips-form__button trips-form__button--primary" %>
     </div>
 
   <% end %>

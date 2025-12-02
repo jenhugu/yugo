@@ -1,5 +1,5 @@
 <div class="step-container">
-  <h2 class="step-title">What are your major interests during this trip?</h2>
+  <h1 class="trips-form__title">What are your major interests during this trip?</h1>
 
   <%# Gestion du formulaire pour step1 :
       - Si le preferences_form n'existe pas encore en DB (persisted? = false) → POST vers create
@@ -43,7 +43,8 @@
     <% end %>
 
     <div class="button-row">
-      <%= f.submit "Next →", class: "next-button" %>
+      <button type="button" onclick="history.back()" class="trips-form__button trips-form__button--secondary">← Back</button>
+      <%= f.submit "Next →", class: "trips-form__button trips-form__button--primary" %>
     </div>
 
   <% end %>

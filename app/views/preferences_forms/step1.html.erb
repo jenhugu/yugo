@@ -1,3 +1,9 @@
-<turbo-frame id="form_wrapper">
-  <%= render "preferences_forms/step1", preferences_form: @preferences_form %>
-</turbo-frame>
+<div class="preferences-layout">
+  <div class="form-container">
+    <turbo-frame id="form_wrapper">
+      <%= render "preferences_forms/step1", preferences_form: @preferences_form %>
+    </turbo-frame>
+  </div>
+
+  <%= render 'shared/progress_bar', current_step: 3 %>
+</div>

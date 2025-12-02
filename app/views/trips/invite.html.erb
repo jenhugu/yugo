@@ -1,8 +1,7 @@
 <div class="trips-form">
   <div class="trips-form__container">
-    <h1 class="trips-form__title">Who do you want to plan this trip with?</h1>
-
     <%= form_with url: add_participants_trip_path(@trip), method: :post, class: "trips-form__form", data: { controller: "participants" } do |f| %>
+      <h1 class="trips-form__title">Who do you want to plan this trip with?</h1>
 
       <div id="participants-container" data-participants-target="container">
         <div class="trips-form__field">
