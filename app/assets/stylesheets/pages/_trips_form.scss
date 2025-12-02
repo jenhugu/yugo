@@ -295,4 +295,8 @@
     font-weight: 400;
     color: $main-text;
   }
+
+  &__step--active &__label {
+    font-weight: 600;
+  }
 }

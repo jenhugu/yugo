@@ -7,10 +7,6 @@
   padding: 54px 40px;
   position: relative;
   z-index: 1;
-
-  .trips-progress {
-    margin-top: 0;
-  }
 }
 
 .form-container {
@@ -20,7 +16,8 @@
 .step-container {
   max-width: 600px;
   margin: 0 auto;
-  padding: 40px 20px;
+  margin-top: 140px;
+  padding: 0 20px;
   text-align: center;
 }
 
@@ -155,6 +152,16 @@
   margin-top: 35px;
   display: flex;
   justify-content: center;
+  align-items: stretch;
+
+  .trips-form__button {
+    min-width: 180px;
+    height: 56px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .next-button,

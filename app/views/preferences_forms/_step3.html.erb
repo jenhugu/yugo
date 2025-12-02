@@ -1,5 +1,5 @@
 <div class="step-container" data-controller="budget">
-  <h2 class="step-title">What's your daily budget?</h2>
+  <h1 class="trips-form__title">What's your daily budget?</h1>
   <p class="step-subtitle">(Travel & accommodation not included)</p>
 
   <% trip = preferences_form.user_trip_status.trip %>
@@ -40,9 +40,9 @@
       <%= link_to "← Back",
           step2_trip_preferences_form_path(trip, preferences_form),
           data: { turbo_frame: "form_wrapper" },
-          class: "back-button" %>
+          class: "trips-form__button trips-form__button--secondary" %>
 
-<%= f.submit "Next →", class: "next-button" %>
+      <%= f.submit "Next →", class: "trips-form__button trips-form__button--primary" %>
     </div>
   <% end %>
 </div>
