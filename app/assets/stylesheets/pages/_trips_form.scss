@@ -22,15 +22,12 @@
     color: $main-text;
     text-align: center;
     margin: 0 0 60px 0;
-    position: absolute;
-    top: 54px;
-    left: 50%;
-    transform: translateX(-50%);
   }
 
   &__form {
-    width: 380px;
-    margin-top: 140px;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 0;
     margin-left: auto;
     margin-right: auto;
     flex-shrink: 0;
@@ -144,15 +141,14 @@
 
   &__buttons {
     display: flex;
-    gap: 34px;
-    margin-left: -95px;
-    width: 570px;
+    gap: 24px;
+    justify-content: center;
   }
 
   &__button {
     flex: 1;
     height: 56px;
-    min-width: 250px;
+    max-width: 250px;
 
     &--primary {
       @extend .btn-primary;
@@ -245,7 +241,7 @@
 .trips-progress {
   width: 194px;
   height: 252px;
-  margin-top: 140px;
+  margin-top: 0;
   position: relative;
   flex-shrink: 0;
 

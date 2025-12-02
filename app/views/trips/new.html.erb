@@ -1,8 +1,7 @@
 <div class="trips-form">
   <div class="trips-form__container">
-    <h1 class="trips-form__title">Create a trip</h1>
-
     <%= form_with model: @trip, url: trips_path, class: "trips-form__form" do |f| %>
+      <h1 class="trips-form__title">Create a trip</h1>
 
       <div class="trips-form__field">
         <%= f.label :name, "Trip name" %>
