@@ -1,3 +1,9 @@
-<%= turbo_frame_tag "form_wrapper" do %>
-  <%= render "preferences_forms/step4", preferences_form: @preferences_form %>
-<% end %>
+<div class="preferences-layout">
+  <div class="form-container">
+    <%= turbo_frame_tag "form_wrapper" do %>
+      <%= render "preferences_forms/step4", preferences_form: @preferences_form %>
+    <% end %>
+  </div>
+
+  <%= render 'shared/progress_bar', current_step: 3 %>
+</div>

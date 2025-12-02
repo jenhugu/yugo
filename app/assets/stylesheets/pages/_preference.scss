@@ -1,3 +1,21 @@
+.preferences-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1271px;
+  margin: 0 auto;
+  padding: 54px 40px;
+  position: relative;
+  z-index: 1;
+
+  .trips-progress {
+    margin-top: 0;
+  }
+}
+
+.form-container {
+  flex: 1;
+}
 
 .step-container {
   max-width: 600px;
