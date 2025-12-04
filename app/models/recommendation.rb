@@ -19,6 +19,21 @@ class Recommendation < ApplicationRecord
     end
   end
 
+  # Retourne les recommendation_items avec majorité de dislikes
+  def rejected_items
+    total_users = trip.user_trip_statuses.count
+
+    recommendation_items.includes(:recommendation_votes).select do |item|
+      dislikes_count = item.recommendation_votes.where(like: false).count
+      dislikes_count > (total_users / 2.0)
+    end
+  end
+
+  # Retourne les IDs des activités rejetées
+  def rejected_activity_ids
+    rejected_items.map(&:activity_item_id)
+  end
+
   # Calcule si la recommendation doit être acceptée basée sur les votes
   def calculate_acceptance!
     return unless all_users_reviewed?

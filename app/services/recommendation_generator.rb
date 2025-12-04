@@ -53,13 +53,25 @@ class RecommendationGenerator
       total_activities = trip_days * 4
       max_food_activities = trip_days * 2
 
-      # Récupérer toutes les activités disponibles
-      activities = ActivityItem.all.map do |activity|
+      # Récupérer les IDs d'activités rejetées dans les recommandations précédentes
+      rejected_activity_ids = @trip.all_rejected_activity_ids
+
+      # Récupérer toutes les activités disponibles, SAUF les activités rejetées
+      available_activities = ActivityItem.where.not(id: rejected_activity_ids)
+
+      activities = available_activities.map do |activity|
         "ID: #{activity.id} | #{activity.name} | Type: #{activity.activity_type} | Price: #{activity.price}€ | #{activity.tagline}"
       end.join("\n")
 
       # Récupérer les préférences de tous les participants
       preferences = aggregate_preferences
+
+      # Message additionnel si des activités ont été exclues
+      exclusion_note = if rejected_activity_ids.any?
+        "\nNOTE: #{rejected_activity_ids.count} activities have been excluded because they were rejected by the group in previous rounds."
+      else
+        ""
+      end
 
       <<~PROMPT
         You are a travel recommendation expert for Paris.
@@ -74,7 +86,7 @@ class RecommendationGenerator
         #{preferences}
 
         AVAILABLE ACTIVITIES:
-        #{activities}
+        #{activities}#{exclusion_note}
 
         TASK:
         Analyze the group preferences and recommend exactly #{total_activities} activities from the list above that best match their interests, budget, and travel pace.
@@ -86,6 +98,7 @@ class RecommendationGenerator
         - Each activity ID must be UNIQUE (no duplicates allowed)
         - Select #{total_activities} DIFFERENT activities
         - Include no more than #{max_food_activities} food activities (restaurant, cafe, bar)
+        - ONLY use activity IDs from the AVAILABLE ACTIVITIES list above
       PROMPT
   end
 
@@ -101,8 +114,21 @@ class RecommendationGenerator
     # Parser la réponse JSON
     activity_ids = JSON.parse(content)
 
-    # Vérifier que ce sont bien des IDs valides
-    activity_ids.select { |id| ActivityItem.exists?(id) }
+    # Récupérer les IDs d'activités rejetées
+    rejected_ids = @trip.all_rejected_activity_ids
+
+    # Filtrer : garder seulement les IDs valides ET non-rejetés
+    valid_ids = activity_ids.select do |id|
+      ActivityItem.exists?(id) && !rejected_ids.include?(id)
+    end
+
+    # Logger si des activités rejetées ont été retirées
+    removed_count = activity_ids.count - valid_ids.count
+    if removed_count > 0
+      Rails.logger.warn "Removed #{removed_count} invalid or previously rejected activities from LLM response"
+    end
+
+    valid_ids
   rescue JSON::ParserError => e
     Rails.logger.error "Failed to parse LLM response: #{e.message}"
     Rails.logger.error "Response was: #{response.content}"

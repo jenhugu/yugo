@@ -34,6 +34,13 @@ class Trip < ApplicationRecord
     RecommendationGenerator.new(self).call
   end
 
+  # Retourne tous les IDs d'activités rejetées dans les recommandations précédentes
+  def all_rejected_activity_ids
+    recommendations.where(accepted: false)
+                   .flat_map(&:rejected_activity_ids)
+                   .uniq
+  end
+
   # Récupère le créateur du trip
   def creator
     user_trip_statuses.find_by(role: "creator")&.user
